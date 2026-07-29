@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Shield, FileText } from 'lucide-react';
+import { X, FileText } from 'lucide-react';
 
 interface PrivacyPolicyModalProps {
   isOpen: boolean;
