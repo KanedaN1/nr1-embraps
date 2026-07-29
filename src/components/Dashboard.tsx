@@ -3,7 +3,6 @@ import {
   BarChart3, 
   Building2, 
   Users, 
-  TrendingUp, 
   AlertTriangle, 
   CheckCircle, 
   Filter, 

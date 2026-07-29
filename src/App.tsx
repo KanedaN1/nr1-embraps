@@ -18,7 +18,7 @@ import type {
   DimensionId, 
   QuestionnaireResponse 
 } from './types';
-import { INITIAL_MOCK_RESPONSES, INITIAL_RE_STATUS } from './data/mockData';
+import { INITIAL_RE_STATUS } from './data/mockData';
 import { INITIAL_WORKPLACES, INITIAL_JOB_POSITIONS } from './data/hseQuestions';
 import './index.css';
 
