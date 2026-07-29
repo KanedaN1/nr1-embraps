@@ -255,14 +255,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 Em Alerta
               </div>
               <div style={{ fontSize: '1.8rem', fontWeight: 800, color: criticalDimensionsCount > 0 ? '#EF4444' : '#10B981', marginTop: '0.15rem' }}>
-                {criticalDimensionsCount} <span style={{ fontSize: '0.95rem', color: '#94A3B8', fontWeight: 500 }}>de 7</span>
+                {criticalDimensionsCount} <span style={{ fontSize: '0.95rem', color: '#94A3B8', fontWeight: 500 }}>de {DIMENSIONS.length}</span>
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.15rem' }}>
-                Plano ação PGR
+              <div style={{ fontSize: '0.75rem', color: criticalDimensionsCount > 0 ? '#EF4444' : '#10B981', fontWeight: 600, marginTop: '0.15rem' }}>
+                {totalResponses === 0 ? '⚪ Aguardando envios' : criticalDimensionsCount > 0 ? '⚠️ Requer Plano de Ação' : '✅ Nenhum risco crítico'}
               </div>
             </div>
-            <div style={{ backgroundColor: '#FEF2F2', padding: '0.85rem', borderRadius: '12px', color: '#EF4444' }}>
-              <AlertTriangle size={24} />
+            <div style={{ backgroundColor: criticalDimensionsCount > 0 ? '#FEF2F2' : '#ECFDF5', padding: '0.85rem', borderRadius: '12px', color: criticalDimensionsCount > 0 ? '#EF4444' : '#10B981' }}>
+              {criticalDimensionsCount > 0 ? <AlertTriangle size={24} /> : <CheckCircle size={24} />}
             </div>
           </div>
 
