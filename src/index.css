@@ -292,44 +292,44 @@ body {
   }
 
   .card {
-    padding: 1.5rem 1.25rem !important;
-    border-radius: 16px !important;
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
   }
 
   h1 {
-    font-size: 1.6rem !important;
-    line-height: 1.25 !important;
+    font-size: 1.6rem;
+    line-height: 1.25;
   }
 
   h2 {
-    font-size: 1.45rem !important;
-    line-height: 1.25 !important;
+    font-size: 1.45rem;
+    line-height: 1.25;
   }
 
   h3 {
-    font-size: 1.25rem !important;
-    line-height: 1.3 !important;
+    font-size: 1.25rem;
+    line-height: 1.3;
   }
 
   p {
-    font-size: 0.95rem !important;
+    font-size: 0.95rem;
   }
 
   .btn {
-    padding: 0.85rem 1.25rem !important;
-    font-size: 0.95rem !important;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
     width: 100%;
   }
 
   .input-field, .select-field {
-    padding: 0.85rem 1rem !important;
-    font-size: 1rem !important;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
   }
 
   /* Opções Likert no celular: botões mais confortáveis de tocar */
   .likert-btn {
-    padding: 1rem 1.15rem !important;
-    font-size: 0.95rem !important;
+    padding: 1rem 1.15rem;
+    font-size: 0.95rem;
   }
 
   .likert-btn span {
