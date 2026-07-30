@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Trash2, Eye, ShieldAlert } from 'lucide-react';
 import type { QuestionnaireResponse } from '../types';
+import { DIMENSIONS } from '../data/hseQuestions';
 
 interface AdminResponsesModalProps {
   isOpen: boolean;
@@ -97,12 +98,15 @@ export const AdminResponsesModal: React.FC<AdminResponsesModalProps> = ({
               </h3>
               
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
-                {Object.entries(viewingResponse.dimensionScores).map(([dimId, score]) => (
-                  <div key={dimId} style={{ backgroundColor: '#FFFFFF', padding: '1rem', borderRadius: '8px', border: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ fontWeight: 600, color: '#334155' }}>Dimensão: {dimId}</span>
-                    <span style={{ fontWeight: 800, color: '#0066CC' }}>{score as number}</span>
-                  </div>
-                ))}
+                {Object.entries(viewingResponse.dimensionScores).map(([dimId, score]) => {
+                  const dimName = DIMENSIONS.find(d => d.id === dimId)?.name || dimId;
+                  return (
+                    <div key={dimId} style={{ backgroundColor: '#FFFFFF', padding: '1rem', borderRadius: '8px', border: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ fontWeight: 600, color: '#334155' }}>{dimName}</span>
+                      <span style={{ fontWeight: 800, color: '#0066CC' }}>{score as number}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ) : (

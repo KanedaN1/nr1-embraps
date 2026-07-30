@@ -91,8 +91,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
       return {
         dimension: dim.label,
         fullName: dim.name,
-        posto: wpAvg || 3.5,
-        empresa: compAvg || 3.7,
+        posto: wpAvg || 0,
+        empresa: compAvg || 0,
         fullMax: 5.0
       };
     });
@@ -127,7 +127,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
           const sum = jobResponses.reduce((acc, r) => acc + (r.dimensionScores[dim.id] || 0), 0);
           avg = Number((sum / count).toFixed(2));
         } else {
-          avg = Number((3.5 + (Math.random() * 0.8 - 0.4)).toFixed(2));
+          avg = 0;
         }
         matrix[dim.id][job.id] = { avg, count };
       });
@@ -137,6 +137,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   }, [responses]);
 
   const getScoreColor = (score: number) => {
+    if (score === 0) return { bg: '#F1F5F9', text: '#64748B', label: 'Sem Dados / Aguardando', icon: '⚪' };
     if (score >= 3.8) return { bg: '#D1FAE5', text: '#065F46', label: 'Adequado / Seguro', icon: '🟢' };
     if (score >= 2.8) return { bg: '#FEF3C7', text: '#92400E', label: 'Alerta / Atenção', icon: '🟡' };
     return { bg: '#FEE2E2', text: '#991B1B', label: 'Risco Crítico / Ação', icon: '🔴' };
@@ -365,7 +366,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                     Selecione o Posto:
                   </h3>
                   <p style={{ fontSize: '0.8rem', color: '#64748B' }}>
-                    Média de saúde psicossocial: <strong>{workplaceTotalAvg || '3.50'} / 5.0</strong> ({workplaceResponses.length} resp.).
+                    Média de saúde psicossocial: <strong>{workplaceTotalAvg || '0.00'} / 5.0</strong> ({workplaceResponses.length} resp.).
                   </p>
                 </div>
               </div>
@@ -579,7 +580,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 </thead>
                 <tbody>
                   {DIMENSIONS.map((dim, idx) => {
-                    const rowScores = INITIAL_JOB_POSITIONS.map(j => jobMatrixData[dim.id][j.id]?.avg || 3.5);
+                    const rowScores = INITIAL_JOB_POSITIONS.map(j => jobMatrixData[dim.id][j.id]?.avg || 0);
                     const rowAvg = Number((rowScores.reduce((a, b) => a + b, 0) / rowScores.length).toFixed(2));
                     const rowSt = getScoreColor(rowAvg);
 
@@ -595,7 +596,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                         </td>
 
                         {INITIAL_JOB_POSITIONS.map(job => {
-                          const cellData = jobMatrixData[dim.id][job.id] || { avg: 3.5, count: 0 };
+                          const cellData = jobMatrixData[dim.id][job.id] || { avg: 0, count: 0 };
                           const st = getScoreColor(cellData.avg);
                           
                           return (

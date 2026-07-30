@@ -35,21 +35,23 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
     return DIMENSIONS.map(dim => {
       let sum = 0;
       workplaceResponses.forEach(r => {
-        sum += (r.dimensionScores[dim.id] || 3.5);
+        sum += (r.dimensionScores[dim.id] || 0);
       });
-      const avg = totalParticipants > 0 ? Number((sum / totalParticipants).toFixed(2)) : 3.5;
+      const avg = totalParticipants > 0 ? Number((sum / totalParticipants).toFixed(2)) : 0;
       
       // Índice de favorabilidade percentual: (nota / 5.0) * 100
       const favorabilityPct = Math.round((avg / 5.0) * 100);
 
       // Semáforo de Risco
-      let riskLevel = 'Risco Baixo / Adequado';
-      let riskColor = '#065F46';
-      let riskBg = '#D1FAE5';
+      let riskLevel = 'Sem Dados';
+      let riskColor = '#64748B';
+      let riskBg = '#F1F5F9';
       let prob = 1;
       let sev = 1;
 
-      if (avg < 2.8) {
+      if (avg === 0) {
+        // Sem dados
+      } else if (avg < 2.8) {
         riskLevel = 'Risco Alto (Ação Imediata)';
         riskColor = '#991B1B';
         riskBg = '#FEE2E2';
@@ -61,6 +63,12 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
         riskBg = '#FEF3C7';
         prob = 2;
         sev = 2;
+      } else {
+        riskLevel = 'Risco Baixo / Adequado';
+        riskColor = '#065F46';
+        riskBg = '#D1FAE5';
+        prob = 1;
+        sev = 1;
       }
 
       const escoreFinal = prob * sev;
@@ -106,12 +114,14 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
           avg = Number((sum / count).toFixed(2));
         } else {
           // fallback coerente com variação do cargo
-          avg = job.id === 'porteiro' ? 3.7 : job.id === 'asg' ? 3.4 : job.id === 'supervisor' ? 4.1 : 3.8;
+          avg = 0;
         }
 
-        let risk = 'Adequado';
-        if (avg < 2.8) risk = 'Risco Alto';
+        let risk = 'Sem Dados';
+        if (avg === 0) risk = 'Sem Dados';
+        else if (avg < 2.8) risk = 'Risco Alto';
         else if (avg < 3.8) risk = 'Moderado';
+        else risk = 'Adequado';
 
         matrix[dim.id][job.id] = { avg, risk };
       });
@@ -305,9 +315,10 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
                       {dim.name}
                     </td>
                     {INITIAL_JOB_POSITIONS.map(job => {
-                      const cell = cargoMatrix[dim.id][job.id] || { avg: 3.5, risk: 'Adequado' };
+                      const cell = cargoMatrix[dim.id][job.id] || { avg: 0, risk: 'Sem Dados' };
                       const st = cell.risk === 'Adequado' ? { bg: '#D1FAE5', text: '#065F46', label: 'Adequado' } :
                                  cell.risk === 'Moderado' ? { bg: '#FEF3C7', text: '#92400E', label: 'Moderado' } :
+                                 cell.risk === 'Sem Dados' ? { bg: '#F1F5F9', text: '#64748B', label: 'Sem Dados' } :
                                  { bg: '#FEE2E2', text: '#991B1B', label: 'Risco Alto' };
 
                       return (
