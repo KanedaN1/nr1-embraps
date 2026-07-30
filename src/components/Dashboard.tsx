@@ -8,7 +8,6 @@ import {
   Filter, 
   FileSpreadsheet,
   ArrowRight,
-  Smartphone,
   FileText
 } from 'lucide-react';
 import { 
@@ -24,26 +23,31 @@ import {
   XAxis, 
   YAxis, 
   CartesianGrid, 
-  Legend 
+  Legend,
+  LabelList
 } from 'recharts';
 import type { CurrentUser, QuestionnaireResponse, DimensionId } from '../types';
 import { DIMENSIONS, INITIAL_WORKPLACES, INITIAL_JOB_POSITIONS } from '../data/hseQuestions';
+import { AdminResponsesModal } from './AdminResponsesModal';
 
 interface DashboardProps {
   currentUser: CurrentUser;
   responses: QuestionnaireResponse[];
   onNavigateToQuestionnaire?: () => void;
   onOpenReport?: (workplaceId: string) => void;
+  onDeleteResponse?: (id: string) => void;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ 
   currentUser, 
   responses, 
   onNavigateToQuestionnaire,
-  onOpenReport
+  onOpenReport,
+  onDeleteResponse
 }) => {
   const [activeTab, setActiveTab] = useState<'posto' | 'cargo'>('posto');
   const [selectedWorkplaceId, setSelectedWorkplaceId] = useState<string>(INITIAL_WORKPLACES[0].id);
+  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
   // 1. Cálculos Gerais e KPIs
   const totalResponses = responses.length;
@@ -161,7 +165,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </div>
             
             <h1 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#002244', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-              Dashboard de Indicadores HSE
+              Dashboard de Indicadores NR-1
             </h1>
             <p style={{ color: '#475569', fontSize: '0.95rem', marginTop: '0.25rem' }}>
               Mapeamento psicossocial e avaliação de riscos para os ~2.000 colaboradores Embraps.
@@ -169,6 +173,16 @@ export const Dashboard: React.FC<DashboardProps> = ({
           </div>
 
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', width: '100%', justifyContent: 'flex-start' }}>
+            {currentUser.role === 'ADMIN' && (
+              <button 
+                onClick={() => setIsAdminModalOpen(true)}
+                className="btn btn-secondary"
+                style={{ padding: '0.6rem 1rem', fontSize: '0.85rem' }}
+              >
+                <span>Ver Informações</span>
+              </button>
+            )}
+
             {currentUser.role === 'ADMIN' && onNavigateToQuestionnaire && (
               <button 
                 onClick={onNavigateToQuestionnaire}
@@ -348,7 +362,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 </div>
                 <div>
                   <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#002244' }}>
-                    Selecione o Posto / Empreendimento:
+                    Selecione o Posto:
                   </h3>
                   <p style={{ fontSize: '0.8rem', color: '#64748B' }}>
                     Média de saúde psicossocial: <strong>{workplaceTotalAvg || '3.50'} / 5.0</strong> ({workplaceResponses.length} resp.).
@@ -437,7 +451,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
                         contentStyle={{ backgroundColor: '#002244', color: '#FFFFFF', borderRadius: '10px', border: 'none', fontSize: '12px' }}
                       />
                       <Legend wrapperStyle={{ fontSize: '12px' }} />
-                      <Bar name="Média do Posto" dataKey="posto" fill="#0066CC" radius={[0, 6, 6, 0]} barSize={18} />
+                      <Bar name="Média do Posto" dataKey="posto" fill="#0066CC" radius={[0, 6, 6, 0]} barSize={18}>
+                        <LabelList dataKey="posto" position="right" style={{ fill: '#002244', fontSize: 11, fontWeight: 'bold' }} />
+                      </Bar>
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -524,10 +540,21 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 </p>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', fontSize: '0.75rem', fontWeight: 600, flexWrap: 'wrap' }}>
-                <span style={{ backgroundColor: '#D1FAE5', color: '#065F46', padding: '0.3rem 0.6rem', borderRadius: '6px' }}>🟢 ≥ 3.8</span>
-                <span style={{ backgroundColor: '#FEF3C7', color: '#92400E', padding: '0.3rem 0.6rem', borderRadius: '6px' }}>🟡 2.8 - 3.7</span>
-                <span style={{ backgroundColor: '#FEE2E2', color: '#991B1B', padding: '0.3rem 0.6rem', borderRadius: '6px' }}>🔴 &lt; 2.8</span>
+              <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', fontSize: '0.75rem', fontWeight: 600, flexWrap: 'wrap' }}>
+                  <span style={{ backgroundColor: '#D1FAE5', color: '#065F46', padding: '0.3rem 0.6rem', borderRadius: '6px' }}>🟢 ≥ 3.8</span>
+                  <span style={{ backgroundColor: '#FEF3C7', color: '#92400E', padding: '0.3rem 0.6rem', borderRadius: '6px' }}>🟡 2.8 - 3.7</span>
+                  <span style={{ backgroundColor: '#FEE2E2', color: '#991B1B', padding: '0.3rem 0.6rem', borderRadius: '6px' }}>🔴 &lt; 2.8</span>
+                </div>
+                
+                <button 
+                  onClick={() => onOpenReport?.('ALL_CARGOS')} 
+                  className="btn btn-primary"
+                  style={{ padding: '0.65rem 1.15rem', fontSize: '0.9rem', backgroundColor: '#10B981', background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)' }}
+                >
+                  <FileText size={18} />
+                  <span>Gerar Relatório Geral (Cargos)</span>
+                </button>
               </div>
             </div>
 
@@ -608,22 +635,17 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </table>
             </div>
 
-            <div style={{ marginTop: '1.5rem', backgroundColor: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '12px', padding: '1.25rem', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-              <Smartphone size={20} color="#0066CC" style={{ flexShrink: 0, marginTop: '2px' }} />
-              <div>
-                <h4 style={{ color: '#002244', fontWeight: 700, marginBottom: '0.2rem', fontSize: '0.95rem' }}>
-                  Navegação Mobile para o Gestor / Diretor na Rua:
-                </h4>
-                <p style={{ fontSize: '0.85rem', color: '#334155', lineHeight: 1.5 }}>
-                  Todos os relatórios, gráficos e matrizes foram programados para redimensionar automaticamente no celular do diretor ou engenheiro de segurança. Se houver muitos postos ou cargos, as tabelas deslizam suavemente sem quebrar o layout da página!
-                </p>
-              </div>
-            </div>
-
           </div>
         )}
 
       </div>
+
+      <AdminResponsesModal 
+        isOpen={isAdminModalOpen}
+        onClose={() => setIsAdminModalOpen(false)}
+        responses={responses}
+        onDeleteResponse={onDeleteResponse}
+      />
     </div>
   );
 };

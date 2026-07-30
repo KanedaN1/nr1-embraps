@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from './lib/firebase';
-import { collection, getDocs, addDoc, doc, getDoc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LgpdModal } from './components/LgpdModal';
@@ -167,6 +167,17 @@ export const App: React.FC = () => {
     setAppState('SETUP');
   };
 
+  // 6. Excluir uma Resposta (Admin)
+  const handleDeleteResponse = async (id: string) => {
+    try {
+      await deleteDoc(doc(db, 'responses', id));
+      setResponses(prev => prev.filter(r => r.id !== id));
+    } catch (e) {
+      console.error("Erro ao excluir resposta no Firebase Firestore:", e);
+      alert("Erro ao excluir. Verifique sua conexão ou permissões.");
+    }
+  };
+
   // 6. Abrir Relatório Oficial PGR / NR-1 para um Posto Específico
   const handleOpenReport = (workplaceId: string) => {
     setReportWorkplaceId(workplaceId);
@@ -218,12 +229,17 @@ export const App: React.FC = () => {
             responses={responses}
             onNavigateToQuestionnaire={currentUser.role === 'ADMIN' ? () => setAppState('SETUP') : undefined}
             onOpenReport={handleOpenReport}
+            onDeleteResponse={handleDeleteResponse}
           />
         )}
 
         {appState === 'REPORT' && (
           <PgrReportView 
-            workplace={INITIAL_WORKPLACES.find(w => w.id === reportWorkplaceId) || INITIAL_WORKPLACES[0]}
+            workplace={
+              reportWorkplaceId === 'ALL_CARGOS' 
+                ? { id: 'ALL_CARGOS', name: 'Relatório Geral (Todos os Postos e Cargos)', code: 'ALL' } 
+                : INITIAL_WORKPLACES.find(w => w.id === reportWorkplaceId) || INITIAL_WORKPLACES[0]
+            }
             responses={responses}
             onClose={() => setAppState('DASHBOARD')}
           />
