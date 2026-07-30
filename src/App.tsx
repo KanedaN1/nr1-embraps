@@ -131,6 +131,7 @@ export const App: React.FC = () => {
       answers,
       dimensionScores,
       totalAverage,
+      employeeId: currentUser ? currentUser.identifier : undefined,
     };
 
     // Atualiza estado local

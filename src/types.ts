@@ -54,6 +54,7 @@ export interface QuestionnaireResponse {
   answers: Record<number, number>; // questionId -> score (1 to 5)
   dimensionScores: Record<DimensionId, number>; // dimensionId -> average score
   totalAverage: number;
+  employeeId?: string; // RE do funcionário
   // NOTA: Nenhuma informação pessoal ou RE é salva aqui para garantir anonimato da LGPD!
 }
 

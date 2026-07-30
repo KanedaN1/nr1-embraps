@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Building2, Briefcase, ArrowRight, Lock } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Building2, Briefcase, ArrowRight, Lock, Search } from 'lucide-react';
 import type { Workplace, JobPosition, CurrentUser } from '../types';
 import { INITIAL_WORKPLACES, INITIAL_JOB_POSITIONS } from '../data/hseQuestions';
 
@@ -16,10 +16,25 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
 }) => {
   const [selectedWorkplaceId, setSelectedWorkplaceId] = useState(INITIAL_WORKPLACES[0].id);
   const [selectedJobId, setSelectedJobId] = useState(INITIAL_JOB_POSITIONS[0].id);
+  const [workplaceSearch, setWorkplaceSearch] = useState('');
+
+  const filteredWorkplaces = useMemo(() => {
+    const searchLower = workplaceSearch.toLowerCase();
+    return INITIAL_WORKPLACES.filter(wp => 
+      wp.name.toLowerCase().includes(searchLower) || 
+      wp.code.toLowerCase().includes(searchLower)
+    );
+  }, [workplaceSearch]);
+
+  useEffect(() => {
+    if (filteredWorkplaces.length > 0 && !filteredWorkplaces.find(w => w.id === selectedWorkplaceId)) {
+      setSelectedWorkplaceId(filteredWorkplaces[0].id);
+    }
+  }, [filteredWorkplaces, selectedWorkplaceId]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const wp = INITIAL_WORKPLACES.find(w => w.id === selectedWorkplaceId) || INITIAL_WORKPLACES[0];
+    const wp = INITIAL_WORKPLACES.find(w => w.id === selectedWorkplaceId) || filteredWorkplaces[0] || INITIAL_WORKPLACES[0];
     const job = INITIAL_JOB_POSITIONS.find(j => j.id === selectedJobId) || INITIAL_JOB_POSITIONS[0];
     onStartQuestionnaire(wp, job);
   };
@@ -63,19 +78,36 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
                 <Building2 size={20} color="#0066CC" />
                 <span>Posto de Trabalho:</span>
               </label>
+
+              <div style={{ position: 'relative', marginBottom: '0.75rem' }}>
+                <div style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#64748B' }}>
+                  <Search size={18} />
+                </div>
+                <input 
+                  type="text" 
+                  placeholder="Buscar posto por nome ou código..." 
+                  value={workplaceSearch}
+                  onChange={(e) => setWorkplaceSearch(e.target.value)}
+                  style={{ fontSize: '1rem', padding: '0.85rem 1rem 0.85rem 2.5rem', backgroundColor: '#FFFFFF', width: '100%', borderRadius: '8px', border: '1px solid #CBD5E1' }}
+                />
+              </div>
               
               <select 
                 id="workplace-select"
                 value={selectedWorkplaceId} 
                 onChange={(e) => setSelectedWorkplaceId(e.target.value)}
                 className="select-field"
-                style={{ fontSize: '1.05rem', padding: '1rem', fontWeight: 500, backgroundColor: '#FFFFFF', cursor: 'pointer' }}
+                style={{ fontSize: '1.05rem', padding: '1rem', fontWeight: 500, backgroundColor: '#FFFFFF', cursor: 'pointer', width: '100%' }}
               >
-                {INITIAL_WORKPLACES.map((wp) => (
-                  <option key={wp.id} value={wp.id}>
-                    {wp.name}
-                  </option>
-                ))}
+                {filteredWorkplaces.length > 0 ? (
+                  filteredWorkplaces.map((wp) => (
+                    <option key={wp.id} value={wp.id}>
+                      {wp.name}
+                    </option>
+                  ))
+                ) : (
+                  <option value="" disabled>Nenhum posto encontrado</option>
+                )}
               </select>
             </div>
 

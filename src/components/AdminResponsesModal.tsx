@@ -125,6 +125,7 @@ export const AdminResponsesModal: React.FC<AdminResponsesModalProps> = ({
                     <thead>
                       <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
                         <th style={{ padding: '0.75rem', color: '#002244', fontWeight: 700 }}>Data/Hora</th>
+                        <th style={{ padding: '0.75rem', color: '#002244', fontWeight: 700 }}>RE</th>
                         <th style={{ padding: '0.75rem', color: '#002244', fontWeight: 700 }}>Posto</th>
                         <th style={{ padding: '0.75rem', color: '#002244', fontWeight: 700 }}>Cargo</th>
                         <th style={{ padding: '0.75rem', color: '#002244', fontWeight: 700, textAlign: 'center' }}>Média</th>
@@ -136,6 +137,9 @@ export const AdminResponsesModal: React.FC<AdminResponsesModalProps> = ({
                         <tr key={resp.id} style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: idx % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
                           <td style={{ padding: '0.75rem', color: '#475569' }}>
                             {new Date(resp.timestamp).toLocaleString('pt-BR')}
+                          </td>
+                          <td style={{ padding: '0.75rem', color: '#0F172A', fontWeight: 500 }}>
+                            {resp.employeeId || '-'}
                           </td>
                           <td style={{ padding: '0.75rem', fontWeight: 600, color: '#0F172A' }}>{resp.workplaceName}</td>
                           <td style={{ padding: '0.75rem', color: '#334155' }}>{resp.jobPositionName}</td>
