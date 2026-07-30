@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Lock, LogOut, UserCheck, Smartphone } from 'lucide-react';
+import { Shield, Lock, LogOut, UserCheck } from 'lucide-react';
 import type { CurrentUser } from '../types';
 
 interface HeaderProps {
@@ -137,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({
               Sair
             </button>
           </div>
-          <div />
+        ) : null}
 
       </div>
     </header>

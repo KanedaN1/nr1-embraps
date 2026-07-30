@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react';
-import { CheckCircle2, Shield, Lock, LogOut, RefreshCw } from 'lucide-react';
+import { CheckCircle2, Shield, LogOut, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { Workplace, JobPosition, CurrentUser } from '../types';
 
 interface QuestionnaireSuccessProps {
   currentUser: CurrentUser;
-  workplace: Workplace;
-  jobPosition: JobPosition;
-  totalAverage: number;
+  workplace?: Workplace;
+  jobPosition?: JobPosition;
+  totalAverage?: number;
   onLogout: () => void;
   onRestartTest?: () => void;
 }
 
 export const QuestionnaireSuccess: React.FC<QuestionnaireSuccessProps> = ({ 
   currentUser,
-  workplace, 
-  jobPosition,
-  totalAverage,
+
   onLogout,
   onRestartTest
 }) => {
