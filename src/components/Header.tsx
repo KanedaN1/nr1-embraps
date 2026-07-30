@@ -6,16 +6,12 @@ interface HeaderProps {
   currentUser: CurrentUser | null;
   onLogout: () => void;
   onOpenSecurityModal: () => void;
-  isMobileSimulated: boolean;
-  onToggleMobileSimulator: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   currentUser, 
   onLogout, 
-  onOpenSecurityModal,
-  isMobileSimulated,
-  onToggleMobileSimulator
+  onOpenSecurityModal
 }) => {
   const getRoleBadge = (role: string) => {
     switch (role) {
@@ -49,10 +45,6 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Logo da Empresa & Branding */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
           <div style={{ 
-            backgroundColor: '#FFFFFF', 
-            padding: '4px 10px', 
-            borderRadius: '10px', 
-            boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -86,39 +78,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Botoes Centrais: Simulador Mobile & Selo LGPD */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
           
-          {/* Botão Simulador Smartphone (Especial para 90% dos Colaboradores) */}
-          <button
-            type="button"
-            onClick={onToggleMobileSimulator}
-            style={{
-              background: isMobileSimulated ? '#10B981' : 'rgba(255, 255, 255, 0.15)',
-              color: '#FFFFFF',
-              border: isMobileSimulated ? '2px solid #059669' : '1px solid rgba(255, 255, 255, 0.3)',
-              padding: '0.45rem 0.9rem',
-              borderRadius: '9999px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              transition: 'all 0.2s ease',
-              boxShadow: isMobileSimulated ? '0 0 15px rgba(16, 185, 129, 0.4)' : 'none'
-            }}
-            title="Clique para alternar entre a visão no Computador e a visão na tela do Smartphone"
-          >
-            {isMobileSimulated ? (
-              <>
-                <Smartphone size={16} />
-                <span>📱 Tela Celular (Ativo)</span>
-              </>
-            ) : (
-              <>
-                <Smartphone size={16} />
-                <span>📱 Simular Smartphone</span>
-              </>
-            )}
-          </button>
+
 
           {/* Security / Anonymity Badge (Trust Design) */}
           <div 
@@ -177,11 +137,7 @@ export const Header: React.FC<HeaderProps> = ({
               Sair
             </button>
           </div>
-        ) : (
-          <div style={{ fontSize: '0.8rem', color: '#EBF5FF', fontStyle: 'italic' }}>
-            Portal Seguro Colaborador
-          </div>
-        )}
+          <div />
 
       </div>
     </header>

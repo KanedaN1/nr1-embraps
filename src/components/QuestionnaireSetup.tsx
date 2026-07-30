@@ -61,7 +61,7 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
             <div style={{ backgroundColor: '#F8FAFC', padding: '1.5rem', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
               <label htmlFor="workplace-select" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1.05rem', color: '#002244', marginBottom: '0.75rem' }}>
                 <Building2 size={20} color="#0066CC" />
-                <span>Posto de Trabalho (Unidade / Empreendimento):</span>
+                <span>Posto de Trabalho:</span>
               </label>
               
               <select 
@@ -77,9 +77,6 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
                   </option>
                 ))}
               </select>
-              <p style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                * Nota: Cadastramos o "Posto de Teste" e exemplos. Em breve adicionaremos a lista completa de 370 postos.
-              </p>
             </div>
 
             {/* Cargo Exercido */}

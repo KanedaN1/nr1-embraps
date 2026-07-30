@@ -30,8 +30,7 @@ export const App: React.FC = () => {
   const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
 
-  // Estado para o Simulador de Smartphone (Especial para testar UX Mobile dos 90% de Colaboradores)
-  const [isMobileSimulated, setIsMobileSimulated] = useState(false);
+
 
   // Estado para os Setores e Cargos selecionados durante o fluxo do questionário
   const [selectedWorkplace, setSelectedWorkplace] = useState<Workplace>(INITIAL_WORKPLACES[0]);
@@ -250,32 +249,10 @@ export const App: React.FC = () => {
           currentUser={currentUser}
           onLogout={handleLogout}
           onOpenSecurityModal={() => setIsSecurityModalOpen(true)}
-          isMobileSimulated={isMobileSimulated}
-          onToggleMobileSimulator={() => setIsMobileSimulated(prev => !prev)}
         />
       </div>
 
-      {/* Se o Modo Simulador Smartphone estiver Ativo e NÃO for relatório, envolve o app numa moldura de celular */}
-      {isMobileSimulated && appState !== 'REPORT' ? (
-        <div className="mobile-simulator-wrapper animate-fade-in">
-          <div className="mobile-device-frame">
-            {/* Notch e Alto-falante do Celular */}
-            <div className="mobile-notch">
-              <div className="mobile-speaker" />
-            </div>
-            
-            {/* Tela Interna do Smartphone */}
-            <div className="mobile-screen-content">
-              {renderAppContent()}
-            </div>
-
-            {/* Barra inferior Home do Smartphone */}
-            <div className="mobile-home-indicator" />
-          </div>
-        </div>
-      ) : (
-        renderAppContent()
-      )}
+      {renderAppContent()}
 
       {/* Modal de Segurança Legal e Anonimato */}
       <LgpdModal 

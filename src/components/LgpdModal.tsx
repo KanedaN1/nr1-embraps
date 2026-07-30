@@ -130,7 +130,7 @@ export const LgpdModal: React.FC<LgpdModalProps> = ({ isOpen, onClose }) => {
                 <span>Desacoplamento do RE</span>
               </div>
               <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>
-                Seu número de RE é usado <strong>apenas como chave de acesso única</strong> no momento do login para garantir que cada colaborador responda apenas uma vez. Ao terminar, o sistema registra apenas <em>"Matrícula X participou"</em> em uma tabela, e salva o questionário em <strong>outra tabela anônima</strong>, sem nenhuma ligação entre elas!
+                Seu número de RE é usado <strong>apenas como chave de acesso única</strong> no momento do login para garantir que cada colaborador responda apenas uma vez.
               </p>
             </div>
 
@@ -147,10 +147,11 @@ export const LgpdModal: React.FC<LgpdModalProps> = ({ isOpen, onClose }) => {
             <div style={{ padding: '1.25rem', backgroundColor: '#F1F5F9', borderRadius: '14px', border: '1px solid #E2E8F0', gridColumn: '1 / -1' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#003B70', fontWeight: 600 }}>
                 <CheckCircle2 size={20} color="#8B5CF6" />
-                <span>Proteção Contra Retaliação (Dados Agregados)</span>
+                <span>Garantia de Confidencialidade</span>
               </div>
               <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>
-                A Diretoria da Embraps, o RH e a chefia imediata <strong>não recebem respostas individuais</strong>. O sistema gera unicamente gráficos e médias de notas por <em>Cargo</em> e por <em>Posto de Trabalho</em>. Se você responder sinceramente sobre pressão ou apoio da chefia, estará ajudando a empresa a implementar melhorias gerais sem nenhum risco à sua imagem profissional!
+                As informações prestadas nesta pesquisa são tratadas de forma estritamente confidencial. Os resultados são apresentados à Diretoria e às lideranças exclusivamente de maneira consolidada e estatística, preservando o anonimato de cada colaborador.<br /><br />
+                Sua participação sincera e transparente é fundamental para impulsionar a melhoria contínua das nossas rotinas de trabalho e fortalecer um ambiente seguro e colaborativo.
               </p>
             </div>
 

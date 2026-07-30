@@ -62,11 +62,6 @@ export const QuestionnaireSuccess: React.FC<QuestionnaireSuccessProps> = ({
             Muito obrigado, <strong style={{ color: '#003B70' }}>{currentUser.name || currentUser.identifier}</strong>! Suas respostas foram criptografadas e enviadas ao banco de dados com segurança.
           </p>
 
-          {/* Exibição opcional da Média Total agregada */}
-          <div style={{ display: 'inline-block', backgroundColor: '#EBF5FF', padding: '0.75rem 1.5rem', borderRadius: '12px', border: '1px solid #3399FF', marginBottom: '2.5rem', color: '#003B70', fontWeight: 600, fontSize: '0.95rem' }}>
-            ⚡ Sua avaliação agregou uma média global de <strong>{totalAverage} / 5.0</strong> para os indicadores deste setor!
-          </div>
-
           {/* Card de Respaldo LGPD Pós-Envio */}
           <div style={{ backgroundColor: '#F8FAFC', border: '2px solid #E2E8F0', borderRadius: '16px', padding: '1.75rem', textAlign: 'left', marginBottom: '2.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#003B70', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.75rem' }}>
@@ -75,21 +70,17 @@ export const QuestionnaireSuccess: React.FC<QuestionnaireSuccessProps> = ({
             </div>
             
             <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '1rem' }}>
-              O sistema acabou de realizar duas operações distintas em nosso servidor:
+              O sistema acabou de realizar uma operação segura em nosso servidor:
             </p>
 
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem', color: '#334155', paddingLeft: '1.5rem' }}>
               <li>
                 <strong>Tabela de Matrículas (RE):</strong> Registrou que o colaborador participou para evitar duplicação no futuro.
               </li>
-              <li>
-                <strong>Cofre Anônimo do PGR:</strong> Gravou os 40 pontos avaliados no grupo <em>"{workplace.name} — {jobPosition.name}"</em> <strong>sem o seu número de RE</strong> attached.
-              </li>
             </ul>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1px dashed #CBD5E1', fontSize: '0.85rem', color: '#059669', fontWeight: 600 }}>
-              <Lock size={16} />
-              <span>Nenhum gestor ou diretor tem acesso técnico para rastrear a autoria deste envio.</span>
+              <span>Nenhum colaborador tem acesso técnico para rastrear a autoria deste envio.</span>
             </div>
           </div>
 

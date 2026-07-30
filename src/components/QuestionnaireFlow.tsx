@@ -35,11 +35,6 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
     const newAnswers = { ...answers, [currentQuestion.id]: val };
     setAnswers(newAnswers);
 
-    if (currentIdx < totalQuestions - 1) {
-      setTimeout(() => {
-        setCurrentIdx(prev => prev + 1);
-      }, 300);
-    }
   };
 
   const handlePrevious = () => {
