@@ -5,13 +5,11 @@ import type { CurrentUser } from '../types';
 interface HeaderProps {
   currentUser: CurrentUser | null;
   onLogout: () => void;
-  onOpenSecurityModal: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   currentUser, 
-  onLogout, 
-  onOpenSecurityModal
+  onLogout 
 }) => {
   const getRoleBadge = (role: string) => {
     switch (role) {
@@ -75,47 +73,9 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Botoes Centrais: Simulador Mobile & Selo LGPD */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-          
-
-
-          {/* Security / Anonymity Badge (Trust Design) */}
-          <div 
-            onClick={onOpenSecurityModal}
-            style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.12)', 
-              backdropFilter: 'blur(8px)', 
-              padding: '0.45rem 0.9rem', 
-              borderRadius: '9999px', 
-              border: '1px solid rgba(255, 255, 255, 0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              fontSize: '0.85rem',
-              fontWeight: 500
-            }}
-            title="Clique para ver detalhes de segurança jurídica e anonimato"
-          >
-            <Lock size={15} color="#10B981" style={{ flexShrink: 0 }} />
-            <span><strong style={{ color: '#FFFFFF' }}>100% Anônimo</strong> • LGPD</span>
-            <Shield size={14} color="#3399FF" style={{ marginLeft: '0.2rem' }} />
-          </div>
-
-        </div>
-
         {/* User Info & Logout */}
         {currentUser ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', fontSize: '0.85rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <UserCheck size={16} />
-                <span style={{ fontWeight: 600 }}>{currentUser.identifier}</span>
-              </div>
-              <div>{getRoleBadge(currentUser.role)}</div>
-            </div>
             <button 
               onClick={onLogout} 
               style={{

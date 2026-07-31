@@ -270,7 +270,6 @@ export const App: React.FC = () => {
         <Header 
           currentUser={currentUser}
           onLogout={handleLogout}
-          onOpenSecurityModal={() => setIsSecurityModalOpen(true)}
         />
       </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, CheckCircle2, Layers } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Workplace, JobPosition, DimensionId } from '../types';
 import { HSE_QUESTIONS, DIMENSIONS } from '../data/hseQuestions';
 
@@ -142,23 +142,6 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
         <div className="card questionnaire-card animate-fade-in">
           
           <div>
-            {/* Tag da Dimensão HSE */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
-              <span 
-                className="badge" 
-                style={{ 
-                  backgroundColor: `${currentDimension.color}15`, 
-                  color: currentDimension.color,
-                  border: `1px solid ${currentDimension.color}40`,
-                  padding: '0.4rem 0.85rem',
-                  fontSize: '0.85rem'
-                }}
-              >
-                <Layers size={15} />
-                <span>Bloco: {currentDimension.name}</span>
-              </span>
-            </div>
-
             {/* Texto da Pergunta */}
             <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', lineHeight: 1.4, marginBottom: '2rem' }}>
               "{currentQuestion.text}"
