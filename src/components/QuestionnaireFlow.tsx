@@ -105,11 +105,11 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '1.5rem 0' }}>
+    <div className="questionnaire-page-wrapper">
       <div className="container" style={{ maxWidth: '820px' }}>
         
         {/* Card Header com Dados do Setor/Cargo e Barra de Progresso */}
-        <div style={{ backgroundColor: '#002244', color: '#FFFFFF', padding: '1.25rem 1.5rem', borderRadius: '16px 16px 0 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+        <div className="questionnaire-header">
           <div>
             <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Avaliação em Andamento • NR-1 / PGR
@@ -139,7 +139,7 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
         </div>
 
         {/* Card Principal de Pergunta - Otimizado para Mobile */}
-        <div className="card animate-fade-in" style={{ padding: '2.25rem 1.5rem', borderRadius: '0 0 16px 16px', minHeight: '420px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="card questionnaire-card animate-fade-in">
           
           <div>
             {/* Tag da Dimensão HSE */}
@@ -179,7 +179,6 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '1rem 1.25rem',
                     borderRadius: '12px',
                     border: isSelected ? `2px solid #0066CC` : '2px solid #F1F5F9',
                     backgroundColor: isSelected ? '#EBF5FF' : '#F8FAFC',

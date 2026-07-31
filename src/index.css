@@ -199,6 +199,10 @@ body {
   box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
 }
 
+.likert-btn {
+  padding: 1rem 1.25rem;
+}
+
 /* Badge / Tags */
 .badge {
   display: inline-flex;
@@ -312,6 +316,35 @@ body {
   box-shadow: 0 20px 40px rgba(0, 34, 68, 0.12);
 }
 
+.questionnaire-page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.questionnaire-header {
+  background-color: #002244;
+  color: #FFFFFF;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.questionnaire-card {
+  padding: 2.25rem 1.5rem;
+  border-radius: 0 0 16px 16px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media (max-width: 768px), (max-width: 450px) {
   .hide-on-mobile {
     display: none !important;
@@ -331,6 +364,19 @@ body {
 
   .setup-card {
     padding: 1.5rem 1.25rem !important;
+  }
+
+  .questionnaire-page-wrapper {
+    padding: 0.5rem 0 !important;
+  }
+
+  .questionnaire-header {
+    padding: 1rem 1rem !important;
+  }
+
+  .questionnaire-card {
+    padding: 1.25rem 1rem !important;
+    min-height: 380px !important;
   }
 
   .container {
@@ -374,7 +420,7 @@ body {
 
   /* Opções Likert no celular: botões mais confortáveis de tocar */
   .likert-btn {
-    padding: 1rem 1.15rem;
+    padding: 0.85rem 1rem !important;
     font-size: 0.95rem;
   }
 

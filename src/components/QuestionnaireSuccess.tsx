@@ -32,10 +32,9 @@ export const QuestionnaireSuccess: React.FC<QuestionnaireSuccessProps> = ({
   }, []);
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3rem 0' }}>
+    <div className="setup-page-wrapper">
       <div className="container" style={{ maxWidth: '720px' }}>
-        
-        <div className="card animate-fade-in" style={{ padding: '3.5rem', borderRadius: '24px', textAlign: 'center', boxShadow: '0 25px 50px rgba(0, 34, 68, 0.15)' }}>
+        <div className="card setup-card animate-fade-in" style={{ textAlign: 'center' }}>
           
           <div style={{ 
             display: 'inline-flex', 
