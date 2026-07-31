@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Building2, Briefcase, ArrowRight, Lock, Search } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building2, Briefcase, ArrowRight } from 'lucide-react';
 import type { Workplace, JobPosition, CurrentUser } from '../types';
 import { INITIAL_WORKPLACES, INITIAL_JOB_POSITIONS } from '../data/hseQuestions';
 

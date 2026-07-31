@@ -206,7 +206,6 @@ export const App: React.FC = () => {
           <QuestionnaireSetup 
             currentUser={currentUser}
             onStartQuestionnaire={handleStartQuestionnaire}
-            onOpenSecurityModal={() => setIsSecurityModalOpen(true)}
           />
         )}
 

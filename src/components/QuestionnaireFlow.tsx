@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Workplace, JobPosition, DimensionId } from '../types';
-import { HSE_QUESTIONS, DIMENSIONS } from '../data/hseQuestions';
+import { HSE_QUESTIONS } from '../data/hseQuestions';
 
 interface QuestionnaireFlowProps {
   workplace: Workplace;
@@ -19,7 +19,6 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const currentQuestion = HSE_QUESTIONS[currentIdx];
-  const currentDimension = DIMENSIONS.find(d => d.id === currentQuestion.dimensionId) || DIMENSIONS[0];
   const totalQuestions = HSE_QUESTIONS.length;
   const progressPercent = Math.round(((currentIdx + 1) / totalQuestions) * 100);
 

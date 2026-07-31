@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Lock, LogOut, UserCheck } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import type { CurrentUser } from '../types';
 
 interface HeaderProps {
@@ -11,16 +11,6 @@ export const Header: React.FC<HeaderProps> = ({
   currentUser, 
   onLogout 
 }) => {
-  const getRoleBadge = (role: string) => {
-    switch (role) {
-      case 'SESMT': return <span className="badge badge-blue">Engenharia SESMT</span>;
-      case 'DIRECTOR': return <span className="badge badge-green">Diretoria Executiva</span>;
-      case 'ADMIN': return <span className="badge badge-yellow">Administrador</span>;
-      case 'TEST': return <span className="badge badge-blue">Modo Teste Embraps</span>;
-      default: return <span className="badge badge-green">Colaborador Embraps</span>;
-    }
-  };
-
   return (
     <header style={{ 
       background: 'linear-gradient(90deg, #002244 0%, #003B70 50%, #005B9A 100%)', 
