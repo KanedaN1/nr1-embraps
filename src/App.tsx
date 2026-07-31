@@ -89,6 +89,11 @@ export const App: React.FC = () => {
     fetchCloudData();
   }, []);
 
+  // Scroll to top upon navigation
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [appState]);
+
   // 1. Gerenciador de Login
   const handleLogin = (user: CurrentUser) => {
     setCurrentUser(user);

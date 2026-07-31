@@ -71,16 +71,16 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '2rem 0' }}>
+    <div className="setup-page-wrapper">
       <div className="container" style={{ maxWidth: '980px' }}>
         
         {/* Card Principal - Glassmorphism Branco & Azul */}
-        <div className="card" style={{ padding: '2.5rem', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0, 34, 68, 0.12)' }}>
+        <div className="card setup-card">
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
             
             {/* Lado Esquerdo: Hero & Logo da Empresa */}
-            <div>
+            <div className="login-left-panel">
               {/* Exibição Oficial da Logo da Empresa */}
               <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <img 
@@ -137,7 +137,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
             </div>
 
             {/* Lado Direito: Formulário de Entrada */}
-            <div style={{ backgroundColor: '#F8FAFC', padding: '2rem', borderRadius: '20px', border: '2px solid #E2E8F0' }}>
+            <div className="login-right-panel">
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#002244', marginBottom: '0.4rem' }}>
                 Acesso à Plataforma
               </h3>
@@ -187,7 +187,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
               </form>
 
               {/* Guia de Acesso para Testes */}
-              <div style={{ marginTop: '1.75rem', paddingTop: '1.25rem', borderTop: '1px dashed #CBD5E1' }}>
+              <div className="hide-on-mobile" style={{ marginTop: '1.75rem', paddingTop: '1.25rem', borderTop: '1px dashed #CBD5E1' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', marginBottom: '0.65rem' }}>
                   <HelpCircle size={14} />
                   <span>Acesso Rápido para Demonstração</span>

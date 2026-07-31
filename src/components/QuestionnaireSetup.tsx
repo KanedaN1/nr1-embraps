@@ -14,7 +14,7 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
   onStartQuestionnaire,
   onOpenSecurityModal 
 }) => {
-  const [selectedWorkplaceId, setSelectedWorkplaceId] = useState(INITIAL_WORKPLACES[0].id);
+  const [selectedWorkplaceId, setSelectedWorkplaceId] = useState('');
   const [selectedJobId, setSelectedJobId] = useState(INITIAL_JOB_POSITIONS[0].id);
   const [workplaceSearch, setWorkplaceSearch] = useState('');
 
@@ -27,23 +27,27 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
   }, [workplaceSearch]);
 
   useEffect(() => {
-    if (filteredWorkplaces.length > 0 && !filteredWorkplaces.find(w => w.id === selectedWorkplaceId)) {
-      setSelectedWorkplaceId(filteredWorkplaces[0].id);
+    if (selectedWorkplaceId !== '' && filteredWorkplaces.length > 0 && !filteredWorkplaces.find(w => w.id === selectedWorkplaceId)) {
+      setSelectedWorkplaceId('');
     }
   }, [filteredWorkplaces, selectedWorkplaceId]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedWorkplaceId) {
+      alert('Por favor, selecione um posto de trabalho.');
+      return;
+    }
     const wp = INITIAL_WORKPLACES.find(w => w.id === selectedWorkplaceId) || filteredWorkplaces[0] || INITIAL_WORKPLACES[0];
     const job = INITIAL_JOB_POSITIONS.find(j => j.id === selectedJobId) || INITIAL_JOB_POSITIONS[0];
     onStartQuestionnaire(wp, job);
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3rem 0' }}>
+    <div className="setup-page-wrapper">
       <div className="container" style={{ maxWidth: '780px' }}>
         
-        <div className="card animate-fade-in" style={{ padding: '3rem', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0, 34, 68, 0.12)' }}>
+        <div className="card setup-card animate-fade-in">
           
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <div style={{ 
@@ -98,7 +102,9 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
                 onChange={(e) => setSelectedWorkplaceId(e.target.value)}
                 className="select-field"
                 style={{ fontSize: '1.05rem', padding: '1rem', fontWeight: 500, backgroundColor: '#FFFFFF', cursor: 'pointer', width: '100%' }}
+                required
               >
+                <option value="" disabled>Selecionar posto...</option>
                 {filteredWorkplaces.length > 0 ? (
                   filteredWorkplaces.map((wp) => (
                     <option key={wp.id} value={wp.id}>
