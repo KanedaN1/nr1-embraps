@@ -24,8 +24,8 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
 
   // 1. Filtro de Respostas por Posto de Trabalho (ou Todas se for visão corporativa)
   const workplaceResponses = useMemo(() => {
-    const filtered = responses.filter(r => r.workplaceId === workplace.id);
-    return filtered.length > 0 ? filtered : responses; // fallback caso posto novo ainda não tenha resps
+    if (workplace.id === 'ALL_CARGOS') return responses;
+    return responses.filter(r => r.workplaceId === workplace.id);
   }, [responses, workplace.id]);
 
   const totalParticipants = workplaceResponses.length;
@@ -530,7 +530,7 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
             <div style={{ minWidth: '320px', textAlign: 'center' }}>
               <div style={{ borderBottom: '1px solid #000000', width: '100%', marginBottom: '8px' }} />
               <strong style={{ color: '#002244', display: 'block', fontSize: '0.95rem' }}>
-                Responsável Técnico / Engenharia SESMT & Psicologia
+                Responsável Técnico/SESMT
               </strong>
               <span style={{ color: '#64748B', fontSize: '0.8rem' }}>
                 EMBRAPS – Gestão de Riscos Ocupacionais (GRO/PGR)
