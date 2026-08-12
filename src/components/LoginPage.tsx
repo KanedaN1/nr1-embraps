@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Lock, ArrowRight, CheckCircle2, AlertCircle, HelpCircle, Users, BarChart3, HardHat, Briefcase } from 'lucide-react';
+import { Shield, Lock, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import type { CurrentUser } from '../types';
 
 interface LoginPageProps {
@@ -64,11 +64,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
     setErrorMsg('RE ou Usuário inválido. Digite apenas os números da sua matrícula (ex: 1006) ou o usuário de acesso.');
   };
 
-  const handleQuickFill = (val: string) => {
-    setIdentifier(val);
-    setErrorMsg('');
-    setSuccessMsg('');
-  };
 
   return (
     <div className="setup-page-wrapper">
