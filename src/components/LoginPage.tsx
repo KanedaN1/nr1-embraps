@@ -186,34 +186,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                 </button>
               </form>
 
-              {/* Guia de Acesso para Testes */}
-              <div className="hide-on-mobile" style={{ marginTop: '1.75rem', paddingTop: '1.25rem', borderTop: '1px dashed #CBD5E1' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', marginBottom: '0.65rem' }}>
-                  <HelpCircle size={14} />
-                  <span>Acesso Rápido para Demonstração</span>
-                </div>
-                
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                  <button type="button" onClick={() => handleQuickFill('TesteEmbraps')} className="badge badge-blue" style={{ border: '1px solid #0066CC', cursor: 'pointer', padding: '0.35rem 0.75rem' }}>
-                    <Users size={12} /> TesteEmbraps (Infinita)
-                  </button>
-                  <button type="button" onClick={() => handleQuickFill('1006')} className="badge" style={{ backgroundColor: '#F1F5F9', color: '#334155', border: '1px solid #94A3B8', cursor: 'pointer', padding: '0.35rem 0.75rem' }}>
-                    <HardHat size={12} /> RE 1006 (Novo)
-                  </button>
-                  <button type="button" onClick={() => handleQuickFill('1001')} className="badge" style={{ backgroundColor: '#FEF3C7', color: '#92400E', border: '1px solid #F59E0B', cursor: 'pointer', padding: '0.35rem 0.75rem' }}>
-                    <AlertCircle size={12} /> RE 1001 (Respondido)
-                  </button>
-                  <button type="button" onClick={() => handleQuickFill('SESMT')} className="badge badge-green" style={{ border: '1px solid #10B981', cursor: 'pointer', padding: '0.35rem 0.75rem' }}>
-                    <BarChart3 size={12} /> SESMT (Indicadores)
-                  </button>
-                  <button type="button" onClick={() => handleQuickFill('Diretor')} className="badge" style={{ backgroundColor: '#E0F2FE', color: '#0369A1', border: '1px solid #0284C7', cursor: 'pointer', padding: '0.35rem 0.75rem' }}>
-                    <Briefcase size={12} /> Diretor (Indicadores)
-                  </button>
-                  <button type="button" onClick={() => handleQuickFill('Admin')} className="badge" style={{ backgroundColor: '#F3E8FF', color: '#6B21A8', border: '1px solid #9333EA', cursor: 'pointer', padding: '0.35rem 0.75rem' }}>
-                    <Shield size={12} /> Admin (Acesso Total)
-                  </button>
-                </div>
-              </div>
 
             </div>
 

@@ -72,7 +72,7 @@ export const HSE_QUESTIONS: Question[] = [
   { id: 1, dimensionId: 'demands', text: 'Tenho que trabalhar muito rapidamente para dar conta das minhas tarefas.' },
   { id: 2, dimensionId: 'demands', text: 'Minha carga de trabalho é muito pesada ou excessiva.' },
   { id: 3, dimensionId: 'demands', text: 'Tenho tempo suficiente para realizar meu trabalho com qualidade.', reverseScore: true },
-  { id: 4, dimensionId: 'demands', text: 'Estou sujeito a exigências incompatíveis ou contraditórias no meu dia a dia.' },
+  { id: 4, dimensionId: 'demands', text: 'Estou sujeito a exigências que não tem a ver com a minha função.' },
   { id: 5, dimensionId: 'demands', text: 'As condições físicas do meu posto de trabalho (ruído, temperatura, iluminação) são confortáveis.', reverseScore: true },
   { id: 6, dimensionId: 'demands', text: 'Preciso trabalhar além do meu horário normal para conseguir concluir minhas tarefas.' },
   { id: 7, dimensionId: 'demands', text: 'Sinto uma pressão inaceitável em relação a prazos e cobranças no trabalho.' },
@@ -119,7 +119,7 @@ export const HSE_QUESTIONS: Question[] = [
 
   // DIMENSÃO 8: ASSÉDIO E CONDUTAS OFENSIVAS (CIPAA / COPSOQ II) (5 questões)
   { id: 36, dimensionId: 'harassment', text: 'Nos últimos 12 meses, fui exposto(a) a assédio sexual ou atenção sexual indesejada no meu ambiente de trabalho.', reverseScore: true },
-  { id: 37, dimensionId: 'harassment', text: 'Nos últimos 12 meses, fui alvo de piadas de mau gosto, humilhação, isolamento ou fofocas (Assédio Moral).', reverseScore: true },
+  { id: 37, dimensionId: 'harassment', text: 'Nos últimos 12 meses, fui alvo de piadas de mau gosto, humilhação, isolamento ou fofocas.', reverseScore: true },
   { id: 38, dimensionId: 'harassment', text: 'Nos últimos 12 meses, fui alvo de intimidação, ameaças verbais ou físicas relacionadas ao meu trabalho.', reverseScore: true },
   { id: 39, dimensionId: 'harassment', text: 'Nos últimos 12 meses, sofri algum tipo de discriminação (por gênero, idade, raça, religião, orientação sexual, etc.) no trabalho.', reverseScore: true },
   { id: 40, dimensionId: 'harassment', text: 'Sinto confiança de que a empresa possui canais seguros e atua rigorosamente para punir qualquer tipo de assédio.' },
@@ -496,12 +496,16 @@ export const INITIAL_WORKPLACES: Workplace[] = [
 ];
 
 export const INITIAL_JOB_POSITIONS: JobPosition[] = [
-  { id: 'porteiro', name: 'Porteiro(a)', category: 'Portaria e Vigilância' },
-  { id: 'asg', name: 'Auxiliar de Serviços Gerais', category: 'Limpeza e Conservação' },
-  { id: 'zelador', name: 'Zelador(a)', category: 'Manutenção e Conservação' },
-  { id: 'vigilante', name: 'Vigilante', category: 'Portaria e Vigilância' },
-  { id: 'recepcionista', name: 'Recepcionista', category: 'Atendimento' },
-  { id: 'administrativo', name: 'Auxiliar Administrativo', category: 'Administrativo' },
-  { id: 'supervisor', name: 'Supervisor(a) de Operações', category: 'Liderança Operacional' },
-  { id: 'jardineiro', name: 'Jardineiro(a)', category: 'Manutenção e Conservação' },
+  { id: 'asg', name: 'AUXILIAR DE SERVIÇOS GERAIS', category: 'Operacional' },
+  { id: 'auxiliar_administrativo', name: 'AUXILIAR ADMINISTRATIVO', category: 'Administrativo' },
+  { id: 'encarregada_limpeza', name: 'ENCARREGADA DE LIMPEZA', category: 'Liderança Operacional' },
+  { id: 'fiscal_piso', name: 'FISCAL DE PISO', category: 'Operacional' },
+  { id: 'lider_asg', name: 'LÍDER ASG', category: 'Liderança Operacional' },
+  { id: 'jardineiro', name: 'JARDINEIRO', category: 'Operacional' },
+  { id: 'porteiro', name: 'PORTEIRO', category: 'Operacional' },
+  { id: 'oficial_manutencao', name: 'OFICIAL DE MANUTENCAO', category: 'Operacional' },
+  { id: 'mensageiro', name: 'MENSAGEIRO', category: 'Operacional' },
+  { id: 'recepcionista', name: 'RECEPCIONISTA', category: 'Atendimento' },
+  { id: 'recepcionista_portaria', name: 'RECEPCIONISTA DE PORTARIA', category: 'Atendimento' },
+  { id: 'embraps_administrativo', name: 'EMBRAPS ADMINISTRATIVO', category: 'Administrativo' },
 ];

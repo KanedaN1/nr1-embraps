@@ -130,6 +130,12 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
     return matrix;
   }, [workplaceResponses]);
 
+  const activeJobPositions = useMemo(() => {
+    return INITIAL_JOB_POSITIONS.filter(job => 
+      workplaceResponses.some(r => r.jobPositionId === job.id)
+    );
+  }, [workplaceResponses]);
+
   // 4. Síntese de Conclusão Geral
   const riskSynthesis = useMemo(() => {
     let baixos = 0;
@@ -301,7 +307,7 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
               <thead>
                 <tr style={{ backgroundColor: '#002244', color: '#FFFFFF' }}>
                   <th style={{ padding: '0.75rem', textAlign: 'left', borderRight: '1px solid rgba(255,255,255,0.2)' }}>Fator / Cargo</th>
-                  {INITIAL_JOB_POSITIONS.map(job => (
+                  {activeJobPositions.map(job => (
                     <th key={job.id} style={{ padding: '0.6rem 0.4rem', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
                       <div>{job.name}</div>
                     </th>
@@ -314,7 +320,7 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
                     <td style={{ padding: '0.65rem 0.75rem', textAlign: 'left', fontWeight: 700, color: '#0F172A', borderRight: '1px solid #CBD5E1' }}>
                       {dim.name}
                     </td>
-                    {INITIAL_JOB_POSITIONS.map(job => {
+                    {activeJobPositions.map(job => {
                       const cell = cargoMatrix[dim.id][job.id] || { avg: 0, risk: 'Sem Dados' };
                       const st = cell.risk === 'Adequado' ? { bg: '#D1FAE5', text: '#065F46', label: 'Adequado' } :
                                  cell.risk === 'Moderado' ? { bg: '#FEF3C7', text: '#92400E', label: 'Moderado' } :
