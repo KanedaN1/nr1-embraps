@@ -352,6 +352,12 @@ body {
   justify-content: space-between;
 }
 
+@media (min-width: 769px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px), (max-width: 450px) {
   .hide-on-mobile {
     display: none !important;
@@ -359,7 +365,7 @@ body {
 
   .login-grid-container {
     display: flex !important;
-    flex-direction: column-reverse !important;
+    flex-direction: column !important;
   }
 
   .login-left-panel {

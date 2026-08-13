@@ -106,8 +106,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                 Sua voz constrói uma empresa mais segura e acolhedora. Responda com sinceridade às 40 questões do padrão internacional <strong>HSE</strong> / <strong>COPSOQ II</strong> para melhorarmos o ambiente nas nossas equipes.
               </p>
 
-              {/* Destaque de Segurança Anônima */}
+              {/* Destaque de Segurança Anônima (Escondido no mobile para aparecer depois do form) */}
               <div 
+                className="hide-on-mobile"
                 onClick={onOpenSecurityModal}
                 style={{
                   backgroundColor: '#F8FAFC',
@@ -238,6 +239,36 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                   {!isLoading && <ArrowRight size={20} />}
                 </button>
               </form>
+
+              {/* Destaque de Segurança Anônima (Visível apenas no mobile, abaixo do form) */}
+              <div 
+                className="hide-on-desktop"
+                onClick={onOpenSecurityModal}
+                style={{
+                  backgroundColor: '#F8FAFC',
+                  border: '1px solid #CBD5E1',
+                  borderRadius: '16px',
+                  padding: '1.15rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease',
+                  marginTop: '1.5rem'
+                }}
+              >
+                <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'center' }}>
+                  <div style={{ backgroundColor: '#D1FAE5', padding: '0.6rem', borderRadius: '12px', color: '#10B981', flexShrink: 0 }}>
+                    <Lock size={22} />
+                  </div>
+                  <div>
+                    <h4 style={{ color: '#002244', fontWeight: 700, fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                      Garantia de Sigilo Total (LGPD)
+                      <span style={{ fontSize: '0.75rem', color: '#0066CC', textDecoration: 'underline', fontWeight: 500 }}>Saiba mais</span>
+                    </h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '0.2rem' }}>
+                      Seu RE é usado <strong>somente para evitar duplicação</strong>. Suas respostas são 100% anônimas.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
 
             </div>
