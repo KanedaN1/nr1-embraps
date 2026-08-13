@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { db } from './lib/firebase';
+import { db, auth } from './lib/firebase';
 import { collection, getDocs, addDoc, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
+import { signOut } from 'firebase/auth';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LgpdModal } from './components/LgpdModal';
@@ -105,7 +106,12 @@ export const App: React.FC = () => {
   };
 
   // 2. Gerenciador de Logout
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (e) {
+      console.error("Erro ao fazer logout no Firebase:", e);
+    }
     setCurrentUser(null);
     setAppState('LOGIN');
   };

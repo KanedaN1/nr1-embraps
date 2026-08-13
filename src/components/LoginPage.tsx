@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Shield, Lock, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import type { CurrentUser } from '../types';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/firebase';
 
 interface LoginPageProps {
   onLogin: (user: CurrentUser) => void;
@@ -9,59 +11,62 @@ interface LoginPageProps {
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenSecurityModal }) => {
+  const [loginMode, setLoginMode] = useState<'RE' | 'ADMIN'>('RE');
+  
   const [identifier, setIdentifier] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
   const [errorMsg, setErrorMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleLoginSubmit = (e: React.FormEvent) => {
+  const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const cleanId = identifier.trim();
     setErrorMsg('');
     setSuccessMsg('');
 
-    if (!cleanId) {
-      setErrorMsg('Por favor, informe seu RE de matrícula ou usuário de acesso.');
-      return;
-    }
+    if (loginMode === 'RE') {
+      const cleanId = identifier.trim();
 
-    const lowerId = cleanId.toLowerCase();
+      if (!cleanId || !/^\d+$/.test(cleanId)) {
+        setErrorMsg('Por favor, informe apenas os números da sua matrícula (RE).');
+        return;
+      }
 
-    // 1. Acesso SESMT
-    if (lowerId === 'sesmt') {
-      onLogin({ identifier: 'SESMT', role: 'SESMT', name: 'Engenharia e Segurança (SESMT)' });
-      return;
-    }
-
-    // 2. Acesso Diretor
-    if (lowerId === 'diretor' || lowerId === 'diretoria') {
-      onLogin({ identifier: 'Diretor', role: 'DIRECTOR', name: 'Diretoria Executiva Embraps' });
-      return;
-    }
-
-    // 3. Acesso Admin
-    if (lowerId === 'admin' || lowerId === 'administrador') {
-      onLogin({ identifier: 'Admin', role: 'ADMIN', name: 'Administrador Geral' });
-      return;
-    }
-
-    // 4. Acesso TesteEmbraps
-    if (lowerId === 'testeembraps' || lowerId === 'teste') {
-      onLogin({ identifier: 'TesteEmbraps', role: 'TEST', name: 'Ambiente de Teste Embraps' });
-      return;
-    }
-
-    // 5. Verificação de RE (Colaborador regular da Embraps)
-    if (/^\d+$/.test(cleanId)) {
       if (reStatus[cleanId] === true) {
         setSuccessMsg(`O colaborador da matrícula RE "${cleanId}" já concluiu o questionário NR-1/PGR desta etapa! Agradecemos imensamente sua colaboração para o nosso ambiente de trabalho.`);
         return;
       }
 
       onLogin({ identifier: cleanId, role: 'COLLABORATOR', name: `Colaborador RE ${cleanId}` });
-      return;
-    }
+    } else {
+      if (!email || !password) {
+        setErrorMsg('Por favor, preencha e-mail e senha.');
+        return;
+      }
 
-    setErrorMsg('RE ou Usuário inválido. Digite apenas os números da sua matrícula (ex: 1006) ou o usuário de acesso.');
+      setIsLoading(true);
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const userEmail = userCredential.user.email?.toLowerCase() || '';
+        
+        if (userEmail.includes('admin')) {
+          onLogin({ identifier: 'Admin', role: 'ADMIN', name: 'Administrador Geral' });
+        } else if (userEmail.includes('diretor')) {
+          onLogin({ identifier: 'Diretor', role: 'DIRECTOR', name: 'Diretoria Executiva Embraps' });
+        } else if (userEmail.includes('sesmt')) {
+          onLogin({ identifier: 'SESMT', role: 'SESMT', name: 'Engenharia e Segurança (SESMT)' });
+        } else {
+          onLogin({ identifier: 'Admin', role: 'ADMIN', name: 'Gestor' });
+        }
+      } catch (error: any) {
+        console.error(error);
+        setErrorMsg('E-mail ou senha incorretos. Verifique suas credenciais no Firebase.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
   };
 
 
@@ -133,29 +138,81 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
 
             {/* Lado Direito: Formulário de Entrada */}
             <div className="login-right-panel">
+              {/* Abas de Navegação (Colaborador vs Gestão) */}
+              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', backgroundColor: '#F1F5F9', padding: '0.35rem', borderRadius: '12px' }}>
+                <button 
+                  type="button"
+                  onClick={() => { setLoginMode('RE'); setErrorMsg(''); setSuccessMsg(''); }}
+                  style={{ flex: 1, padding: '0.6rem', borderRadius: '8px', border: 'none', fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer', backgroundColor: loginMode === 'RE' ? '#FFFFFF' : 'transparent', color: loginMode === 'RE' ? '#0F172A' : '#64748B', boxShadow: loginMode === 'RE' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none', transition: 'all 0.2s' }}
+                >
+                  Sou Colaborador
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => { setLoginMode('ADMIN'); setErrorMsg(''); setSuccessMsg(''); }}
+                  style={{ flex: 1, padding: '0.6rem', borderRadius: '8px', border: 'none', fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer', backgroundColor: loginMode === 'ADMIN' ? '#FFFFFF' : 'transparent', color: loginMode === 'ADMIN' ? '#0F172A' : '#64748B', boxShadow: loginMode === 'ADMIN' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none', transition: 'all 0.2s' }}
+                >
+                  Acesso Gestão
+                </button>
+              </div>
+
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#002244', marginBottom: '0.4rem' }}>
-                Acesso à Plataforma
+                {loginMode === 'RE' ? 'Acesso à Avaliação' : 'Acesso Restrito'}
               </h3>
               <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1.5rem' }}>
-                Digite sua Matrícula (RE) ou usuário designado para prosseguir.
+                {loginMode === 'RE' ? 'Digite sua Matrícula (RE) para prosseguir.' : 'Insira seu e-mail e senha corporativos.'}
               </p>
 
               <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
-                <div>
-                  <label htmlFor="re-input" style={{ display: 'block', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
-                    Número de Matrícula (RE) / Usuário:
-                  </label>
-                  <input 
-                    id="re-input"
-                    type="text" 
-                    placeholder="Ex: 1006, SESMT, Diretor, TesteEmbraps..." 
-                    value={identifier}
-                    onChange={(e) => setIdentifier(e.target.value)}
-                    className="input-field"
-                    style={{ fontSize: '1.1rem', padding: '0.85rem 1rem', fontWeight: 600 }}
-                    autoFocus
-                  />
-                </div>
+                {loginMode === 'RE' ? (
+                  <div>
+                    <label htmlFor="re-input" style={{ display: 'block', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
+                      Número de Matrícula (RE):
+                    </label>
+                    <input 
+                      id="re-input"
+                      type="text" 
+                      placeholder="Ex: 1006" 
+                      value={identifier}
+                      onChange={(e) => setIdentifier(e.target.value)}
+                      className="input-field"
+                      style={{ fontSize: '1.1rem', padding: '0.85rem 1rem', fontWeight: 600 }}
+                      autoFocus
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <div>
+                      <label htmlFor="email-input" style={{ display: 'block', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
+                        E-mail Corporativo:
+                      </label>
+                      <input 
+                        id="email-input"
+                        type="email" 
+                        placeholder="admin@embraps.com" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="input-field"
+                        style={{ fontSize: '1rem', padding: '0.85rem 1rem', fontWeight: 500 }}
+                        autoFocus
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="password-input" style={{ display: 'block', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
+                        Senha:
+                      </label>
+                      <input 
+                        id="password-input"
+                        type="password" 
+                        placeholder="••••••••" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="input-field"
+                        style={{ fontSize: '1rem', padding: '0.85rem 1rem', fontWeight: 500 }}
+                      />
+                    </div>
+                  </>
+                )}
 
                 {errorMsg && (
                   <div className="animate-fade-in" style={{ backgroundColor: '#FEE2E2', border: '1px solid #EF4444', padding: '0.75rem', borderRadius: '10px', color: '#991B1B', fontSize: '0.85rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
@@ -173,11 +230,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
 
                 <button 
                   type="submit" 
+                  disabled={isLoading}
                   className="btn btn-primary" 
-                  style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', marginTop: '0.25rem' }}
+                  style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', marginTop: '0.25rem', opacity: isLoading ? 0.7 : 1 }}
                 >
-                  <span>Acessar Avaliação / Painel</span>
-                  <ArrowRight size={20} />
+                  <span>{isLoading ? 'Autenticando...' : (loginMode === 'RE' ? 'Acessar Avaliação' : 'Entrar no Painel')}</span>
+                  {!isLoading && <ArrowRight size={20} />}
                 </button>
               </form>
 
