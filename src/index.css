@@ -316,6 +316,13 @@ body {
   box-shadow: 0 20px 40px rgba(0, 34, 68, 0.12);
 }
 
+.login-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+}
+
 .questionnaire-page-wrapper {
   flex: 1;
   display: flex;
@@ -348,6 +355,11 @@ body {
 @media (max-width: 768px), (max-width: 450px) {
   .hide-on-mobile {
     display: none !important;
+  }
+
+  .login-grid-container {
+    display: flex !important;
+    flex-direction: column-reverse !important;
   }
 
   .login-left-panel {

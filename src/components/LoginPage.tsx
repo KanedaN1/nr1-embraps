@@ -77,7 +77,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
         {/* Card Principal - Glassmorphism Branco & Azul */}
         <div className="card setup-card">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+          <div className="login-grid-container">
             
             {/* Lado Esquerdo: Hero & Logo da Empresa */}
             <div className="login-left-panel">
