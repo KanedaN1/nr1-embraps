@@ -132,7 +132,7 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
           <div>
             <h3 style={{ color: '#002244', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>4. Seus Direitos</h3>
             <p>
-              Você tem o direito de solicitar informações sobre o tratamento de seus dados, e entrar em contato com o Encarregado de Proteção de Dados (DPO) da empresa a qualquer momento, conforme garantido pela LGPD.
+              Você tem o direito de solicitar informações sobre o tratamento de seus dados, e entrar em contato com o setor responsável da empresa a qualquer momento, conforme garantido pela LGPD.
             </p>
           </div>
 
