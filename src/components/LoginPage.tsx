@@ -190,7 +190,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                       <input 
                         id="email-input"
                         type="email" 
-                        placeholder="admin@embraps.com" 
+                        placeholder="Digite seu e-mail" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="input-field"
