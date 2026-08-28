@@ -11,7 +11,9 @@ interface LoginPageProps {
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenSecurityModal }) => {
-  const [loginMode, setLoginMode] = useState<'RE' | 'ADMIN'>('RE');
+  const [loginMode, setLoginMode] = useState<'RE' | 'ADMIN'>(() => {
+    return new URLSearchParams(window.location.search).get('admin') === 'true' ? 'ADMIN' : 'RE';
+  });
   
   const [identifier, setIdentifier] = useState('');
   const [email, setEmail] = useState('');
@@ -139,24 +141,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
 
             {/* Lado Direito: Formulário de Entrada */}
             <div className="login-right-panel">
-              {/* Abas de Navegação (Colaborador vs Gestão) */}
-              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', backgroundColor: '#F1F5F9', padding: '0.35rem', borderRadius: '12px' }}>
-                <button 
-                  type="button"
-                  onClick={() => { setLoginMode('RE'); setErrorMsg(''); setSuccessMsg(''); }}
-                  style={{ flex: 1, padding: '0.6rem', borderRadius: '8px', border: 'none', fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer', backgroundColor: loginMode === 'RE' ? '#FFFFFF' : 'transparent', color: loginMode === 'RE' ? '#0F172A' : '#64748B', boxShadow: loginMode === 'RE' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none', transition: 'all 0.2s' }}
-                >
-                  Sou Colaborador
-                </button>
-                <button 
-                  type="button"
-                  onClick={() => { setLoginMode('ADMIN'); setErrorMsg(''); setSuccessMsg(''); }}
-                  style={{ flex: 1, padding: '0.6rem', borderRadius: '8px', border: 'none', fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer', backgroundColor: loginMode === 'ADMIN' ? '#FFFFFF' : 'transparent', color: loginMode === 'ADMIN' ? '#0F172A' : '#64748B', boxShadow: loginMode === 'ADMIN' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none', transition: 'all 0.2s' }}
-                >
-                  Acesso Gestão
-                </button>
-              </div>
-
+              
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#002244', marginBottom: '0.4rem' }}>
                 {loginMode === 'RE' ? 'Acesso à Avaliação' : 'Acesso Restrito'}
               </h3>
