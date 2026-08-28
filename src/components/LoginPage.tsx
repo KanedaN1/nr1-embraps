@@ -11,7 +11,7 @@ interface LoginPageProps {
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenSecurityModal }) => {
-  const [loginMode, setLoginMode] = useState<'RE' | 'ADMIN'>(() => {
+  const [loginMode] = useState<'RE' | 'ADMIN'>(() => {
     return new URLSearchParams(window.location.search).get('admin') === 'true' ? 'ADMIN' : 'RE';
   });
   
