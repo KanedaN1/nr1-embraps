@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from './lib/firebase';
-import { collection, getDocs, addDoc, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -82,54 +82,62 @@ export const App: React.FC = () => {
     localStorage.setItem('embraps_hse_employees', JSON.stringify(employees));
   }, [employees]);
 
-  // Carregar Dados da Nuvem (Firebase Firestore) ao iniciar
+  // Escutar em Tempo Real (Cloud Push WebSocket) do Firebase Firestore
   useEffect(() => {
-    const fetchCloudData = async () => {
-      try {
-        // 1. Buscar Respostas dos Questionários do Firestore
-        const querySnapshot = await getDocs(collection(db, 'responses'));
-        if (!querySnapshot.empty) {
-          const cloudResponses: QuestionnaireResponse[] = [];
-          querySnapshot.forEach((docSnap) => {
-            cloudResponses.push(docSnap.data() as QuestionnaireResponse);
-          });
-          setResponses(cloudResponses);
-        }
-
-        // 2. Buscar Status dos REs do Firestore
-        const reDocRef = doc(db, 're_status', 'global_status');
-        const reDocSnap = await getDoc(reDocRef);
-        if (reDocSnap.exists()) {
-          setReStatus(reDocSnap.data() as Record<string, boolean>);
-        }
-
-        // 3. Buscar Status da Trava do Questionário
-        const lockDocRef = doc(db, 'settings', 'survey_control');
-        const lockDocSnap = await getDoc(lockDocRef);
-        if (lockDocSnap.exists()) {
-          setSurveyLocked(lockDocSnap.data().locked ?? false);
-        }
-
-        // 4. Buscar Base de Funcionários do Firestore
-        const empDocRef = doc(db, 'settings', 'employees_data');
-        const empDocSnap = await getDoc(empDocRef);
-        if (empDocSnap.exists() && Array.isArray(empDocSnap.data().employees)) {
-          setEmployees(empDocSnap.data().employees);
-        }
-      } catch (error) {
-        console.warn("Aviso: Não foi possível conectar ao Firebase Firestore (usando dados locais):", error);
+    // 1. Trava do Questionário em Tempo Real
+    const unsubLock = onSnapshot(doc(db, 'settings', 'survey_control'), (docSnap) => {
+      if (docSnap.exists()) {
+        setSurveyLocked(docSnap.data().locked ?? false);
       }
-    };
+    }, (error) => {
+      console.warn("Aviso ao escutar trava no Firestore:", error);
+    });
 
-    fetchCloudData();
+    // 2. Status dos REs em Tempo Real
+    const unsubRe = onSnapshot(doc(db, 're_status', 'global_status'), (docSnap) => {
+      if (docSnap.exists()) {
+        setReStatus(docSnap.data() as Record<string, boolean>);
+      }
+    }, (error) => {
+      console.warn("Aviso ao escutar status de REs no Firestore:", error);
+    });
+
+    // 3. Base de Colaboradores em Tempo Real
+    const unsubEmp = onSnapshot(doc(db, 'settings', 'employees_data'), (docSnap) => {
+      if (docSnap.exists() && Array.isArray(docSnap.data().employees)) {
+        setEmployees(docSnap.data().employees);
+      }
+    }, (error) => {
+      console.warn("Aviso ao escutar colaboradores no Firestore:", error);
+    });
+
+    // 4. Respostas dos Questionários em Tempo Real
+    const unsubResponses = onSnapshot(collection(db, 'responses'), (querySnapshot) => {
+      if (!querySnapshot.empty) {
+        const cloudResponses: QuestionnaireResponse[] = [];
+        querySnapshot.forEach((docSnap) => {
+          cloudResponses.push(docSnap.data() as QuestionnaireResponse);
+        });
+        setResponses(cloudResponses);
+      }
+    }, (error) => {
+      console.warn("Aviso ao escutar respostas no Firestore:", error);
+    });
+
+    return () => {
+      unsubLock();
+      unsubRe();
+      unsubEmp();
+      unsubResponses();
+    };
   }, []);
 
-  // Alternar Trava do Questionário (Admin / SESMT)
+  // Alternar Trava do Questionário (Admin / SESMT) com sincronização em nuvem
   const handleToggleLock = async () => {
     const newLocked = !surveyLocked;
     setSurveyLocked(newLocked);
     try {
-      await setDoc(doc(db, 'settings', 'survey_control'), { locked: newLocked });
+      await setDoc(doc(db, 'settings', 'survey_control'), { locked: newLocked }, { merge: true });
     } catch (e) {
       console.error("Erro ao atualizar trava no Firebase Firestore:", e);
     }
@@ -139,11 +147,12 @@ export const App: React.FC = () => {
   const handleImportEmployees = async (newEmps: Employee[]) => {
     setEmployees(newEmps);
     try {
-      await setDoc(doc(db, 'settings', 'employees_data'), { employees: newEmps });
+      await setDoc(doc(db, 'settings', 'employees_data'), { employees: newEmps }, { merge: true });
     } catch (e) {
       console.error("Erro ao salvar colaboradores no Firebase Firestore:", e);
     }
   };
+
 
   // Scroll to top upon navigation
   useEffect(() => {

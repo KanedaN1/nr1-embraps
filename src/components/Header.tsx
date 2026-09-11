@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <div>
             <h1 style={{ fontSize: '1.3rem', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              EMBRAPS / RM QUARESMA
+              EMBRAPS
             </h1>
             <p style={{ fontSize: '0.75rem', color: '#EBF5FF', opacity: 0.9, fontWeight: 400 }}>
               Gestão de Riscos Ocupacionais • NR-1 / PGR
