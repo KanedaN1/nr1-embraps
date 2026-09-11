@@ -1,15 +1,19 @@
 import React from 'react';
-import { LogOut } from 'lucide-react';
+import { LogOut, Lock, Unlock } from 'lucide-react';
 import type { CurrentUser } from '../types';
 
 interface HeaderProps {
   currentUser: CurrentUser | null;
   onLogout: () => void;
+  surveyLocked?: boolean;
+  onToggleLock?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   currentUser, 
-  onLogout 
+  onLogout,
+  surveyLocked = false,
+  onToggleLock
 }) => {
   return (
     <header style={{ 
@@ -55,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <div>
             <h1 style={{ fontSize: '1.3rem', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              EMBRAPS
+              EMBRAPS / RM QUARESMA
             </h1>
             <p style={{ fontSize: '0.75rem', color: '#EBF5FF', opacity: 0.9, fontWeight: 400 }}>
               Gestão de Riscos Ocupacionais • NR-1 / PGR
@@ -63,9 +67,36 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* User Info & Logout */}
+        {/* User Info & Actions */}
         {currentUser ? (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            
+            {/* Botão de Trava de Questionário para ADMIN e SESMT */}
+            {(currentUser.role === 'ADMIN' || currentUser.role === 'SESMT') && onToggleLock && (
+              <button
+                onClick={onToggleLock}
+                style={{
+                  backgroundColor: surveyLocked ? '#EF4444' : '#10B981',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  padding: '0.5rem 0.85rem',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                  transition: 'all 0.2s ease'
+                }}
+                title={surveyLocked ? "Clique para destravar o questionário" : "Clique para travar o questionário"}
+              >
+                {surveyLocked ? <Lock size={15} /> : <Unlock size={15} />}
+                <span>{surveyLocked ? 'Questionário Bloqueado' : 'Questionário Liberado'}</span>
+              </button>
+            )}
+
             <button 
               onClick={onLogout} 
               style={{
@@ -93,3 +124,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

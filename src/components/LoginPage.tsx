@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Shield, Lock, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
-import type { CurrentUser } from '../types';
+import { Shield, Lock, ArrowRight, CheckCircle2, AlertCircle, Calendar } from 'lucide-react';
+import type { CurrentUser, Employee } from '../types';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 
@@ -8,14 +8,23 @@ interface LoginPageProps {
   onLogin: (user: CurrentUser) => void;
   reStatus: Record<string, boolean>;
   onOpenSecurityModal: () => void;
+  surveyLocked?: boolean;
+  employees: Employee[];
 }
 
-export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenSecurityModal }) => {
+export const LoginPage: React.FC<LoginPageProps> = ({ 
+  onLogin, 
+  reStatus, 
+  onOpenSecurityModal,
+  surveyLocked = false,
+  employees
+}) => {
   const [loginMode] = useState<'RE' | 'ADMIN'>(() => {
     return new URLSearchParams(window.location.search).get('admin') === 'true' ? 'ADMIN' : 'RE';
   });
   
   const [identifier, setIdentifier] = useState('');
+  const [birthYear, setBirthYear] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
@@ -29,10 +38,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
     setSuccessMsg('');
 
     if (loginMode === 'RE') {
+      if (surveyLocked) {
+        setErrorMsg('O período do questionário está finalizado. Agradecemos a participação de todos!');
+        return;
+      }
+
       const cleanId = identifier.trim();
+      const cleanBirth = birthYear.trim();
 
       if (!cleanId || !/^\d+$/.test(cleanId)) {
         setErrorMsg('Por favor, informe apenas os números da sua matrícula (RE).');
+        return;
+      }
+
+      if (!cleanBirth || !/^\d{2,4}$/.test(cleanBirth)) {
+        setErrorMsg('Por favor, informe o seu ano de nascimento (ex: 1988).');
         return;
       }
 
@@ -41,7 +61,25 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
         return;
       }
 
-      onLogin({ identifier: cleanId, role: 'COLLABORATOR', name: `Colaborador RE ${cleanId}` });
+      // Buscar colaborador na base de dados
+      const emp = employees.find(e => {
+        const isReMatch = e.re === cleanId;
+        const isYearMatch = e.birthYear === cleanBirth || e.birthYear.slice(-2) === cleanBirth;
+        return isReMatch && isYearMatch;
+      });
+
+      if (!emp) {
+        setErrorMsg('Matrícula (RE) ou Ano de Nascimento não encontrados. Por favor, verifique os dados preenchidos.');
+        return;
+      }
+
+      onLogin({ 
+        identifier: cleanId, 
+        role: 'COLLABORATOR', 
+        name: emp.name,
+        company: emp.company,
+        employee: emp
+      });
     } else {
       if (!email || !password) {
         setErrorMsg('Por favor, preencha e-mail e senha.');
@@ -131,7 +169,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                       <span style={{ fontSize: '0.75rem', color: '#0066CC', textDecoration: 'underline', fontWeight: 500 }}>Saiba mais</span>
                     </h4>
                     <p style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '0.2rem' }}>
-                      Seu RE é usado <strong>somente para evitar duplicação</strong>. Suas respostas são 100% anônimas.
+                      Seu RE e Ano de Nascimento são usados <strong>somente para validação</strong>. Suas respostas são 100% anônimas.
                     </p>
                   </div>
                 </div>
@@ -146,26 +184,53 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                 {loginMode === 'RE' ? 'Acesso à Avaliação' : 'Acesso Restrito'}
               </h3>
               <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1.5rem' }}>
-                {loginMode === 'RE' ? 'Digite sua Matrícula (RE) para prosseguir.' : 'Insira seu e-mail e senha corporativos.'}
+                {loginMode === 'RE' ? 'Informe seu RE e Ano de Nascimento para prosseguir.' : 'Insira seu e-mail e senha corporativos.'}
               </p>
+
+              {surveyLocked && loginMode === 'RE' && (
+                <div className="animate-fade-in" style={{ backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', padding: '1rem', borderRadius: '12px', color: '#991B1B', marginBottom: '1.25rem', textAlign: 'center', fontWeight: 700, fontSize: '0.9rem' }}>
+                  🔒 O período do questionário está finalizado.
+                </div>
+              )}
 
               <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
                 {loginMode === 'RE' ? (
-                  <div>
-                    <label htmlFor="re-input" style={{ display: 'block', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
-                      Número de Matrícula (RE):
-                    </label>
-                    <input 
-                      id="re-input"
-                      type="text" 
-                      placeholder="Ex: 1006" 
-                      value={identifier}
-                      onChange={(e) => setIdentifier(e.target.value)}
-                      className="input-field"
-                      style={{ fontSize: '1.1rem', padding: '0.85rem 1rem', fontWeight: 600 }}
-                      autoFocus
-                    />
-                  </div>
+                  <>
+                    <div>
+                      <label htmlFor="re-input" style={{ display: 'block', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
+                        Número de Matrícula (RE):
+                      </label>
+                      <input 
+                        id="re-input"
+                        type="text" 
+                        placeholder="Ex: 1001" 
+                        value={identifier}
+                        onChange={(e) => setIdentifier(e.target.value)}
+                        className="input-field"
+                        style={{ fontSize: '1.1rem', padding: '0.85rem 1rem', fontWeight: 600 }}
+                        disabled={surveyLocked}
+                        autoFocus
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="birthyear-input" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600, fontSize: '0.9rem', color: '#334155', marginBottom: '0.4rem' }}>
+                        <Calendar size={16} color="#0066CC" />
+                        <span>Ano de Nascimento:</span>
+                      </label>
+                      <input 
+                        id="birthyear-input"
+                        type="text" 
+                        placeholder="Ex: 1988" 
+                        maxLength={4}
+                        value={birthYear}
+                        onChange={(e) => setBirthYear(e.target.value)}
+                        className="input-field"
+                        style={{ fontSize: '1.1rem', padding: '0.85rem 1rem', fontWeight: 600 }}
+                        disabled={surveyLocked}
+                      />
+                    </div>
+                  </>
                 ) : (
                   <>
                     <div>
@@ -216,9 +281,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
 
                 <button 
                   type="submit" 
-                  disabled={isLoading}
+                  disabled={isLoading || (loginMode === 'RE' && surveyLocked)}
                   className="btn btn-primary" 
-                  style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', marginTop: '0.25rem', opacity: isLoading ? 0.7 : 1 }}
+                  style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', marginTop: '0.25rem', opacity: (isLoading || (loginMode === 'RE' && surveyLocked)) ? 0.7 : 1 }}
                 >
                   <span>{isLoading ? 'Autenticando...' : (loginMode === 'RE' ? 'Acessar Avaliação' : 'Entrar no Painel')}</span>
                   {!isLoading && <ArrowRight size={20} />}
@@ -249,7 +314,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
                       <span style={{ fontSize: '0.75rem', color: '#0066CC', textDecoration: 'underline', fontWeight: 500 }}>Saiba mais</span>
                     </h4>
                     <p style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '0.2rem' }}>
-                      Seu RE é usado <strong>somente para evitar duplicação</strong>. Suas respostas são 100% anônimas.
+                      Seu RE e Ano de Nascimento são usados <strong>somente para validação</strong>. Suas respostas são 100% anônimas.
                     </p>
                   </div>
                 </div>
@@ -266,3 +331,4 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, reStatus, onOpenS
     </div>
   );
 };
+

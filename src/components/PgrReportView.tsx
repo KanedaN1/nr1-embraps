@@ -1,17 +1,19 @@
 import React, { useMemo } from 'react';
 import { ArrowLeft, Printer } from 'lucide-react';
-import type { Workplace, QuestionnaireResponse, DimensionId } from '../types';
+import type { Workplace, QuestionnaireResponse, DimensionId, Employee } from '../types';
 import { DIMENSIONS, INITIAL_JOB_POSITIONS } from '../data/hseQuestions';
 
 interface PgrReportViewProps {
   workplace: Workplace;
   responses: QuestionnaireResponse[];
+  employees?: Employee[];
   onClose: () => void;
 }
 
 export const PgrReportView: React.FC<PgrReportViewProps> = ({ 
   workplace, 
   responses, 
+  employees = [],
   onClose 
 }) => {
   const currentDateFormatted = useMemo(() => {
@@ -22,13 +24,42 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
     });
   }, []);
 
-  // 1. Filtro de Respostas por Posto de Trabalho (ou Todas se for visão corporativa)
+  // Determinar EmpresaAlvo baseada no ID do relatório
+  const isEmbrapsReport = workplace.id === 'ALL_CARGOS_EMBRAPS';
+  const isRmReport = workplace.id === 'ALL_CARGOS_RM_QUARESMA';
+
+  const companyName = isRmReport 
+    ? 'RM QUARESMA SERVIÇOS E GESTÃO' 
+    : 'EMBRAPS GESTÃO DE OPERAÇÕES';
+
+  const companyCnpj = isRmReport 
+    ? '33.890.123/0001-77' 
+    : '04.839.201/0001-44';
+
+  // 1. Filtro de Respostas por Posto de Trabalho ou por CNPJ
   const workplaceResponses = useMemo(() => {
-    if (workplace.id === 'ALL_CARGOS') return responses;
+    if (workplace.id === 'ALL_CARGOS_EMBRAPS') {
+      return responses.filter(r => (r.company || 'EMBRAPS') === 'EMBRAPS');
+    }
+    if (workplace.id === 'ALL_CARGOS_RM_QUARESMA') {
+      return responses.filter(r => r.company === 'RM QUARESMA');
+    }
+    if (workplace.id === 'ALL_CARGOS') {
+      return responses;
+    }
     return responses.filter(r => r.workplaceId === workplace.id);
   }, [responses, workplace.id]);
 
   const totalParticipants = workplaceResponses.length;
+
+  const companyEmployeesCount = useMemo(() => {
+    if (isRmReport) return employees.filter(e => e.company === 'RM QUARESMA').length || 100;
+    if (isEmbrapsReport) return employees.filter(e => e.company === 'EMBRAPS').length || 100;
+    return employees.length || 2000;
+  }, [employees, isRmReport, isEmbrapsReport]);
+
+  const target80Count = Math.ceil(companyEmployeesCount * 0.8);
+
 
   // 2. Média por Dimensão no Posto
   const dimensionStats = useMemo(() => {
@@ -234,14 +265,14 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
           <div style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '1.25rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', fontSize: '0.95rem' }}>
             <div>
               <strong style={{ color: '#475569', display: 'block', fontSize: '0.8rem', textTransform: 'uppercase' }}>Empresa / Razão Social:</strong>
-              <span style={{ color: '#0F172A', fontWeight: 700 }}>EMBRAPS Gestão de Operações</span>
+              <span style={{ color: '#0F172A', fontWeight: 700 }}>{companyName}</span>
             </div>
             <div>
               <strong style={{ color: '#475569', display: 'block', fontSize: '0.8rem', textTransform: 'uppercase' }}>CNPJ Operacional:</strong>
-              <span style={{ color: '#0F172A', fontWeight: 600 }}>04.839.201/0001-44</span>
+              <span style={{ color: '#0F172A', fontWeight: 600 }}>{companyCnpj}</span>
             </div>
             <div>
-              <strong style={{ color: '#475569', display: 'block', fontSize: '0.8rem', textTransform: 'uppercase' }}>Unidade / Posto de Trabalho:</strong>
+              <strong style={{ color: '#475569', display: 'block', fontSize: '0.8rem', textTransform: 'uppercase' }}>Unidade / Escopo:</strong>
               <span style={{ color: '#0066CC', fontWeight: 800 }}>{workplace.name}</span>
             </div>
             <div>
@@ -249,11 +280,14 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
               <span style={{ color: '#0F172A', fontWeight: 700 }}>{totalParticipants} colaboradores</span>
             </div>
             <div>
-              <strong style={{ color: '#475569', display: 'block', fontSize: '0.8rem', textTransform: 'uppercase' }}>Cobertura / Adesão Estimada:</strong>
-              <span style={{ color: '#10B981', fontWeight: 700 }}>94,5% do efetivo ativo</span>
+              <strong style={{ color: '#475569', display: 'block', fontSize: '0.8rem', textTransform: 'uppercase' }}>Meta Regulatória de Amostragem:</strong>
+              <span style={{ color: totalParticipants >= target80Count ? '#10B981' : '#F59E0B', fontWeight: 700 }}>
+                {totalParticipants >= target80Count ? `✅ Conformidade (80%+ atingido)` : `Meta 80% (${target80Count} resp.)`}
+              </span>
             </div>
           </div>
         </section>
+
 
         {/* 2. OBJETIVO */}
         <section style={{ marginBottom: '2rem' }}>

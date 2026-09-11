@@ -1,5 +1,16 @@
 export type UserRole = 'COLLABORATOR' | 'SESMT' | 'DIRECTOR' | 'ADMIN' | 'TEST';
 
+export type CompanyCNPJ = 'EMBRAPS' | 'RM QUARESMA';
+
+export interface Employee {
+  re: string;
+  name: string;
+  birthYear: string;
+  workplace: string;
+  company: CompanyCNPJ;
+  jobPosition: string;
+}
+
 export type DimensionId = 
   | 'demands'       // Demandas
   | 'control'       // Controle
@@ -51,6 +62,7 @@ export interface QuestionnaireResponse {
   jobPositionId: string;
   workplaceName: string;
   jobPositionName: string;
+  company?: CompanyCNPJ; // EMBRAPS ou RM QUARESMA
   answers: Record<number, number>; // questionId -> score (1 to 5)
   dimensionScores: Record<DimensionId, number>; // dimensionId -> average score
   totalAverage: number;
@@ -62,4 +74,7 @@ export interface CurrentUser {
   identifier: string; // RE ou nome de usuário (ex: "1001", "SESMT", "Diretor")
   role: UserRole;
   name?: string;
+  company?: CompanyCNPJ;
+  employee?: Employee;
 }
+

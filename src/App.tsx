@@ -17,10 +17,12 @@ import type {
   Workplace, 
   JobPosition, 
   DimensionId, 
-  QuestionnaireResponse 
+  QuestionnaireResponse,
+  Employee 
 } from './types';
 import { INITIAL_RE_STATUS } from './data/mockData';
 import { INITIAL_WORKPLACES, INITIAL_JOB_POSITIONS } from './data/hseQuestions';
+import { INITIAL_EMPLOYEES } from './data/mockEmployees';
 import './index.css';
 
 type AppState = 'LOGIN' | 'SETUP' | 'QUESTIONNAIRE' | 'SUCCESS' | 'DASHBOARD' | 'REPORT';
@@ -31,14 +33,24 @@ export const App: React.FC = () => {
   const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
 
+  // Estado da Trava do Questionário (Bloqueio Global)
+  const [surveyLocked, setSurveyLocked] = useState<boolean>(() => {
+    const saved = localStorage.getItem('embraps_hse_survey_locked');
+    return saved ? JSON.parse(saved) : false;
+  });
 
+  // Estado da Base Cadastral de Colaboradores (RE + Ano Nascimento + Posto + Empresa + Cargo)
+  const [employees, setEmployees] = useState<Employee[]>(() => {
+    const saved = localStorage.getItem('embraps_hse_employees');
+    return saved ? JSON.parse(saved) : INITIAL_EMPLOYEES;
+  });
 
   // Estado para os Setores e Cargos selecionados durante o fluxo do questionário
   const [selectedWorkplace, setSelectedWorkplace] = useState<Workplace>(INITIAL_WORKPLACES[0]);
   const [selectedJob, setSelectedJob] = useState<JobPosition>(INITIAL_JOB_POSITIONS[0]);
   const [lastTotalAverage, setLastTotalAverage] = useState<number>(0);
 
-  // Estado para qual Posto está sendo gerado o Relatório Oficial PGR / NR-1
+  // Estado para qual Posto ou CNPJ está sendo gerado o Relatório Oficial PGR / NR-1
   const [reportWorkplaceId, setReportWorkplaceId] = useState<string>(INITIAL_WORKPLACES[0].id);
 
   // Banco de Dados no Firebase Firestore com Fallback no LocalStorage
@@ -62,6 +74,14 @@ export const App: React.FC = () => {
     localStorage.setItem('embraps_hse_re_status', JSON.stringify(reStatus));
   }, [reStatus]);
 
+  useEffect(() => {
+    localStorage.setItem('embraps_hse_survey_locked', JSON.stringify(surveyLocked));
+  }, [surveyLocked]);
+
+  useEffect(() => {
+    localStorage.setItem('embraps_hse_employees', JSON.stringify(employees));
+  }, [employees]);
+
   // Carregar Dados da Nuvem (Firebase Firestore) ao iniciar
   useEffect(() => {
     const fetchCloudData = async () => {
@@ -82,6 +102,20 @@ export const App: React.FC = () => {
         if (reDocSnap.exists()) {
           setReStatus(reDocSnap.data() as Record<string, boolean>);
         }
+
+        // 3. Buscar Status da Trava do Questionário
+        const lockDocRef = doc(db, 'settings', 'survey_control');
+        const lockDocSnap = await getDoc(lockDocRef);
+        if (lockDocSnap.exists()) {
+          setSurveyLocked(lockDocSnap.data().locked ?? false);
+        }
+
+        // 4. Buscar Base de Funcionários do Firestore
+        const empDocRef = doc(db, 'settings', 'employees_data');
+        const empDocSnap = await getDoc(empDocRef);
+        if (empDocSnap.exists() && Array.isArray(empDocSnap.data().employees)) {
+          setEmployees(empDocSnap.data().employees);
+        }
       } catch (error) {
         console.warn("Aviso: Não foi possível conectar ao Firebase Firestore (usando dados locais):", error);
       }
@@ -89,6 +123,27 @@ export const App: React.FC = () => {
 
     fetchCloudData();
   }, []);
+
+  // Alternar Trava do Questionário (Admin / SESMT)
+  const handleToggleLock = async () => {
+    const newLocked = !surveyLocked;
+    setSurveyLocked(newLocked);
+    try {
+      await setDoc(doc(db, 'settings', 'survey_control'), { locked: newLocked });
+    } catch (e) {
+      console.error("Erro ao atualizar trava no Firebase Firestore:", e);
+    }
+  };
+
+  // Atualizar Lista de Colaboradores (Importação pelo Admin)
+  const handleImportEmployees = async (newEmps: Employee[]) => {
+    setEmployees(newEmps);
+    try {
+      await setDoc(doc(db, 'settings', 'employees_data'), { employees: newEmps });
+    } catch (e) {
+      console.error("Erro ao salvar colaboradores no Firebase Firestore:", e);
+    }
+  };
 
   // Scroll to top upon navigation
   useEffect(() => {
@@ -100,6 +155,28 @@ export const App: React.FC = () => {
     setCurrentUser(user);
     if (user.role === 'SESMT' || user.role === 'DIRECTOR' || user.role === 'ADMIN') {
       setAppState('DASHBOARD');
+    } else if (user.role === 'COLLABORATOR' && user.employee) {
+      // Direcionamento direto para o questionário com os dados cadastrados!
+      const emp = user.employee;
+      const matchedWp = INITIAL_WORKPLACES.find(
+        w => w.name.trim().toLowerCase() === emp.workplace.trim().toLowerCase()
+      ) || {
+        id: `wp-${emp.workplace.toLowerCase().replace(/\s+/g, '-')}`,
+        name: emp.workplace,
+        code: 'P000'
+      };
+
+      const matchedJob = INITIAL_JOB_POSITIONS.find(
+        j => j.name.trim().toLowerCase() === emp.jobPosition.trim().toLowerCase()
+      ) || {
+        id: `job-${emp.jobPosition.toLowerCase().replace(/\s+/g, '-')}`,
+        name: emp.jobPosition,
+        category: 'Operacional'
+      };
+
+      setSelectedWorkplace(matchedWp);
+      setSelectedJob(matchedJob);
+      setAppState('QUESTIONNAIRE');
     } else {
       setAppState('SETUP');
     }
@@ -116,7 +193,7 @@ export const App: React.FC = () => {
     setAppState('LOGIN');
   };
 
-  // 3. Iniciar Questionário (após selecionar Posto e Cargo)
+  // 3. Iniciar Questionário (caso seletor manual seja usado)
   const handleStartQuestionnaire = (workplace: Workplace, jobPosition: JobPosition) => {
     setSelectedWorkplace(workplace);
     setSelectedJob(jobPosition);
@@ -131,7 +208,9 @@ export const App: React.FC = () => {
   ) => {
     setLastTotalAverage(totalAverage);
 
-    // Salva a resposta de forma ANÔNIMA (nenhum vínculo ao RE ou currentUser.identifier)
+    const userCompany = currentUser?.company || currentUser?.employee?.company || 'EMBRAPS';
+
+    // Salva a resposta de forma ANÔNIMA vinculada ao Posto, Cargo e CNPJ
     const newResponse: QuestionnaireResponse = {
       id: `resp-live-${Date.now()}`,
       timestamp: new Date().toISOString(),
@@ -139,6 +218,7 @@ export const App: React.FC = () => {
       workplaceName: selectedWorkplace.name,
       jobPositionId: selectedJob.id,
       jobPositionName: selectedJob.name,
+      company: userCompany,
       answers,
       dimensionScores,
       totalAverage,
@@ -174,7 +254,7 @@ export const App: React.FC = () => {
     setAppState('SUCCESS');
   };
 
-  // 5. Refazer Teste (Disponível apenas para TesteEmbraps ou Admin)
+  // 5. Refazer Teste (Disponível apenas para Admin ou Teste)
   const handleRestartTest = () => {
     setAppState('SETUP');
   };
@@ -190,9 +270,9 @@ export const App: React.FC = () => {
     }
   };
 
-  // 6. Abrir Relatório Oficial PGR / NR-1 para um Posto Específico
-  const handleOpenReport = (workplaceId: string) => {
-    setReportWorkplaceId(workplaceId);
+  // 7. Abrir Relatório Oficial PGR / NR-1
+  const handleOpenReport = (targetId: string) => {
+    setReportWorkplaceId(targetId);
     setAppState('REPORT');
   };
 
@@ -205,6 +285,8 @@ export const App: React.FC = () => {
             onLogin={handleLogin}
             reStatus={reStatus}
             onOpenSecurityModal={() => setIsSecurityModalOpen(true)}
+            surveyLocked={surveyLocked}
+            employees={employees}
           />
         )}
 
@@ -241,23 +323,32 @@ export const App: React.FC = () => {
             onNavigateToQuestionnaire={currentUser.role === 'ADMIN' ? () => setAppState('SETUP') : undefined}
             onOpenReport={handleOpenReport}
             onDeleteResponse={handleDeleteResponse}
+            surveyLocked={surveyLocked}
+            onToggleLock={handleToggleLock}
+            employees={employees}
+            onImportEmployees={handleImportEmployees}
           />
         )}
 
         {appState === 'REPORT' && (
           <PgrReportView 
             workplace={
-              reportWorkplaceId === 'ALL_CARGOS' 
-                ? { id: 'ALL_CARGOS', name: 'Relatório Geral (Todos os Postos e Cargos)', code: 'ALL' } 
+              reportWorkplaceId === 'ALL_CARGOS_EMBRAPS' 
+                ? { id: 'ALL_CARGOS_EMBRAPS', name: 'Relatório Geral de Cargos — EMBRAPS', code: 'EMBRAPS' } 
+                : reportWorkplaceId === 'ALL_CARGOS_RM_QUARESMA'
+                ? { id: 'ALL_CARGOS_RM_QUARESMA', name: 'Relatório Geral de Cargos — RM QUARESMA', code: 'RM_QUARESMA' }
+                : reportWorkplaceId === 'ALL_CARGOS'
+                ? { id: 'ALL_CARGOS', name: 'Relatório Geral (Todos os Postos e Cargos)', code: 'ALL' }
                 : INITIAL_WORKPLACES.find(w => w.id === reportWorkplaceId) || INITIAL_WORKPLACES[0]
             }
             responses={responses}
+            employees={employees}
             onClose={() => setAppState('DASHBOARD')}
           />
         )}
       </main>
 
-      {/* Footer com Respaldo Jurídico e LGPD (Oculto na Impressão do Relatório PDF) */}
+      {/* Footer com Respaldo Jurídico e LGPD */}
       <div className="no-print">
         <Footer 
           onOpenSecurityModal={() => setIsSecurityModalOpen(true)}
@@ -270,11 +361,13 @@ export const App: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
       
-      {/* Header com Branding Embraps (Logo Oficial) e Selo de Anonimato LGPD (Oculto na Impressão do Relatório PDF) */}
+      {/* Header com Branding Embraps / RM Quaresma e Trava de Questionário */}
       <div className="no-print">
         <Header 
           currentUser={currentUser}
           onLogout={handleLogout}
+          surveyLocked={surveyLocked}
+          onToggleLock={handleToggleLock}
         />
       </div>
 
@@ -286,14 +379,17 @@ export const App: React.FC = () => {
         onClose={() => setIsSecurityModalOpen(false)}
       />
 
-      {/* Modal da Política de Privacidade */}
       <PrivacyPolicyModal 
         isOpen={isPrivacyPolicyOpen}
         onClose={() => setIsPrivacyPolicyOpen(false)}
       />
+
 
     </div>
   );
 };
 
 export default App;
+
+
+
