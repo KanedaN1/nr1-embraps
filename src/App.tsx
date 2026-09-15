@@ -42,7 +42,17 @@ export const App: React.FC = () => {
   // Estado da Base Cadastral de Colaboradores (RE + Ano Nascimento + Posto + Empresa + Cargo)
   const [employees, setEmployees] = useState<Employee[]>(() => {
     const saved = localStorage.getItem('embraps_hse_employees');
-    return saved ? JSON.parse(saved) : INITIAL_EMPLOYEES;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= INITIAL_EMPLOYEES.length) {
+          return parsed;
+        }
+      } catch (e) {
+        console.warn("Aviso ao ler colaboradores do localStorage:", e);
+      }
+    }
+    return INITIAL_EMPLOYEES;
   });
 
   // Estado para os Setores e Cargos selecionados durante o fluxo do questionário
@@ -105,7 +115,10 @@ export const App: React.FC = () => {
     // 3. Base de Colaboradores em Tempo Real
     const unsubEmp = onSnapshot(doc(db, 'settings', 'employees_data'), (docSnap) => {
       if (docSnap.exists() && Array.isArray(docSnap.data().employees)) {
-        setEmployees(docSnap.data().employees);
+        const cloudEmps = docSnap.data().employees;
+        if (cloudEmps.length >= INITIAL_EMPLOYEES.length) {
+          setEmployees(cloudEmps);
+        }
       }
     }, (error) => {
       console.warn("Aviso ao escutar colaboradores no Firestore:", error);
