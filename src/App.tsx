@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from './lib/firebase';
-import { collection, addDoc, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
+import { collection, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -100,7 +100,11 @@ export const App: React.FC = () => {
     const unsubResponses = onSnapshot(collection(db, 'responses'), (querySnapshot) => {
       const cloudResponses: QuestionnaireResponse[] = [];
       querySnapshot.forEach((docSnap) => {
-        cloudResponses.push(docSnap.data() as QuestionnaireResponse);
+        const data = docSnap.data() as QuestionnaireResponse;
+        cloudResponses.push({
+          ...data,
+          id: docSnap.id
+        });
       });
       setResponses(cloudResponses);
     }, (error) => {
@@ -123,6 +127,8 @@ export const App: React.FC = () => {
       await setDoc(doc(db, 'settings', 'survey_control'), { locked: newLocked }, { merge: true });
     } catch (e) {
       console.error("Erro ao atualizar trava no Firebase Firestore:", e);
+      setSurveyLocked(!newLocked);
+      alert("Não foi possível alterar a trava no banco de dados. Verifique sua conexão.");
     }
   };
 
@@ -198,6 +204,11 @@ export const App: React.FC = () => {
     totalAverage: number, 
     answers: Record<number, number>
   ) => {
+    if (surveyLocked) {
+      alert("O período do questionário foi bloqueado pela administração e não aceita novos envios.");
+      return;
+    }
+
     setLastTotalAverage(totalAverage);
 
     const userCompany = currentUser?.company || currentUser?.employee?.company || 'EMBRAPS';
@@ -220,9 +231,9 @@ export const App: React.FC = () => {
     // Atualiza estado local
     setResponses(prev => [newResponse, ...prev]);
 
-    // Envia resposta anônima para a nuvem (Firebase Firestore)
+    // Envia resposta anônima para a nuvem usando setDoc com o ID do documento explícito
     try {
-      await addDoc(collection(db, 'responses'), newResponse);
+      await setDoc(doc(db, 'responses', newResponse.id), newResponse);
     } catch (e) {
       console.error("Erro ao enviar resposta para o Firebase Firestore:", e);
     }
@@ -286,6 +297,7 @@ export const App: React.FC = () => {
           <QuestionnaireSetup 
             currentUser={currentUser}
             onStartQuestionnaire={handleStartQuestionnaire}
+            surveyLocked={surveyLocked}
           />
         )}
 
@@ -294,6 +306,7 @@ export const App: React.FC = () => {
             workplace={selectedWorkplace}
             jobPosition={selectedJob}
             onComplete={handleQuestionnaireComplete}
+            surveyLocked={surveyLocked}
           />
         )}
 

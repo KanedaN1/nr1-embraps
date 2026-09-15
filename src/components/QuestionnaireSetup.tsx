@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
-import { Building2, Briefcase, ArrowRight } from 'lucide-react';
+import { Building2, Briefcase, ArrowRight, Lock } from 'lucide-react';
 import type { Workplace, JobPosition, CurrentUser } from '../types';
 import { INITIAL_WORKPLACES, INITIAL_JOB_POSITIONS } from '../data/hseQuestions';
 
 interface QuestionnaireSetupProps {
   currentUser: CurrentUser;
   onStartQuestionnaire: (workplace: Workplace, jobPosition: JobPosition) => void;
+  surveyLocked?: boolean;
 }
 
 export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({ 
   currentUser, 
-  onStartQuestionnaire
+  onStartQuestionnaire,
+  surveyLocked = false
 }) => {
   const [selectedWorkplaceId, setSelectedWorkplaceId] = useState('');
   const [selectedJobId, setSelectedJobId] = useState(INITIAL_JOB_POSITIONS[0].id);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (surveyLocked) {
+      alert('O período do questionário está finalizado. Agradecemos a participação!');
+      return;
+    }
     if (!selectedWorkplaceId) {
       alert('Por favor, selecione um posto de trabalho.');
       return;
@@ -40,22 +46,31 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
               width: '64px', 
               height: '64px', 
               borderRadius: '20px', 
-              backgroundColor: '#EBF5FF', 
-              color: '#0066CC',
+              backgroundColor: surveyLocked ? '#FEF2F2' : '#EBF5FF', 
+              color: surveyLocked ? '#EF4444' : '#0066CC',
               marginBottom: '1rem',
-              boxShadow: '0 4px 12px rgba(0, 102, 204, 0.15)'
+              boxShadow: surveyLocked ? '0 4px 12px rgba(239, 68, 68, 0.15)' : '0 4px 12px rgba(0, 102, 204, 0.15)'
             }}>
-              <Building2 size={32} />
+              {surveyLocked ? <Lock size={32} /> : <Building2 size={32} />}
             </div>
 
             <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#002244', marginBottom: '0.5rem' }}>
-              Selecione seu Setor e Cargo
+              {surveyLocked ? 'Questionário Bloqueado' : 'Selecione seu Setor e Cargo'}
             </h2>
             <p style={{ color: '#64748B', fontSize: '1.05rem', maxWidth: '580px', margin: '0 auto' }}>
               Bem-vindo(a), <strong style={{ color: '#003B70' }}>{currentUser.name || currentUser.identifier}</strong>! 
-              Antes de respondermos às 40 questões, precisamos identificar o grupo ao qual você pertence para os indicadores do PGR.
+              {surveyLocked 
+                ? ' O período de coleta do questionário NR-1 foi encerrado pela administração.' 
+                : ' Antes de respondermos às 40 questões, precisamos identificar o grupo ao qual você pertence para os indicadores do PGR.'}
             </p>
           </div>
+
+          {surveyLocked && (
+            <div style={{ backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', padding: '1rem 1.25rem', borderRadius: '14px', color: '#991B1B', textAlign: 'center', fontWeight: 700, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+              <Lock size={20} />
+              <span>🔒 A etapa de avaliação psicossocial foi encerrada. Agradecemos sua colaboração!</span>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             
@@ -73,6 +88,7 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
                 className="select-field"
                 style={{ fontSize: '1.05rem', padding: '1rem', fontWeight: 500, backgroundColor: '#FFFFFF', cursor: 'pointer', width: '100%' }}
                 required
+                disabled={surveyLocked}
               >
                 <option value="" disabled>Selecionar posto...</option>
                 {INITIAL_WORKPLACES.map((wp) => (
@@ -96,6 +112,7 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
                 onChange={(e) => setSelectedJobId(e.target.value)}
                 className="select-field"
                 style={{ fontSize: '1.05rem', padding: '1rem', fontWeight: 500, backgroundColor: '#FFFFFF', cursor: 'pointer' }}
+                disabled={surveyLocked}
               >
                 {INITIAL_JOB_POSITIONS.map((job) => (
                   <option key={job.id} value={job.id}>
@@ -107,11 +124,12 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
 
             <button 
               type="submit" 
+              disabled={surveyLocked}
               className="btn btn-primary"
-              style={{ padding: '1.15rem', fontSize: '1.15rem', width: '100%', marginTop: '0.5rem' }}
+              style={{ padding: '1.15rem', fontSize: '1.15rem', width: '100%', marginTop: '0.5rem', opacity: surveyLocked ? 0.6 : 1 }}
             >
-              <span>Iniciar Questionário (40 Questões)</span>
-              <ArrowRight size={22} />
+              <span>{surveyLocked ? 'Questionário Encerrado' : 'Iniciar Questionário (40 Questões)'}</span>
+              {!surveyLocked && <ArrowRight size={22} />}
             </button>
 
           </form>
@@ -122,3 +140,4 @@ export const QuestionnaireSetup: React.FC<QuestionnaireSetupProps> = ({
     </div>
   );
 };
+

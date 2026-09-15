@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import type { Workplace, JobPosition, DimensionId } from '../types';
 import { HSE_QUESTIONS } from '../data/hseQuestions';
 
@@ -7,12 +7,14 @@ interface QuestionnaireFlowProps {
   workplace: Workplace;
   jobPosition: JobPosition;
   onComplete: (dimensionScores: Record<DimensionId, number>, totalAverage: number, answers: Record<number, number>) => void;
+  surveyLocked?: boolean;
 }
 
 export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({ 
   workplace: _workplace, 
   jobPosition: _jobPosition, 
-  onComplete 
+  onComplete,
+  surveyLocked = false
 }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -31,6 +33,7 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
   ];
 
   const handleSelectOption = (val: number) => {
+    if (surveyLocked) return;
     const newAnswers = { ...answers, [currentQuestion.id]: val };
     setAnswers(newAnswers);
 
@@ -49,6 +52,11 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
   };
 
   const handleFinish = () => {
+    if (surveyLocked) {
+      alert("O período do questionário foi bloqueado pela administração.");
+      return;
+    }
+
     if (Object.keys(answers).length < totalQuestions) {
       alert(`Por favor, responda a todas as ${totalQuestions} questões antes de finalizar a avaliação.`);
       return;
@@ -136,6 +144,13 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
             }} 
           />
         </div>
+
+        {surveyLocked && (
+          <div style={{ backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', padding: '1rem', borderRadius: '14px', color: '#991B1B', textAlign: 'center', fontWeight: 700, margin: '1rem 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <Lock size={20} />
+            <span>🔒 O questionário foi bloqueado pela administração. Não é possível enviar novas respostas.</span>
+          </div>
+        )}
 
         {/* Card Principal de Pergunta - Otimizado para Mobile */}
         <div className="card questionnaire-card animate-fade-in">
