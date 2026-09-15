@@ -52,19 +52,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({
         return;
       }
 
-      const rawDigitsRe = cleanId.replace(/\D/g, '');
-      const normRe = rawDigitsRe.replace(/^0+/, '') || cleanId;
-
-      if (!cleanBirth) {
-        setErrorMsg('Por favor, informe o seu ano de nascimento (ex: 1988).');
+      if (!cleanBirth || !/^\d{4}$/.test(cleanBirth)) {
+        setErrorMsg('Por favor, informe o seu ano de nascimento exato com 4 dígitos (ex: 1988).');
         return;
       }
 
-      // Extrai o ano de 4 dígitos mesmo se o usuário digitar uma data como 01/04/1980 ou 1980
-      const yearMatch = cleanBirth.match(/\b(19\d\d|20\d\d)\b/);
-      const targetYear = yearMatch ? yearMatch[1] : (cleanBirth.length === 2 ? `19${cleanBirth}` : cleanBirth);
-
-      if (reStatus[cleanId] === true || reStatus[normRe] === true || reStatus[rawDigitsRe] === true) {
+      if (reStatus[cleanId] === true) {
         setSuccessMsg(`O colaborador da matrícula RE "${cleanId}" já concluiu o questionário NR-1/PGR desta etapa! Agradecemos imensamente sua colaboração para o nosso ambiente de trabalho.`);
         return;
       }
@@ -74,24 +67,19 @@ export const LoginPage: React.FC<LoginPageProps> = ({
         ? employees
         : INITIAL_EMPLOYEES;
 
-      // 1. Procurar RE
-      const matchingReEmps = activeEmployeeList.filter(e => {
-        const empReNorm = e.re.replace(/^0+/, '') || e.re;
-        return e.re === cleanId || empReNorm === normRe || e.re === rawDigitsRe || e.re.endsWith(normRe);
-      });
+      // 1. Procurar RE com correspondência EXATA
+      const matchingReEmps = activeEmployeeList.filter(e => e.re === cleanId);
 
       if (matchingReEmps.length === 0) {
         setErrorMsg(`Matrícula (RE "${cleanId}") não encontrada. Por favor, verifique os números digitados.`);
         return;
       }
 
-      // 2. Procurar Ano de Nascimento entre os REs encontrados
-      const emp = matchingReEmps.find(e => {
-        return e.birthYear === targetYear || e.birthYear === cleanBirth || e.birthYear.slice(-2) === cleanBirth;
-      });
+      // 2. Procurar Ano de Nascimento com correspondência EXATA (4 dígitos)
+      const emp = matchingReEmps.find(e => e.birthYear === cleanBirth);
 
       if (!emp) {
-        setErrorMsg(`Matrícula (RE "${cleanId}") localizada, porém o Ano de Nascimento preenchido está incorreto. Por favor, digite o seu ano de nascimento com 4 dígitos (ex: 1980).`);
+        setErrorMsg(`Matrícula (RE "${cleanId}") localizada, porém o Ano de Nascimento preenchido está incorreto. Por favor, digite o seu ano de nascimento exato com 4 dígitos (ex: 1980).`);
         return;
       }
 
