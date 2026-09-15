@@ -78,8 +78,8 @@ export const App: React.FC = () => {
       if (unsubEmp) unsubEmp();
       if (unsubResponses) unsubResponses();
 
-      // 1. Trava do Questionário em Tempo Real
-      unsubLock = onSnapshot(doc(db, 'settings', 'survey_control'), (docSnap) => {
+      // 1. Trava do Questionário em Tempo Real (na coleção permitida 're_status')
+      unsubLock = onSnapshot(doc(db, 're_status', 'survey_control'), (docSnap) => {
         if (docSnap.exists()) {
           setSurveyLocked(!!docSnap.data().locked);
         }
@@ -96,8 +96,8 @@ export const App: React.FC = () => {
         console.warn("Aviso ao escutar status de REs no Firestore:", error);
       });
 
-      // 3. Base de Colaboradores em Tempo Real
-      unsubEmp = onSnapshot(doc(db, 'settings', 'employees_data'), (docSnap) => {
+      // 3. Base de Colaboradores em Tempo Real (na coleção permitida 're_status')
+      unsubEmp = onSnapshot(doc(db, 're_status', 'employees_data'), (docSnap) => {
         if (docSnap.exists() && Array.isArray(docSnap.data().employees)) {
           const cloudEmps = docSnap.data().employees;
           if (cloudEmps.length >= INITIAL_EMPLOYEES.length) {
@@ -142,27 +142,24 @@ export const App: React.FC = () => {
     };
   }, []);
 
-  // Alternar Trava do Questionário (Admin / SESMT) com sincronização em nuvem
+  // Alternar Trava do Questionário (Admin / SESMT) com sincronização em nuvem na coleção permitida 're_status'
   const handleToggleLock = async () => {
     const newLocked = !surveyLocked;
     setSurveyLocked(newLocked);
     try {
-      if (!auth.currentUser) {
-        await signInAnonymously(auth);
-      }
-      await setDoc(doc(db, 'settings', 'survey_control'), { locked: newLocked }, { merge: true });
+      await setDoc(doc(db, 're_status', 'survey_control'), { locked: newLocked }, { merge: true });
     } catch (e: any) {
       console.error("Erro ao atualizar trava no Firebase Firestore:", e);
       setSurveyLocked(!newLocked);
-      alert(`Não foi possível alterar a trava no banco de dados. Motivo: ${e?.message || 'Verifique sua conexão ou permissões no Firebase.'}`);
+      alert(`Não foi possível alterar a trava no banco de dados. Motivo: ${e?.message || 'Verifique suas permissões no Firebase.'}`);
     }
   };
 
-  // Atualizar Lista de Colaboradores (Importação pelo Admin)
+  // Atualizar Lista de Colaboradores (Importação pelo Admin) na coleção permitida 're_status'
   const handleImportEmployees = async (newEmps: Employee[]) => {
     setEmployees(newEmps);
     try {
-      await setDoc(doc(db, 'settings', 'employees_data'), { employees: newEmps }, { merge: true });
+      await setDoc(doc(db, 're_status', 'employees_data'), { employees: newEmps }, { merge: true });
     } catch (e) {
       console.error("Erro ao salvar colaboradores no Firebase Firestore:", e);
     }
