@@ -140,7 +140,7 @@ export const LgpdModal: React.FC<LgpdModalProps> = ({ isOpen, onClose }) => {
                 <span>Zero Rastreamento de IP</span>
               </div>
               <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>
-                Nossa infraestrutura de banco de dados (Firebase Cloud) está configurada para <strong>não registrar o endereço IP</strong>, modelo do seu celular, computador ou navegador. Nem a equipe técnica de TI consegue rastrear de onde veio a resposta.
+                Nossa infraestrutura de banco de dados em nuvem criptografada está configurada para <strong>não registrar o endereço IP</strong>, modelo do seu celular, computador ou navegador. Nem a equipe técnica consegue rastrear de onde veio a resposta.
               </p>
             </div>
 

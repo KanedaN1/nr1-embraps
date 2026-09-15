@@ -10,8 +10,8 @@ interface QuestionnaireFlowProps {
 }
 
 export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({ 
-  workplace, 
-  jobPosition, 
+  workplace: _workplace, 
+  jobPosition: _jobPosition, 
   onComplete 
 }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -107,14 +107,14 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
     <div className="questionnaire-page-wrapper">
       <div className="container" style={{ maxWidth: '820px' }}>
         
-        {/* Card Header com Dados do Setor/Cargo e Barra de Progresso */}
+        {/* Card Header com Barra de Progresso */}
         <div className="questionnaire-header">
           <div>
             <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Avaliação em Andamento • NR-1 / PGR
             </div>
             <div style={{ fontSize: '1rem', fontWeight: 700, color: '#FFFFFF', marginTop: '0.2rem' }}>
-              {workplace.name} — <span style={{ color: '#3399FF' }}>{jobPosition.name}</span>
+              Questionário de Avaliação Psicossocial
             </div>
           </div>
 

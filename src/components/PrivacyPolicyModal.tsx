@@ -107,7 +107,6 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
             </p>
             <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
               <li>Suas respostas ao questionário de saúde e segurança;</li>
-              <li>Seu Posto de Trabalho e Cargo;</li>
               <li>Sua Matrícula/RE (utilizada apenas como chave de acesso e controle de preenchimento, nunca vinculada às suas respostas).</li>
             </ul>
           </div>
