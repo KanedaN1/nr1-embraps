@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from './lib/firebase';
 import { collection, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LgpdModal } from './components/LgpdModal';
@@ -64,58 +64,81 @@ export const App: React.FC = () => {
     }
   }, []);
 
-  // Escutar em Tempo Real (Cloud Push WebSocket) do Firebase Firestore
+  // Escutar em Tempo Real (Cloud Push WebSocket) com sincronia do Firebase Auth
   useEffect(() => {
-    // 1. Trava do Questionário em Tempo Real
-    const unsubLock = onSnapshot(doc(db, 'settings', 'survey_control'), (docSnap) => {
-      if (docSnap.exists()) {
-        setSurveyLocked(docSnap.data().locked ?? false);
-      }
-    }, (error) => {
-      console.warn("Aviso ao escutar trava no Firestore:", error);
-    });
+    let unsubLock: (() => void) | undefined;
+    let unsubRe: (() => void) | undefined;
+    let unsubEmp: (() => void) | undefined;
+    let unsubResponses: (() => void) | undefined;
 
-    // 2. Status dos REs em Tempo Real
-    const unsubRe = onSnapshot(doc(db, 're_status', 'global_status'), (docSnap) => {
-      if (docSnap.exists()) {
-        setReStatus(docSnap.data() as Record<string, boolean>);
-      }
-    }, (error) => {
-      console.warn("Aviso ao escutar status de REs no Firestore:", error);
-    });
+    const attachFirestoreListeners = () => {
+      // Limpar ouvintes prévios se já existirem
+      if (unsubLock) unsubLock();
+      if (unsubRe) unsubRe();
+      if (unsubEmp) unsubEmp();
+      if (unsubResponses) unsubResponses();
 
-    // 3. Base de Colaboradores em Tempo Real
-    const unsubEmp = onSnapshot(doc(db, 'settings', 'employees_data'), (docSnap) => {
-      if (docSnap.exists() && Array.isArray(docSnap.data().employees)) {
-        const cloudEmps = docSnap.data().employees;
-        if (cloudEmps.length >= INITIAL_EMPLOYEES.length) {
-          setEmployees(cloudEmps);
+      // 1. Trava do Questionário em Tempo Real
+      unsubLock = onSnapshot(doc(db, 'settings', 'survey_control'), (docSnap) => {
+        if (docSnap.exists()) {
+          setSurveyLocked(!!docSnap.data().locked);
         }
-      }
-    }, (error) => {
-      console.warn("Aviso ao escutar colaboradores no Firestore:", error);
-    });
-
-    // 4. Respostas dos Questionários em Tempo Real
-    const unsubResponses = onSnapshot(collection(db, 'responses'), (querySnapshot) => {
-      const cloudResponses: QuestionnaireResponse[] = [];
-      querySnapshot.forEach((docSnap) => {
-        const data = docSnap.data() as QuestionnaireResponse;
-        cloudResponses.push({
-          ...data,
-          id: docSnap.id
-        });
+      }, (error) => {
+        console.warn("Aviso ao escutar trava no Firestore:", error);
       });
-      setResponses(cloudResponses);
-    }, (error) => {
-      console.warn("Aviso ao escutar respostas no Firestore:", error);
+
+      // 2. Status dos REs em Tempo Real
+      unsubRe = onSnapshot(doc(db, 're_status', 'global_status'), (docSnap) => {
+        if (docSnap.exists()) {
+          setReStatus(docSnap.data() as Record<string, boolean>);
+        }
+      }, (error) => {
+        console.warn("Aviso ao escutar status de REs no Firestore:", error);
+      });
+
+      // 3. Base de Colaboradores em Tempo Real
+      unsubEmp = onSnapshot(doc(db, 'settings', 'employees_data'), (docSnap) => {
+        if (docSnap.exists() && Array.isArray(docSnap.data().employees)) {
+          const cloudEmps = docSnap.data().employees;
+          if (cloudEmps.length >= INITIAL_EMPLOYEES.length) {
+            setEmployees(cloudEmps);
+          }
+        }
+      }, (error) => {
+        console.warn("Aviso ao escutar colaboradores no Firestore:", error);
+      });
+
+      // 4. Respostas dos Questionários em Tempo Real (Diretor, SESMT, Admin)
+      unsubResponses = onSnapshot(collection(db, 'responses'), (querySnapshot) => {
+        const cloudResponses: QuestionnaireResponse[] = [];
+        querySnapshot.forEach((docSnap) => {
+          const data = docSnap.data() as QuestionnaireResponse;
+          cloudResponses.push({
+            ...data,
+            id: docSnap.id
+          });
+        });
+        setResponses(cloudResponses);
+      }, (error) => {
+        console.warn("Aviso ao escutar respostas no Firestore:", error);
+      });
+    };
+
+    // Reacoplar ouvintes sempre que o estado de autenticação do Firebase mudar (Login de Admin, Diretor, SESMT ou Anônimo)
+    const unsubAuth = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        // Se desautenticado, tentar login anônimo para assegurar token ativo de leitura
+        signInAnonymously(auth).catch((err) => console.warn("Aviso ao realizar login anônimo:", err));
+      }
+      attachFirestoreListeners();
     });
 
     return () => {
-      unsubLock();
-      unsubRe();
-      unsubEmp();
-      unsubResponses();
+      unsubAuth();
+      if (unsubLock) unsubLock();
+      if (unsubRe) unsubRe();
+      if (unsubEmp) unsubEmp();
+      if (unsubResponses) unsubResponses();
     };
   }, []);
 
@@ -124,11 +147,14 @@ export const App: React.FC = () => {
     const newLocked = !surveyLocked;
     setSurveyLocked(newLocked);
     try {
+      if (!auth.currentUser) {
+        await signInAnonymously(auth);
+      }
       await setDoc(doc(db, 'settings', 'survey_control'), { locked: newLocked }, { merge: true });
-    } catch (e) {
+    } catch (e: any) {
       console.error("Erro ao atualizar trava no Firebase Firestore:", e);
       setSurveyLocked(!newLocked);
-      alert("Não foi possível alterar a trava no banco de dados. Verifique sua conexão.");
+      alert(`Não foi possível alterar a trava no banco de dados. Motivo: ${e?.message || 'Verifique sua conexão ou permissões no Firebase.'}`);
     }
   };
 
