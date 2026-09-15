@@ -34,26 +34,10 @@ export const App: React.FC = () => {
   const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
 
   // Estado da Trava do Questionário (Bloqueio Global)
-  const [surveyLocked, setSurveyLocked] = useState<boolean>(() => {
-    const saved = localStorage.getItem('embraps_hse_survey_locked');
-    return saved ? JSON.parse(saved) : false;
-  });
+  const [surveyLocked, setSurveyLocked] = useState<boolean>(false);
 
   // Estado da Base Cadastral de Colaboradores (RE + Ano Nascimento + Posto + Empresa + Cargo)
-  const [employees, setEmployees] = useState<Employee[]>(() => {
-    const saved = localStorage.getItem('embraps_hse_employees');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length >= INITIAL_EMPLOYEES.length) {
-          return parsed;
-        }
-      } catch (e) {
-        console.warn("Aviso ao ler colaboradores do localStorage:", e);
-      }
-    }
-    return INITIAL_EMPLOYEES;
-  });
+  const [employees, setEmployees] = useState<Employee[]>(INITIAL_EMPLOYEES);
 
   // Estado para os Setores e Cargos selecionados durante o fluxo do questionário
   const [selectedWorkplace, setSelectedWorkplace] = useState<Workplace>(INITIAL_WORKPLACES[0]);
@@ -63,34 +47,22 @@ export const App: React.FC = () => {
   // Estado para qual Posto ou CNPJ está sendo gerado o Relatório Oficial PGR / NR-1
   const [reportWorkplaceId, setReportWorkplaceId] = useState<string>(INITIAL_WORKPLACES[0].id);
 
-  // Banco de Dados no Firebase Firestore com Fallback no LocalStorage
-  const [responses, setResponses] = useState<QuestionnaireResponse[]>(() => {
-    const saved = localStorage.getItem('embraps_hse_responses');
-    if (!saved) return [];
-    const parsed: QuestionnaireResponse[] = JSON.parse(saved);
-    return parsed.filter(r => !r.id.startsWith('resp-mock-'));
-  });
+  // Banco de Dados no Firebase Firestore
+  const [responses, setResponses] = useState<QuestionnaireResponse[]>([]);
 
-  const [reStatus, setReStatus] = useState<Record<string, boolean>>(() => {
-    const saved = localStorage.getItem('embraps_hse_re_status');
-    return saved ? JSON.parse(saved) : INITIAL_RE_STATUS;
-  });
+  const [reStatus, setReStatus] = useState<Record<string, boolean>>(INITIAL_RE_STATUS);
 
+  // Limpeza de chaves de localStorage antigas para evitar qualquer cache no navegador
   useEffect(() => {
-    localStorage.setItem('embraps_hse_responses', JSON.stringify(responses));
-  }, [responses]);
-
-  useEffect(() => {
-    localStorage.setItem('embraps_hse_re_status', JSON.stringify(reStatus));
-  }, [reStatus]);
-
-  useEffect(() => {
-    localStorage.setItem('embraps_hse_survey_locked', JSON.stringify(surveyLocked));
-  }, [surveyLocked]);
-
-  useEffect(() => {
-    localStorage.setItem('embraps_hse_employees', JSON.stringify(employees));
-  }, [employees]);
+    try {
+      localStorage.removeItem('embraps_hse_responses');
+      localStorage.removeItem('embraps_hse_re_status');
+      localStorage.removeItem('embraps_hse_survey_locked');
+      localStorage.removeItem('embraps_hse_employees');
+    } catch (e) {
+      console.warn("Aviso ao limpar localStorage:", e);
+    }
+  }, []);
 
   // Escutar em Tempo Real (Cloud Push WebSocket) do Firebase Firestore
   useEffect(() => {
@@ -126,13 +98,11 @@ export const App: React.FC = () => {
 
     // 4. Respostas dos Questionários em Tempo Real
     const unsubResponses = onSnapshot(collection(db, 'responses'), (querySnapshot) => {
-      if (!querySnapshot.empty) {
-        const cloudResponses: QuestionnaireResponse[] = [];
-        querySnapshot.forEach((docSnap) => {
-          cloudResponses.push(docSnap.data() as QuestionnaireResponse);
-        });
-        setResponses(cloudResponses);
-      }
+      const cloudResponses: QuestionnaireResponse[] = [];
+      querySnapshot.forEach((docSnap) => {
+        cloudResponses.push(docSnap.data() as QuestionnaireResponse);
+      });
+      setResponses(cloudResponses);
     }, (error) => {
       console.warn("Aviso ao escutar respostas no Firestore:", error);
     });
