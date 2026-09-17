@@ -153,11 +153,11 @@ export const QuestionnaireFlow: React.FC<QuestionnaireFlowProps> = ({
         )}
 
         {/* Card Principal de Pergunta - Otimizado para Mobile */}
-        <div className="card questionnaire-card animate-fade-in">
+        <div key={currentQuestion.id} translate="no" className="card questionnaire-card animate-fade-in notranslate">
           
           <div>
             {/* Texto da Pergunta */}
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', lineHeight: 1.4, marginBottom: '2rem' }}>
+            <h3 translate="no" className="notranslate" style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', lineHeight: 1.4, marginBottom: '2rem' }}>
               "{currentQuestion.text}"
             </h3>
           </div>
