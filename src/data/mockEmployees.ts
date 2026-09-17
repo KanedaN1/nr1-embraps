@@ -43,7 +43,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9551",
-    name: "VICTORIA PETRIZZI DE S\u00c3OUSA",
+    name: "VICTORIA PETRIZZI DE SOUSA",
     birthYear: "2001",
     workplace: "EMBRAPS SEDE",
     company: "EMBRAPS",
@@ -91,7 +91,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "5808",
-    name: "LIDIA BATISTA DE S\u00c3OUZA",
+    name: "LIDIA BATISTA DE SOUZA",
     birthYear: "1974",
     workplace: "EMBRAPS SEDE",
     company: "EMBRAPS",
@@ -139,7 +139,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3583",
-    name: "PAULO JEFFERS\u00c3ON ANGELO MANOEL SANTOS NOCERA",
+    name: "PAULO JEFFERSON ANGELO MANOEL SANTOS NOCERA",
     birthYear: "1978",
     workplace: "EMBRAPS SEDE",
     company: "EMBRAPS",
@@ -259,7 +259,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7722",
-    name: "EDS\u00c3ON LOPES DE S\u00c3OUSA",
+    name: "EDSON LOPES DE SOUSA",
     birthYear: "1980",
     workplace: "FAPA ADMINISTRATIVO",
     company: "EMBRAPS",
@@ -275,7 +275,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12220",
-    name: "JOSEFA SANTOS S\u00c3OUZA",
+    name: "JOSEFA SANTOS SOUZA",
     birthYear: "1978",
     workplace: "FAPA ADMINISTRATIVO",
     company: "EMBRAPS",
@@ -291,7 +291,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3962",
-    name: "ADRIANO SANTOS S\u00c3OUZA",
+    name: "ADRIANO SANTOS SOUZA",
     birthYear: "1987",
     workplace: "FAPA ADMINISTRATIVO",
     company: "EMBRAPS",
@@ -315,7 +315,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11149",
-    name: "EDMILS\u00c3ON CORDEIRO ALVES",
+    name: "EDMILSON CORDEIRO ALVES",
     birthYear: "1961",
     workplace: "OPERACIONAL",
     company: "EMBRAPS",
@@ -331,7 +331,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9359",
-    name: "NIKOLAS SANTIAGO CARDOS\u00c3O",
+    name: "NIKOLAS SANTIAGO CARDOSO",
     birthYear: "2000",
     workplace: "OPERACIONAL",
     company: "EMBRAPS",
@@ -379,7 +379,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12525",
-    name: "DOUGLAS PIRES S\u00c3OUZA",
+    name: "DOUGLAS PIRES SOUZA",
     birthYear: "1991",
     workplace: "OPERACIONAL",
     company: "EMBRAPS",
@@ -419,7 +419,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11216",
-    name: "IRIS GOMES DE S\u00c3OUZA",
+    name: "IRIS GOMES DE SOUZA",
     birthYear: "2000",
     workplace: "OPERACIONAL",
     company: "EMBRAPS",
@@ -547,7 +547,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10588",
-    name: "EDMILS\u00c3ON FERREIRA DA SILVA",
+    name: "EDMILSON FERREIRA DA SILVA",
     birthYear: "1974",
     workplace: "OPERACIONAL",
     company: "EMBRAPS",
@@ -627,7 +627,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "858",
-    name: "HILDA DE S\u00c3OUSA RODRIGUES",
+    name: "HILDA DE SOUSA RODRIGUES",
     birthYear: "1968",
     workplace: "EMBRAPS SEDE",
     company: "RM QUARESMA",
@@ -651,7 +651,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "466",
-    name: "EDS\u00c3ON CARLOS FARTES DA SILVA",
+    name: "EDSON CARLOS FARTES DA SILVA",
     birthYear: "1980",
     workplace: "OPERACIONAL",
     company: "RM QUARESMA",
@@ -667,7 +667,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "939",
-    name: "EDS\u00c3ON RODRIGUES BRANDAO SILVA",
+    name: "EDSON RODRIGUES BRANDAO SILVA",
     birthYear: "1989",
     workplace: "OPERACIONAL",
     company: "RM QUARESMA",
@@ -731,7 +731,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10229",
-    name: "ANDERS\u00c3ON CLAYTON DA COSTA",
+    name: "ANDERSON CLAYTON DA COSTA",
     birthYear: "1983",
     workplace: "MARIETA FUSCHINI",
     company: "EMBRAPS",
@@ -739,7 +739,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12117",
-    name: "HADS\u00c3ON PEREIRA",
+    name: "HADSON PEREIRA",
     birthYear: "1975",
     workplace: "OCEANIC",
     company: "EMBRAPS",
@@ -819,7 +819,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "420",
-    name: "CELS\u00c3O DA SILVA",
+    name: "CELSO DA SILVA",
     birthYear: "1974",
     workplace: "NOVO HORIZONTE",
     company: "RM QUARESMA",
@@ -875,7 +875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11934",
-    name: "JENIFFER CARLA ANDRADE S\u00c3OUZA DA SILVA",
+    name: "JENIFFER CARLA ANDRADE SOUZA DA SILVA",
     birthYear: "1993",
     workplace: "TERRA\u00c7O BEIJA FLOR",
     company: "EMBRAPS",
@@ -899,7 +899,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7550",
-    name: "CRISTIANE DE S\u00c3OUZA VALENTIN",
+    name: "CRISTIANE DE SOUZA VALENTIN",
     birthYear: "1974",
     workplace: "4TH CREEK",
     company: "EMBRAPS",
@@ -931,7 +931,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12510",
-    name: "KETULEN ADRIELLE ALBERTO DE S\u00c3OUZA GARCIA",
+    name: "KETULEN ADRIELLE ALBERTO DE SOUZA GARCIA",
     birthYear: "1996",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -1059,7 +1059,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11667",
-    name: "IZABELA S\u00c3OUZA RIBEIRO",
+    name: "IZABELA SOUZA RIBEIRO",
     birthYear: "1992",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -1091,7 +1091,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12213",
-    name: "ANDREIA CRISTINA FREITAS PINHEIRO DE S\u00c3OUZA",
+    name: "ANDREIA CRISTINA FREITAS PINHEIRO DE SOUZA",
     birthYear: "1971",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -1099,7 +1099,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12305",
-    name: "GRACE GONCALVES DE S\u00c3OUZA",
+    name: "GRACE GONCALVES DE SOUZA",
     birthYear: "1991",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -1171,7 +1171,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9532",
-    name: "S\u00c3ONIA MARIA DA SILVA",
+    name: "SONIA MARIA DA SILVA",
     birthYear: "1965",
     workplace: "ANTIGUA",
     company: "EMBRAPS",
@@ -1363,7 +1363,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11295",
-    name: "EMERS\u00c3ON DOS SANTOS S\u00c3OUZA",
+    name: "EMERSON DOS SANTOS SOUZA",
     birthYear: "1994",
     workplace: "BELLE PLAGE",
     company: "EMBRAPS",
@@ -1387,7 +1387,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8085",
-    name: "JANAINA DA SILVA S\u00c3OUZA",
+    name: "JANAINA DA SILVA SOUZA",
     birthYear: "1981",
     workplace: "BLUE PALM",
     company: "EMBRAPS",
@@ -1395,7 +1395,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12532",
-    name: "ANDERS\u00c3ON GABRIEL ALVES BOAVENTURA",
+    name: "ANDERSON GABRIEL ALVES BOAVENTURA",
     birthYear: "2003",
     workplace: "BOA VISTA",
     company: "EMBRAPS",
@@ -1419,7 +1419,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10244",
-    name: "TANIA CASSIA CAMPOS DE S\u00c3OUZA",
+    name: "TANIA CASSIA CAMPOS DE SOUZA",
     birthYear: "1971",
     workplace: "BUDDHA",
     company: "EMBRAPS",
@@ -1435,7 +1435,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9747",
-    name: "ROZELI CARDOS\u00c3O MORATO",
+    name: "ROZELI CARDOSO MORATO",
     birthYear: "1966",
     workplace: "BUDDHA",
     company: "EMBRAPS",
@@ -1451,7 +1451,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4888",
-    name: "S\u00c3ONIA RODRIGUES BARROS",
+    name: "SONIA RODRIGUES BARROS",
     birthYear: "1964",
     workplace: "CAMILA",
     company: "EMBRAPS",
@@ -1491,7 +1491,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11068",
-    name: "MARIA DO S\u00c3OCORRO PEREIRA",
+    name: "MARIA DO SOCORRO PEREIRA",
     birthYear: "1976",
     workplace: "CARINA HOME",
     company: "EMBRAPS",
@@ -1515,7 +1515,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12009",
-    name: "GUSTAVO MOTA DE S\u00c3OUSA",
+    name: "GUSTAVO MOTA DE SOUSA",
     birthYear: "1998",
     workplace: "CARMO",
     company: "EMBRAPS",
@@ -1571,7 +1571,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10845",
-    name: "TELMA REGINA DE JESUS S\u00c3OUZA PEREIRA",
+    name: "TELMA REGINA DE JESUS SOUZA PEREIRA",
     birthYear: "1977",
     workplace: "CASAR\u00c3O",
     company: "EMBRAPS",
@@ -1691,7 +1691,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7939",
-    name: "ROSANA MARIA DE S\u00c3OUZA",
+    name: "ROSANA MARIA DE SOUZA",
     birthYear: "1980",
     workplace: "CENTRO CLINICO",
     company: "EMBRAPS",
@@ -1731,7 +1731,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12538",
-    name: "BRUNO ARTHUR DOS SANTOS SILS\u00c3O",
+    name: "BRUNO ARTHUR DOS SANTOS SILSO",
     birthYear: "1999",
     workplace: "CITROSUCO",
     company: "EMBRAPS",
@@ -1755,7 +1755,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12182",
-    name: "LIEGE CARNEIRO DE S\u00c3OUZA",
+    name: "LIEGE CARNEIRO DE SOUZA",
     birthYear: "1983",
     workplace: "CITROSUCO",
     company: "EMBRAPS",
@@ -1763,7 +1763,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12308",
-    name: "JADERS\u00c3ON S\u00c3OARES DA SILVA BASILIO",
+    name: "JADERSON SOARES DA SILVA BASILIO",
     birthYear: "1997",
     workplace: "CITROSUCO",
     company: "EMBRAPS",
@@ -1787,7 +1787,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10692",
-    name: "ALESSANDRA GABRIELLY S\u00c3OUSA DE OLIVEIRA",
+    name: "ALESSANDRA GABRIELLY SOUSA DE OLIVEIRA",
     birthYear: "2003",
     workplace: "CLINICA BESTANE",
     company: "EMBRAPS",
@@ -1811,7 +1811,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8855",
-    name: "ZENEIDE BEZERRA S\u00c3OARES",
+    name: "ZENEIDE BEZERRA SOARES",
     birthYear: "1966",
     workplace: "COSTA CORAL",
     company: "EMBRAPS",
@@ -1827,7 +1827,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12241",
-    name: "JOSILENE LINS DE S\u00c3OUZA",
+    name: "JOSILENE LINS DE SOUZA",
     birthYear: "1972",
     workplace: "COSTA DO FORTE",
     company: "EMBRAPS",
@@ -1931,7 +1931,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12295",
-    name: "PAULO ROBERTO GONCALVES S\u00c3OARES",
+    name: "PAULO ROBERTO GONCALVES SOARES",
     birthYear: "2000",
     workplace: "ELDORADO",
     company: "EMBRAPS",
@@ -1971,7 +1971,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11990",
-    name: "LUIZA DE S\u00c3OUZA SANTOS",
+    name: "LUIZA DE SOUZA SANTOS",
     birthYear: "2001",
     workplace: "EMBRAPS SEDE",
     company: "EMBRAPS",
@@ -1979,7 +1979,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3376",
-    name: "SILVIA HELENA MAIA DE S\u00c3OUSA",
+    name: "SILVIA HELENA MAIA DE SOUSA",
     birthYear: "1962",
     workplace: "EMBRAPS SEDE",
     company: "EMBRAPS",
@@ -1995,7 +1995,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8736",
-    name: "RITA MARIA S\u00c3OARES DA SILVA",
+    name: "RITA MARIA SOARES DA SILVA",
     birthYear: "1970",
     workplace: "ENSEADA DA ORQUIDEAS",
     company: "EMBRAPS",
@@ -2155,7 +2155,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4363",
-    name: "MARIA DE LOURDES MORAES DE S\u00c3OUZA",
+    name: "MARIA DE LOURDES MORAES DE SOUZA",
     birthYear: "1965",
     workplace: "FUNDA\u00c7\u00c3O ACADEMIA",
     company: "EMBRAPS",
@@ -2187,7 +2187,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8429",
-    name: "DULCINEIDE DE S\u00c3OUZA",
+    name: "DULCINEIDE DE SOUZA",
     birthYear: "1967",
     workplace: "FUNDA\u00c7\u00c3O AMBULATORIO",
     company: "EMBRAPS",
@@ -2243,7 +2243,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2725",
-    name: "PATRICIA S\u00c3OUZA DA SILVA",
+    name: "PATRICIA SOUZA DA SILVA",
     birthYear: "1980",
     workplace: "FUNDA\u00c7\u00c3O CAMPUS 2",
     company: "EMBRAPS",
@@ -2355,7 +2355,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8047",
-    name: "MARICELMA RUFINO DE S\u00c3OUZA",
+    name: "MARICELMA RUFINO DE SOUZA",
     birthYear: "1967",
     workplace: "FUNDA\u00c7\u00c3O CAMPUS 3",
     company: "EMBRAPS",
@@ -2547,7 +2547,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12203",
-    name: "NEILS\u00c3ON SILVA DOS SANTOS",
+    name: "NEILSON SILVA DOS SANTOS",
     birthYear: "1993",
     workplace: "GENEVE",
     company: "EMBRAPS",
@@ -2571,7 +2571,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10784",
-    name: "VILMA DE CARVALHO GODOI PEDROS\u00c3O",
+    name: "VILMA DE CARVALHO GODOI PEDROSO",
     birthYear: "1966",
     workplace: "GREEN GARDEN",
     company: "EMBRAPS",
@@ -2619,7 +2619,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11843",
-    name: "RAIMUNDA DE S\u00c3OUZA ALVES NASCIMENTO",
+    name: "RAIMUNDA DE SOUZA ALVES NASCIMENTO",
     birthYear: "1979",
     workplace: "H STAY HOME",
     company: "EMBRAPS",
@@ -2651,7 +2651,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11506",
-    name: "AGENOR XAVIER DE S\u00c3OUZA",
+    name: "AGENOR XAVIER DE SOUZA",
     birthYear: "1961",
     workplace: "HELBOR OFFICES",
     company: "EMBRAPS",
@@ -2795,7 +2795,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11982",
-    name: "WANDERS\u00c3ON LOPES DA SILVA",
+    name: "WANDERSON LOPES DA SILVA",
     birthYear: "1974",
     workplace: "INDEPENDENCIA",
     company: "EMBRAPS",
@@ -2939,7 +2939,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11241",
-    name: "JAILS\u00c3ON DOS SANTOS JUNIOR",
+    name: "JAILSON DOS SANTOS JUNIOR",
     birthYear: "1993",
     workplace: "JARDIM EUROPA",
     company: "EMBRAPS",
@@ -3163,7 +3163,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8298",
-    name: "JOSE GRIMARIO DE S\u00c3OUZA",
+    name: "JOSE GRIMARIO DE SOUZA",
     birthYear: "1967",
     workplace: "MARALTA",
     company: "EMBRAPS",
@@ -3243,7 +3243,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12558",
-    name: "SIMONE GALVAO DE S\u00c3OUZA",
+    name: "SIMONE GALVAO DE SOUZA",
     birthYear: "1969",
     workplace: "MONTCLAIR & MONTBLANC",
     company: "EMBRAPS",
@@ -3251,7 +3251,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11030",
-    name: "WELLERS\u00c3ON DE SANTANA SANCHES",
+    name: "WELLERSON DE SANTANA SANCHES",
     birthYear: "1996",
     workplace: "MONTE NEGRO E MONTE VERDE",
     company: "EMBRAPS",
@@ -3403,7 +3403,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12293",
-    name: "ANDERS\u00c3ON DA SILVA SANTOS",
+    name: "ANDERSON DA SILVA SANTOS",
     birthYear: "1982",
     workplace: "ONE",
     company: "EMBRAPS",
@@ -3643,7 +3643,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11223",
-    name: "MARCELO EDMILS\u00c3ON DE JESUS SANTOS",
+    name: "MARCELO EDMILSON DE JESUS SANTOS",
     birthYear: "1998",
     workplace: "PLATINUM",
     company: "EMBRAPS",
@@ -3683,7 +3683,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11033",
-    name: "ALIS\u00c3ON SANTANA DE ARAUJO",
+    name: "ALISON SANTANA DE ARAUJO",
     birthYear: "2001",
     workplace: "PORTAL DA GAVEA",
     company: "EMBRAPS",
@@ -3739,7 +3739,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10975",
-    name: "BRUNO S\u00c3OUZA DOS SANTOS",
+    name: "BRUNO SOUZA DOS SANTOS",
     birthYear: "2001",
     workplace: "PORTO CIDADE",
     company: "EMBRAPS",
@@ -3811,7 +3811,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12404",
-    name: "FABIANA S\u00c3OARES DA SILVA",
+    name: "FABIANA SOARES DA SILVA",
     birthYear: "1982",
     workplace: "PORTO PANORAMA",
     company: "EMBRAPS",
@@ -3915,7 +3915,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11992",
-    name: "JANAINA S\u00c3OARES DOS SANTOS BONFIM",
+    name: "JANAINA SOARES DOS SANTOS BONFIM",
     birthYear: "1975",
     workplace: "RAVENEA",
     company: "EMBRAPS",
@@ -3995,7 +3995,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2437",
-    name: "ROSINETE LUCINDA SILVA DE S\u00c3OUZA",
+    name: "ROSINETE LUCINDA SILVA DE SOUZA",
     birthYear: "1957",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4003,7 +4003,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2567",
-    name: "DARLY APARECIDA DE S\u00c3OUZA",
+    name: "DARLY APARECIDA DE SOUZA",
     birthYear: "1972",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4043,7 +4043,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3112",
-    name: "MARIA DO S\u00c3OCORRO DE OLIVEIRA UMBELINO",
+    name: "MARIA DO SOCORRO DE OLIVEIRA UMBELINO",
     birthYear: "1975",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4083,7 +4083,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4366",
-    name: "MARIA BENICIO DE S\u00c3OUSA FERREIRA",
+    name: "MARIA BENICIO DE SOUSA FERREIRA",
     birthYear: "1965",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4091,7 +4091,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4602",
-    name: "GENITA S\u00c3OUZA DIAS",
+    name: "GENITA SOUZA DIAS",
     birthYear: "1963",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4131,7 +4131,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "5392",
-    name: "REGINA VELOS\u00c3O",
+    name: "REGINA VELOSO",
     birthYear: "1962",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4203,7 +4203,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7156",
-    name: "GISELDA QUEIROZ OLIVEIRA DE S\u00c3OUZA",
+    name: "GISELDA QUEIROZ OLIVEIRA DE SOUZA",
     birthYear: "1963",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4259,7 +4259,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8849",
-    name: "MARIA PEREIRA DE S\u00c3OUSA",
+    name: "MARIA PEREIRA DE SOUSA",
     birthYear: "1970",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4275,7 +4275,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9133",
-    name: "LUCIMARA DA HORA PEDROS\u00c3O",
+    name: "LUCIMARA DA HORA PEDROSO",
     birthYear: "1974",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4307,7 +4307,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9545",
-    name: "S\u00c3ONIA MIRIAN DE OLIVEIRA MONTEIRO",
+    name: "SONIA MIRIAN DE OLIVEIRA MONTEIRO",
     birthYear: "1967",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4395,7 +4395,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10684",
-    name: "DANIELA FERREIRA DE S\u00c3OUSA",
+    name: "DANIELA FERREIRA DE SOUSA",
     birthYear: "1982",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4531,7 +4531,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11869",
-    name: "ELEILTON DA COSTA S\u00c3OUZA",
+    name: "ELEILTON DA COSTA SOUZA",
     birthYear: "1985",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -4555,7 +4555,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7689",
-    name: "S\u00c3ONIA APARECIDA MARTINS",
+    name: "SONIA APARECIDA MARTINS",
     birthYear: "1966",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -4587,7 +4587,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9783",
-    name: "SABRINA S\u00c3OUZA ALMEIDA FONTES",
+    name: "SABRINA SOUZA ALMEIDA FONTES",
     birthYear: "1998",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -4691,7 +4691,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9266",
-    name: "ERICS\u00c3ON FERREIRA DA SILVA",
+    name: "ERICSON FERREIRA DA SILVA",
     birthYear: "1992",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -4755,7 +4755,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9813",
-    name: "EMERS\u00c3ON PIMENTEL MOREIRA",
+    name: "EMERSON PIMENTEL MOREIRA",
     birthYear: "1974",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -4875,7 +4875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10996",
-    name: "LAURICEIA CORDEIRO PEREIRA DE S\u00c3OUZA",
+    name: "LAURICEIA CORDEIRO PEREIRA DE SOUZA",
     birthYear: "1997",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -4947,7 +4947,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11401",
-    name: "SIMONE SILVA DE S\u00c3OUZA LOPES",
+    name: "SIMONE SILVA DE SOUZA LOPES",
     birthYear: "1979",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -4995,7 +4995,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11634",
-    name: "S\u00c3OLANGE MARIA DOS SANTOS",
+    name: "SOLANGE MARIA DOS SANTOS",
     birthYear: "1968",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -5195,7 +5195,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12392",
-    name: "JESSICA DE S\u00c3OUZA TEIXEIRA DE MAGALHAES",
+    name: "JESSICA DE SOUZA TEIXEIRA DE MAGALHAES",
     birthYear: "1990",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -5251,7 +5251,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12530",
-    name: "ALISS\u00c3ON VITOR DOS SANTOS",
+    name: "ALISSON VITOR DOS SANTOS",
     birthYear: "2001",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -5419,7 +5419,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2419",
-    name: "CLAUDIA BORGES S\u00c3OUSA",
+    name: "CLAUDIA BORGES SOUSA",
     birthYear: "1979",
     workplace: "SARANDHY",
     company: "EMBRAPS",
@@ -5483,7 +5483,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11007",
-    name: "SUZILEI SAMPAIO S\u00c3OUZA",
+    name: "SUZILEI SAMPAIO SOUZA",
     birthYear: "1970",
     workplace: "S\u00c3OPESP",
     company: "EMBRAPS",
@@ -5555,7 +5555,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7154",
-    name: "MARIA CRISTINA FERNANDES DOS SANTOS S\u00c3OUZA",
+    name: "MARIA CRISTINA FERNANDES DOS SANTOS SOUZA",
     birthYear: "1971",
     workplace: "SUPREMO PONTA DA PRAIA",
     company: "EMBRAPS",
@@ -5603,7 +5603,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12185",
-    name: "GABRIEL S\u00c3OARES PEREIRA",
+    name: "GABRIEL SOARES PEREIRA",
     birthYear: "1997",
     workplace: "TIMES SQUARE",
     company: "EMBRAPS",
@@ -5659,7 +5659,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11892",
-    name: "EDS\u00c3ON LUIZ FERRAZ DE OLIVEIRA",
+    name: "EDSON LUIZ FERRAZ DE OLIVEIRA",
     birthYear: "1979",
     workplace: "TRIBUNA SQUARE",
     company: "EMBRAPS",
@@ -5723,7 +5723,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4159",
-    name: "S\u00c3OLANGE DA SILVA FONTES",
+    name: "SOLANGE DA SILVA FONTES",
     birthYear: "1971",
     workplace: "TV TRIBUNA",
     company: "EMBRAPS",
@@ -5803,7 +5803,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12441",
-    name: "S\u00c3OLANGE OLIVEIRA DE JESUS",
+    name: "SOLANGE OLIVEIRA DE JESUS",
     birthYear: "1981",
     workplace: "VALONGO BRASIL",
     company: "EMBRAPS",
@@ -5931,7 +5931,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12537",
-    name: "JOAO VICTOR LEMOS DE S\u00c3OUSA",
+    name: "JOAO VICTOR LEMOS DE SOUSA",
     birthYear: "1996",
     workplace: "VILLE DE FRANCE",
     company: "EMBRAPS",
@@ -5955,7 +5955,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12364",
-    name: "PATRICIA DE S\u00c3OUSA DIAS",
+    name: "PATRICIA DE SOUSA DIAS",
     birthYear: "1991",
     workplace: "VILLE DE FRANCE",
     company: "EMBRAPS",
@@ -6019,7 +6019,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9441",
-    name: "LIGIA S\u00c3OLANGE MOREIRA ALVES RODRIGUES",
+    name: "LIGIA SOLANGE MOREIRA ALVES RODRIGUES",
     birthYear: "1959",
     workplace: "VOLCAF\u00c9",
     company: "EMBRAPS",
@@ -6043,7 +6043,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11258",
-    name: "JANAINA GOMES DE S\u00c3OUZA SILVA",
+    name: "JANAINA GOMES DE SOUZA SILVA",
     birthYear: "1998",
     workplace: "VOLCAF\u00c9",
     company: "EMBRAPS",
@@ -6075,7 +6075,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "926",
-    name: "LEANDRO S\u00c3OUZA DA SILVA",
+    name: "LEANDRO SOUZA DA SILVA",
     birthYear: "1996",
     workplace: "PORTO PANORAMA",
     company: "RM QUARESMA",
@@ -6243,7 +6243,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "628",
-    name: "GILDETE APARECIDA FRANCISCA S\u00c3OUZA DE JESUS",
+    name: "GILDETE APARECIDA FRANCISCA SOUZA DE JESUS",
     birthYear: "1967",
     workplace: "BLUE PALM",
     company: "RM QUARESMA",
@@ -6411,7 +6411,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "522",
-    name: "ALESSANDRO S\u00c3OUZA SANTOS",
+    name: "ALESSANDRO SOUZA SANTOS",
     birthYear: "1989",
     workplace: "DOM PEDRO I",
     company: "RM QUARESMA",
@@ -6459,7 +6459,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "475",
-    name: "SABRINA S\u00c3OBRAL SANTOS",
+    name: "SABRINA SOBRAL SANTOS",
     birthYear: "1995",
     workplace: "ENSEADA DA ORQUIDEAS",
     company: "RM QUARESMA",
@@ -6579,7 +6579,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1173",
-    name: "ADRIANA PAZZINI PASS\u00c3OS",
+    name: "ADRIANA PAZZINI PASSOS",
     birthYear: "1978",
     workplace: "HELBOR OFFICES",
     company: "RM QUARESMA",
@@ -6675,7 +6675,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1120",
-    name: "LUCIENE DA GRACA S\u00c3OUZA",
+    name: "LUCIENE DA GRACA SOUZA",
     birthYear: "1979",
     workplace: "MAIORCA",
     company: "RM QUARESMA",
@@ -6747,7 +6747,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "311",
-    name: "JOYCE DE S\u00c3OUZA FARIAS",
+    name: "JOYCE DE SOUZA FARIAS",
     birthYear: "1993",
     workplace: "PATIO IPORANGA",
     company: "RM QUARESMA",
@@ -6771,7 +6771,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "457",
-    name: "UANDRES\u00c3ON DE JESUS",
+    name: "UANDRESON DE JESUS",
     birthYear: "1985",
     workplace: "PORTAL DA GAVEA",
     company: "RM QUARESMA",
@@ -6787,7 +6787,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1006",
-    name: "MARIA VITORIA KAROLINE DE S\u00c3OUZA BARBOSA",
+    name: "MARIA VITORIA KAROLINE DE SOUZA BARBOSA",
     birthYear: "2002",
     workplace: "PORTO PANORAMA",
     company: "RM QUARESMA",
@@ -6811,7 +6811,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1048",
-    name: "OZANA MENEZES DE S\u00c3OUZA",
+    name: "OZANA MENEZES DE SOUZA",
     birthYear: "1982",
     workplace: "QUALITY HOUSE",
     company: "RM QUARESMA",
@@ -6875,7 +6875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "297",
-    name: "EDS\u00c3ON DE ANDRADE NASCIMENTO",
+    name: "EDSON DE ANDRADE NASCIMENTO",
     birthYear: "1962",
     workplace: "RESERVA INSS",
     company: "RM QUARESMA",
@@ -7003,7 +7003,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "310",
-    name: "ADRIANA DA COSTA S\u00c3OARES",
+    name: "ADRIANA DA COSTA SOARES",
     birthYear: "1980",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -7043,7 +7043,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "589",
-    name: "CLAUDETE DOS SANTOS S\u00c3OUZA DE JESUS",
+    name: "CLAUDETE DOS SANTOS SOUZA DE JESUS",
     birthYear: "1971",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -7067,7 +7067,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "750",
-    name: "CLAUDIANE S\u00c3OUSA DOS SANTOS",
+    name: "CLAUDIANE SOUSA DOS SANTOS",
     birthYear: "1995",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -7075,7 +7075,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "810",
-    name: "RODRIGO DE CASSIO DE S\u00c3OUZA LOPES",
+    name: "RODRIGO DE CASSIO DE SOUZA LOPES",
     birthYear: "1983",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -7123,7 +7123,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1102",
-    name: "JOSEMEIRE DOS SANTOS S\u00c3OUZA",
+    name: "JOSEMEIRE DOS SANTOS SOUZA",
     birthYear: "1978",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -7163,7 +7163,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "794",
-    name: "MARIA APARECIDA NASCIMENTO AFONS\u00c3O",
+    name: "MARIA APARECIDA NASCIMENTO AFONSO",
     birthYear: "1986",
     workplace: "RHODES",
     company: "RM QUARESMA",
@@ -7179,7 +7179,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1172",
-    name: "CAMILA S\u00c3OUZA DA SILVA",
+    name: "CAMILA SOUZA DA SILVA",
     birthYear: "1991",
     workplace: "SANTA RITA DE CASSIA",
     company: "RM QUARESMA",
@@ -7339,7 +7339,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10645",
-    name: "RENIVALDO DE S\u00c3OUSA",
+    name: "RENIVALDO DE SOUSA",
     birthYear: "1978",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -7395,7 +7395,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11432",
-    name: "ALIS\u00c3ON JOSE HIPOLITO DE OLIVEIRA",
+    name: "ALISON JOSE HIPOLITO DE OLIVEIRA",
     birthYear: "1991",
     workplace: "INTERNACIONAL",
     company: "EMBRAPS",
@@ -7411,7 +7411,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12144",
-    name: "DAVIS\u00c3ON FRANCISCO DA SILVA",
+    name: "DAVISON FRANCISCO DA SILVA",
     birthYear: "1993",
     workplace: "INTERNACIONAL",
     company: "EMBRAPS",
@@ -7459,7 +7459,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "6771",
-    name: "MARCOS JOSE DE S\u00c3OUZA",
+    name: "MARCOS JOSE DE SOUZA",
     birthYear: "1969",
     workplace: "ACARAI",
     company: "EMBRAPS",
@@ -7467,7 +7467,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "6796",
-    name: "RAFAEL GALVAO S\u00c3OARES",
+    name: "RAFAEL GALVAO SOARES",
     birthYear: "1985",
     workplace: "ACARAI",
     company: "EMBRAPS",
@@ -7475,7 +7475,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8590",
-    name: "ERIVELTO S\u00c3OARES S\u00c3OUZA",
+    name: "ERIVELTO SOARES SOUZA",
     birthYear: "1966",
     workplace: "ACARAI",
     company: "EMBRAPS",
@@ -7523,7 +7523,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10494",
-    name: "ULISSES NAZARIO S\u00c3OUZA E SILVA",
+    name: "ULISSES NAZARIO SOUZA E SILVA",
     birthYear: "1982",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -7563,7 +7563,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12153",
-    name: "FABIO ILDEFONS\u00c3O PEREIRA",
+    name: "FABIO ILDEFONSO PEREIRA",
     birthYear: "1977",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -7587,7 +7587,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10248",
-    name: "GUSTAVO LARA S\u00c3OUZA DOS ANJOS",
+    name: "GUSTAVO LARA SOUZA DOS ANJOS",
     birthYear: "1989",
     workplace: "ACQUA PLAY",
     company: "EMBRAPS",
@@ -7619,7 +7619,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9373",
-    name: "CELS\u00c3O CARLOS DA SILVA",
+    name: "CELSO CARLOS DA SILVA",
     birthYear: "1966",
     workplace: "ACR\u00d3POLE",
     company: "EMBRAPS",
@@ -7627,7 +7627,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12111",
-    name: "GERS\u00c3ON ERNESTO MATTOS",
+    name: "GERSON ERNESTO MATTOS",
     birthYear: "1984",
     workplace: "ACR\u00d3POLE",
     company: "EMBRAPS",
@@ -7731,7 +7731,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3572",
-    name: "ROBS\u00c3ON LUIZ DE LIMA",
+    name: "ROBSON LUIZ DE LIMA",
     birthYear: "1974",
     workplace: "ANCORAS",
     company: "EMBRAPS",
@@ -7739,7 +7739,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8866",
-    name: "CARLOS ANTONIO S\u00c3OARES DA SILVA",
+    name: "CARLOS ANTONIO SOARES DA SILVA",
     birthYear: "1974",
     workplace: "ANCORAS",
     company: "EMBRAPS",
@@ -7803,7 +7803,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11554",
-    name: "WELLINGTON GABRIEL S\u00c3OUZA FERREIRA",
+    name: "WELLINGTON GABRIEL SOUZA FERREIRA",
     birthYear: "2003",
     workplace: "ANTILHAS",
     company: "EMBRAPS",
@@ -7835,7 +7835,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8902",
-    name: "FLAVIO MARCELO MARTINS DE S\u00c3OUSA",
+    name: "FLAVIO MARCELO MARTINS DE SOUSA",
     birthYear: "1968",
     workplace: "ASS\u00c3OCIA\u00c7\u00c3O COMERCIAL",
     company: "EMBRAPS",
@@ -7843,7 +7843,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9733",
-    name: "MARCIO DA SILVA S\u00c3OUZA",
+    name: "MARCIO DA SILVA SOUZA",
     birthYear: "1973",
     workplace: "ASS\u00c3OCIA\u00c7\u00c3O COMERCIAL",
     company: "EMBRAPS",
@@ -7875,7 +7875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8662",
-    name: "WELLINGTON PINHEIRO DE S\u00c3OUSA",
+    name: "WELLINGTON PINHEIRO DE SOUSA",
     birthYear: "1966",
     workplace: "ATHENAS",
     company: "EMBRAPS",
@@ -7915,7 +7915,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10930",
-    name: "CARICIELE ALVES DE S\u00c3OUZA",
+    name: "CARICIELE ALVES DE SOUZA",
     birthYear: "1987",
     workplace: "AVENUE UNIQUE OFFICES",
     company: "EMBRAPS",
@@ -7939,7 +7939,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8602",
-    name: "ROBS\u00c3ON MARIO DA SILVA",
+    name: "ROBSON MARIO DA SILVA",
     birthYear: "1987",
     workplace: "BAHAMAS",
     company: "EMBRAPS",
@@ -7979,7 +7979,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7628",
-    name: "MARILENE DE OLIVEIRA S\u00c3OUZA FERREIRA",
+    name: "MARILENE DE OLIVEIRA SOUZA FERREIRA",
     birthYear: "1983",
     workplace: "BAR\u00c3O OFFICE",
     company: "EMBRAPS",
@@ -8107,7 +8107,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12199",
-    name: "CARLOS ALEXANDRE S\u00c3OUZA DE SANTANA",
+    name: "CARLOS ALEXANDRE SOUZA DE SANTANA",
     birthYear: "1985",
     workplace: "BOREAL",
     company: "EMBRAPS",
@@ -8123,7 +8123,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8359",
-    name: "ANDERS\u00c3ON GUILHERME SILVA DE JESUS",
+    name: "ANDERSON GUILHERME SILVA DE JESUS",
     birthYear: "1988",
     workplace: "BRAUNA",
     company: "EMBRAPS",
@@ -8307,7 +8307,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9059",
-    name: "REINALDO DA SILVA ALONS\u00c3O",
+    name: "REINALDO DA SILVA ALONSO",
     birthYear: "1976",
     workplace: "CASTELL DI VILLA REAL",
     company: "EMBRAPS",
@@ -8371,7 +8371,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11089",
-    name: "GUSTAVO SANCHES DE S\u00c3OUZA",
+    name: "GUSTAVO SANCHES DE SOUZA",
     birthYear: "1992",
     workplace: "CASTELL DUE MONTI",
     company: "EMBRAPS",
@@ -8387,7 +8387,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11212",
-    name: "LUIZ AUGUSTO DE OLIVEIRA S\u00c3OUSA",
+    name: "LUIZ AUGUSTO DE OLIVEIRA SOUSA",
     birthYear: "2002",
     workplace: "CASTELL DUE MONTI",
     company: "EMBRAPS",
@@ -8411,7 +8411,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4932",
-    name: "JHONY WILS\u00c3ON SILVA DA LUZ",
+    name: "JHONY WILSON SILVA DA LUZ",
     birthYear: "1971",
     workplace: "CASTELLAMARE",
     company: "EMBRAPS",
@@ -8515,7 +8515,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10576",
-    name: "JACKS\u00c3ON ALVES DE S\u00c3OUZA",
+    name: "JACKSON ALVES DE SOUZA",
     birthYear: "1986",
     workplace: "CLINICA SANTA SAUDE - CONSELHEIRO NEBIAS",
     company: "EMBRAPS",
@@ -8539,7 +8539,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8883",
-    name: "ANDRE ROBERTO DE S\u00c3OUZA",
+    name: "ANDRE ROBERTO DE SOUZA",
     birthYear: "1971",
     workplace: "CONCORDE",
     company: "EMBRAPS",
@@ -8571,7 +8571,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7698",
-    name: "MILTON BAR\u00c3OSA FILHO",
+    name: "MILTON BAROSA FILHO",
     birthYear: "1963",
     workplace: "COSTA CORAL",
     company: "EMBRAPS",
@@ -8587,7 +8587,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8865",
-    name: "VANDERLEI CARDOS\u00c3O",
+    name: "VANDERLEI CARDOSO",
     birthYear: "1965",
     workplace: "COSTA CORAL",
     company: "EMBRAPS",
@@ -8635,7 +8635,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10400",
-    name: "PAULA VIVIAN DE S\u00c3OUZA CAMPOS",
+    name: "PAULA VIVIAN DE SOUZA CAMPOS",
     birthYear: "1973",
     workplace: "CRYSTAL PALACE",
     company: "EMBRAPS",
@@ -8691,7 +8691,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8596",
-    name: "PAULO CESAR DE S\u00c3OUZA FERREIRA",
+    name: "PAULO CESAR DE SOUZA FERREIRA",
     birthYear: "1978",
     workplace: "DEODORO",
     company: "EMBRAPS",
@@ -8715,7 +8715,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10625",
-    name: "MARCO ANTONIO PEREIRA DE S\u00c3OUZA",
+    name: "MARCO ANTONIO PEREIRA DE SOUZA",
     birthYear: "1966",
     workplace: "EDIFICIO W. ALBA",
     company: "EMBRAPS",
@@ -8755,7 +8755,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10499",
-    name: "ANDRE ALVES DE S\u00c3OUSA",
+    name: "ANDRE ALVES DE SOUSA",
     birthYear: "1986",
     workplace: "ELISA",
     company: "EMBRAPS",
@@ -8787,7 +8787,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1752",
-    name: "EDS\u00c3ON DE QUEIROZ FERREIRA",
+    name: "EDSON DE QUEIROZ FERREIRA",
     birthYear: "1958",
     workplace: "EMBRAPS SEDE",
     company: "EMBRAPS",
@@ -8827,7 +8827,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "5649",
-    name: "EDGAR S\u00c3OARES FERNANDES",
+    name: "EDGAR SOARES FERNANDES",
     birthYear: "1958",
     workplace: "EMILIO BACARAT",
     company: "EMBRAPS",
@@ -8835,7 +8835,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7298",
-    name: "LUIZ CLAUDIO DE S\u00c3OUZA PEDROS\u00c3O",
+    name: "LUIZ CLAUDIO DE SOUZA PEDROSO",
     birthYear: "1984",
     workplace: "EMILIO BACARAT",
     company: "EMBRAPS",
@@ -8851,7 +8851,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9965",
-    name: "PAULO VITOR S\u00c3OARES DE ABREU",
+    name: "PAULO VITOR SOARES DE ABREU",
     birthYear: "1993",
     workplace: "EMIRADO",
     company: "EMBRAPS",
@@ -8947,7 +8947,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11494",
-    name: "EVERS\u00c3ON PEREIRA LIMA",
+    name: "EVERSON PEREIRA LIMA",
     birthYear: "1981",
     workplace: "ENSEADA DA ORQUIDEAS",
     company: "EMBRAPS",
@@ -8963,7 +8963,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11927",
-    name: "RAPHAEL ESTEVES DE S\u00c3OUZA",
+    name: "RAPHAEL ESTEVES DE SOUZA",
     birthYear: "2000",
     workplace: "ENSEADA DA ORQUIDEAS",
     company: "EMBRAPS",
@@ -9003,7 +9003,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12259",
-    name: "RIQUELMY S\u00c3OUSA SILVA",
+    name: "RIQUELMY SOUSA SILVA",
     birthYear: "2001",
     workplace: "ENSEADA DA ORQUIDEAS",
     company: "EMBRAPS",
@@ -9027,7 +9027,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "5925",
-    name: "CRISTIANO ANDERS\u00c3ON DE ALMEIDA",
+    name: "CRISTIANO ANDERSON DE ALMEIDA",
     birthYear: "1978",
     workplace: "EVIDENCE",
     company: "EMBRAPS",
@@ -9203,7 +9203,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10023",
-    name: "RICARDO BEZERRA DE S\u00c3OUZA",
+    name: "RICARDO BEZERRA DE SOUZA",
     birthYear: "1984",
     workplace: "FUSCHINI MIRANDA",
     company: "EMBRAPS",
@@ -9251,7 +9251,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9045",
-    name: "LUIZ CARLOS DE S\u00c3OUZA",
+    name: "LUIZ CARLOS DE SOUZA",
     birthYear: "1963",
     workplace: "FUSION HOME",
     company: "EMBRAPS",
@@ -9267,7 +9267,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11217",
-    name: "ANA CAROLINA ALVES DE S\u00c3OUZA",
+    name: "ANA CAROLINA ALVES DE SOUZA",
     birthYear: "1976",
     workplace: "FUSION HOME",
     company: "EMBRAPS",
@@ -9323,7 +9323,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9420",
-    name: "EDERS\u00c3ON DE LIMA COSTA",
+    name: "EDERSON DE LIMA COSTA",
     birthYear: "1970",
     workplace: "GOLDEN TOWER",
     company: "EMBRAPS",
@@ -9355,7 +9355,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2949",
-    name: "FRANCISCO NELS\u00c3ON CESARIO",
+    name: "FRANCISCO NELSON CESARIO",
     birthYear: "1964",
     workplace: "GREEN HOUSE",
     company: "EMBRAPS",
@@ -9403,7 +9403,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10726",
-    name: "EDMILS\u00c3ON ALMEIDA DA SILVA",
+    name: "EDMILSON ALMEIDA DA SILVA",
     birthYear: "1980",
     workplace: "HAROLDO FARIA",
     company: "EMBRAPS",
@@ -9411,7 +9411,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10731",
-    name: "ANDERS\u00c3ON WILLIAN MIRANDA",
+    name: "ANDERSON WILLIAN MIRANDA",
     birthYear: "1974",
     workplace: "HAROLDO FARIA",
     company: "EMBRAPS",
@@ -9459,7 +9459,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12084",
-    name: "UINDS\u00c3ON JOSE DOS SANTOS",
+    name: "UINDSON JOSE DOS SANTOS",
     birthYear: "1974",
     workplace: "HELBOR OFFICES S\u00c3O VICENTE",
     company: "EMBRAPS",
@@ -9467,7 +9467,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12133",
-    name: "GUILHERME S\u00c3OUZA CARDENUTO",
+    name: "GUILHERME SOUZA CARDENUTO",
     birthYear: "1995",
     workplace: "HELBOR OFFICES S\u00c3O VICENTE",
     company: "EMBRAPS",
@@ -9499,7 +9499,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12074",
-    name: "THIAGO SANTOS DE S\u00c3OUZA DIAS",
+    name: "THIAGO SANTOS DE SOUZA DIAS",
     birthYear: "1994",
     workplace: "IBIZA",
     company: "EMBRAPS",
@@ -9515,7 +9515,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11414",
-    name: "ADILS\u00c3ON JOSE DA SILVA",
+    name: "ADILSON JOSE DA SILVA",
     birthYear: "1966",
     workplace: "IL TERRAZZO PONTA DA PRAIA",
     company: "EMBRAPS",
@@ -9539,7 +9539,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9456",
-    name: "CRISTIANE FELIX DE S\u00c3OUSA MIQUELIM",
+    name: "CRISTIANE FELIX DE SOUSA MIQUELIM",
     birthYear: "1987",
     workplace: "ILHA DE COZUMEL",
     company: "EMBRAPS",
@@ -9555,7 +9555,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9053",
-    name: "WILS\u00c3ON GOES DA SILVA",
+    name: "WILSON GOES DA SILVA",
     birthYear: "1984",
     workplace: "ILHA DE MALTA",
     company: "EMBRAPS",
@@ -9571,7 +9571,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12379",
-    name: "JOSENALDO DE S\u00c3OUZA BATISTA",
+    name: "JOSENALDO DE SOUZA BATISTA",
     birthYear: "1989",
     workplace: "ILHA DE MALTA",
     company: "EMBRAPS",
@@ -9611,7 +9611,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10686",
-    name: "RONALDO RODRIGUES S\u00c3OARES",
+    name: "RONALDO RODRIGUES SOARES",
     birthYear: "1970",
     workplace: "ILHAS DO SUL",
     company: "EMBRAPS",
@@ -9659,7 +9659,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "5645",
-    name: "S\u00c3OLANGE MARIA VIEIRA RAMOS",
+    name: "SOLANGE MARIA VIEIRA RAMOS",
     birthYear: "1967",
     workplace: "IPE DA PRAIA",
     company: "EMBRAPS",
@@ -9667,7 +9667,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7708",
-    name: "MARLENE FERNANDES DA COSTA S\u00c3OARES",
+    name: "MARLENE FERNANDES DA COSTA SOARES",
     birthYear: "1970",
     workplace: "IPE DA PRAIA",
     company: "EMBRAPS",
@@ -9747,7 +9747,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10882",
-    name: "CICERO ROBS\u00c3ON ALMEIDA DA FRAGA",
+    name: "CICERO ROBSON ALMEIDA DA FRAGA",
     birthYear: "1999",
     workplace: "ITAUBA",
     company: "EMBRAPS",
@@ -9771,7 +9771,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12340",
-    name: "LUIZ CARLOS DE JESUS S\u00c3OUZA",
+    name: "LUIZ CARLOS DE JESUS SOUZA",
     birthYear: "1987",
     workplace: "ITAUBA",
     company: "EMBRAPS",
@@ -9819,7 +9819,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11450",
-    name: "RAISSA RODRIGUES DE S\u00c3OUZA NASCIMENTO",
+    name: "RAISSA RODRIGUES DE SOUZA NASCIMENTO",
     birthYear: "1995",
     workplace: "JARDINS DE ALGARVE",
     company: "EMBRAPS",
@@ -9859,7 +9859,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11415",
-    name: "MAURA S\u00c3OUZA REIS",
+    name: "MAURA SOUZA REIS",
     birthYear: "1997",
     workplace: "L UNIQUE",
     company: "EMBRAPS",
@@ -9875,7 +9875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4711",
-    name: "EMILS\u00c3ON FEITOSA BATISTA",
+    name: "EMILSON FEITOSA BATISTA",
     birthYear: "1961",
     workplace: "LA ROCHELLE",
     company: "EMBRAPS",
@@ -9939,7 +9939,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9248",
-    name: "EDS\u00c3ON DE JESUS",
+    name: "EDSON DE JESUS",
     birthYear: "1972",
     workplace: "LEGEND",
     company: "EMBRAPS",
@@ -10059,7 +10059,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11455",
-    name: "ROBS\u00c3ON DE LIMA",
+    name: "ROBSON DE LIMA",
     birthYear: "1970",
     workplace: "MAIORCA",
     company: "EMBRAPS",
@@ -10363,7 +10363,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11572",
-    name: "LUDMILA JESUS DE S\u00c3OUZA",
+    name: "LUDMILA JESUS DE SOUZA",
     birthYear: "2001",
     workplace: "MONTCLAIR & MONTBLANC",
     company: "EMBRAPS",
@@ -10387,7 +10387,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7636",
-    name: "GIVALDO DE S\u00c3OUZA CONCEICAO",
+    name: "GIVALDO DE SOUZA CONCEICAO",
     birthYear: "1970",
     workplace: "MONTE NEGRO E MONTE VERDE",
     company: "EMBRAPS",
@@ -10483,7 +10483,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10665",
-    name: "JOSE CARLOS DE S\u00c3OUZA",
+    name: "JOSE CARLOS DE SOUZA",
     birthYear: "1974",
     workplace: "MOURELOS IV",
     company: "EMBRAPS",
@@ -10523,7 +10523,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11650",
-    name: "MARIA DO S\u00c3OCORRO RAFAEL DA SILVA",
+    name: "MARIA DO SOCORRO RAFAEL DA SILVA",
     birthYear: "1976",
     workplace: "MY PLACE",
     company: "EMBRAPS",
@@ -10539,7 +10539,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12466",
-    name: "LUIZ FERNANDO DE S\u00c3OUZA MORAIS",
+    name: "LUIZ FERNANDO DE SOUZA MORAIS",
     birthYear: "1973",
     workplace: "MYKONOS",
     company: "EMBRAPS",
@@ -10547,7 +10547,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9976",
-    name: "AMAURI ALVES GUERRA DE S\u00c3OUZA",
+    name: "AMAURI ALVES GUERRA DE SOUZA",
     birthYear: "1989",
     workplace: "MYKONOS",
     company: "EMBRAPS",
@@ -10595,7 +10595,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10607",
-    name: "EDS\u00c3ON DE OLIVEIRA RODRIGUES",
+    name: "EDSON DE OLIVEIRA RODRIGUES",
     birthYear: "1975",
     workplace: "OCEANI",
     company: "EMBRAPS",
@@ -10603,7 +10603,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11242",
-    name: "EDIELS\u00c3ON DOS ANJOS DE JESUS",
+    name: "EDIELSON DOS ANJOS DE JESUS",
     birthYear: "1963",
     workplace: "OCEANI",
     company: "EMBRAPS",
@@ -10643,7 +10643,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10102",
-    name: "ALINE MARQUES DE S\u00c3OUZA",
+    name: "ALINE MARQUES DE SOUZA",
     birthYear: "1998",
     workplace: "ONE",
     company: "EMBRAPS",
@@ -10699,7 +10699,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8485",
-    name: "ALESSANDRA S\u00c3OUZA DOS ANJOS",
+    name: "ALESSANDRA SOUZA DOS ANJOS",
     birthYear: "1979",
     workplace: "PALACIO DE SINTRA",
     company: "EMBRAPS",
@@ -10755,7 +10755,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12450",
-    name: "MARCELO MARCIO MARTINS S\u00c3OUZA",
+    name: "MARCELO MARCIO MARTINS SOUZA",
     birthYear: "1972",
     workplace: "PARK AVENUE",
     company: "EMBRAPS",
@@ -10771,7 +10771,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12452",
-    name: "ANDERS\u00c3ON PEREIRA DO NASCIMENTO",
+    name: "ANDERSON PEREIRA DO NASCIMENTO",
     birthYear: "1980",
     workplace: "PARK AVENUE",
     company: "EMBRAPS",
@@ -10819,7 +10819,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10938",
-    name: "JOSE ROMARIO EVANGELISTA S\u00c3OUZA",
+    name: "JOSE ROMARIO EVANGELISTA SOUZA",
     birthYear: "1986",
     workplace: "PATIO IPORANGA",
     company: "EMBRAPS",
@@ -10875,7 +10875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10743",
-    name: "DIEGO DARKES\u00c3ON TORCATER",
+    name: "DIEGO DARKESON TORCATER",
     birthYear: "1988",
     workplace: "PAULISTANIA",
     company: "EMBRAPS",
@@ -10899,7 +10899,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11687",
-    name: "GUSTAVO FERREIRA DE S\u00c3OUZA",
+    name: "GUSTAVO FERREIRA DE SOUZA",
     birthYear: "2003",
     workplace: "PENINSULA",
     company: "EMBRAPS",
@@ -10971,7 +10971,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11251",
-    name: "THIAGO JONES DE S\u00c3OUZA",
+    name: "THIAGO JONES DE SOUZA",
     birthYear: "1985",
     workplace: "PORTAL DA GAVEA",
     company: "EMBRAPS",
@@ -11027,7 +11027,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12288",
-    name: "JORGE LEANDRO MARTINS S\u00c3OUSA",
+    name: "JORGE LEANDRO MARTINS SOUSA",
     birthYear: "1985",
     workplace: "PORTINARI",
     company: "EMBRAPS",
@@ -11051,7 +11051,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12159",
-    name: "THIAGO S\u00c3OUZA DA SILVA",
+    name: "THIAGO SOUZA DA SILVA",
     birthYear: "1988",
     workplace: "PORTO CIDADE",
     company: "EMBRAPS",
@@ -11083,7 +11083,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12307",
-    name: "LUCAS PASS\u00c3OS DOS SANTOS",
+    name: "LUCAS PASSOS DOS SANTOS",
     birthYear: "1989",
     workplace: "PORTO CIDADE",
     company: "EMBRAPS",
@@ -11107,7 +11107,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9338",
-    name: "ADEMILS\u00c3ON MARIANO DE OLIVEIRA",
+    name: "ADEMILSON MARIANO DE OLIVEIRA",
     birthYear: "1968",
     workplace: "PORTO MONIZ",
     company: "EMBRAPS",
@@ -11171,7 +11171,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10811",
-    name: "ROBS\u00c3ON SILVA SANTOS",
+    name: "ROBSON SILVA SANTOS",
     birthYear: "1984",
     workplace: "PRAIA LINDA",
     company: "EMBRAPS",
@@ -11211,7 +11211,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11460",
-    name: "EDS\u00c3ON ALEXANDRE BOTELHO SALGADO",
+    name: "EDSON ALEXANDRE BOTELHO SALGADO",
     birthYear: "1977",
     workplace: "PREMIERE",
     company: "EMBRAPS",
@@ -11315,7 +11315,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10204",
-    name: "ADRYANA S\u00c3OARES",
+    name: "ADRYANA SOARES",
     birthYear: "1974",
     workplace: "R C MENDES",
     company: "EMBRAPS",
@@ -11355,7 +11355,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12409",
-    name: "AGNALDO IDELFONS\u00c3O DA SILVA JUNIOR",
+    name: "AGNALDO IDELFONSO DA SILVA JUNIOR",
     birthYear: "1991",
     workplace: "RAVENEA",
     company: "EMBRAPS",
@@ -11411,7 +11411,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2104",
-    name: "WILS\u00c3ON NASCIMENTO DA SILVA",
+    name: "WILSON NASCIMENTO DA SILVA",
     birthYear: "1964",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11467,7 +11467,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3860",
-    name: "DULCE MARA DOS SANTOS S\u00c3OARES",
+    name: "DULCE MARA DOS SANTOS SOARES",
     birthYear: "1963",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11475,7 +11475,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3861",
-    name: "ROBS\u00c3ON DA SILVA MOURA",
+    name: "ROBSON DA SILVA MOURA",
     birthYear: "1950",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11539,7 +11539,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7856",
-    name: "ANTONIO S\u00c3OUZA FERREIRA",
+    name: "ANTONIO SOUZA FERREIRA",
     birthYear: "1966",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11555,7 +11555,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8656",
-    name: "EDMILS\u00c3ON JOAO DA SILVA",
+    name: "EDMILSON JOAO DA SILVA",
     birthYear: "1967",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11563,7 +11563,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8661",
-    name: "CLAUDIO JOSE DE S\u00c3OUZA DA CONCEICAO",
+    name: "CLAUDIO JOSE DE SOUZA DA CONCEICAO",
     birthYear: "1969",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11571,7 +11571,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8760",
-    name: "RODRIGO DONIZETTI DE S\u00c3OUZA DOMINGUES",
+    name: "RODRIGO DONIZETTI DE SOUZA DOMINGUES",
     birthYear: "1982",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11587,7 +11587,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9092",
-    name: "VAGNER DE S\u00c3OUZA RAMOS",
+    name: "VAGNER DE SOUZA RAMOS",
     birthYear: "1980",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11595,7 +11595,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9153",
-    name: "MAURICIO S\u00c3OUZA CUNHA SANTOS",
+    name: "MAURICIO SOUZA CUNHA SANTOS",
     birthYear: "1982",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11611,7 +11611,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9421",
-    name: "ANDERS\u00c3ON DO NASCIMENTO MENEZES",
+    name: "ANDERSON DO NASCIMENTO MENEZES",
     birthYear: "1991",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11683,7 +11683,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11409",
-    name: "ROBS\u00c3ON FERREIRA SANTANA",
+    name: "ROBSON FERREIRA SANTANA",
     birthYear: "1980",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -11739,7 +11739,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12332",
-    name: "CAIO VINICIUS MANZINI S\u00c3OUZA",
+    name: "CAIO VINICIUS MANZINI SOUZA",
     birthYear: "1999",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11803,7 +11803,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "3605",
-    name: "EDNO LUIS DE S\u00c3OUZA MENDES",
+    name: "EDNO LUIS DE SOUZA MENDES",
     birthYear: "1971",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11859,7 +11859,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7612",
-    name: "ANDERS\u00c3ON DE LIMA JESUS",
+    name: "ANDERSON DE LIMA JESUS",
     birthYear: "1993",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11867,7 +11867,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8432",
-    name: "SAMIA MAYARA DE S\u00c3OUZA",
+    name: "SAMIA MAYARA DE SOUZA",
     birthYear: "1988",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11875,7 +11875,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8516",
-    name: "CICERO EDS\u00c3ON LEITE DA SILVA",
+    name: "CICERO EDSON LEITE DA SILVA",
     birthYear: "1972",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11907,7 +11907,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8928",
-    name: "LEIDS\u00c3ON CARLOS DOS SANTOS CUNHA",
+    name: "LEIDSON CARLOS DOS SANTOS CUNHA",
     birthYear: "1983",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11931,7 +11931,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9118",
-    name: "JACKS\u00c3ON DOUGLAS MARQUES DA CRUZ DO NASCIMENTO",
+    name: "JACKSON DOUGLAS MARQUES DA CRUZ DO NASCIMENTO",
     birthYear: "1998",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -11971,7 +11971,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9725",
-    name: "RONALDO MAURICIO DE S\u00c3OUZA",
+    name: "RONALDO MAURICIO DE SOUZA",
     birthYear: "1971",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12027,7 +12027,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10371",
-    name: "ANDERS\u00c3ON FIGUEIREDO",
+    name: "ANDERSON FIGUEIREDO",
     birthYear: "1969",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12067,7 +12067,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10872",
-    name: "NILS\u00c3ON GREGORIO DE LIMA",
+    name: "NILSON GREGORIO DE LIMA",
     birthYear: "1985",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12075,7 +12075,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10880",
-    name: "EMERS\u00c3ON ROBERTO NASCIMENTO DE LIMA",
+    name: "EMERSON ROBERTO NASCIMENTO DE LIMA",
     birthYear: "1984",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12123,7 +12123,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11261",
-    name: "HUDS\u00c3ON CARLOS SILVA S\u00c3OUZA REIS",
+    name: "HUDSON CARLOS SILVA SOUZA REIS",
     birthYear: "1997",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12139,7 +12139,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11324",
-    name: "ROGER S\u00c3OUZA LIMA",
+    name: "ROGER SOUZA LIMA",
     birthYear: "1979",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12251,7 +12251,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11715",
-    name: "ISABELI DE S\u00c3OUZA SANTOS",
+    name: "ISABELI DE SOUZA SANTOS",
     birthYear: "2005",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12299,7 +12299,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11822",
-    name: "PEDRO HENRIQUE S\u00c3OARES DE ARANTES TEIXEIRA",
+    name: "PEDRO HENRIQUE SOARES DE ARANTES TEIXEIRA",
     birthYear: "2004",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12347,7 +12347,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12078",
-    name: "JOAO BATISTA DE S\u00c3OUZA JUNIOR",
+    name: "JOAO BATISTA DE SOUZA JUNIOR",
     birthYear: "1994",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12459,7 +12459,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12359",
-    name: "REBECA S\u00c3OUZA CAFE DOS SANTOS",
+    name: "REBECA SOUZA CAFE DOS SANTOS",
     birthYear: "2004",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12507,7 +12507,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12484",
-    name: "S\u00c3OFIA OLIVEIRA CAVALCANTI",
+    name: "SOFIA OLIVEIRA CAVALCANTI",
     birthYear: "1986",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -12555,7 +12555,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9151",
-    name: "GISELDO RODRIGUES DE S\u00c3OUZA",
+    name: "GISELDO RODRIGUES DE SOUZA",
     birthYear: "1972",
     workplace: "RHODES C GOMES",
     company: "EMBRAPS",
@@ -12707,7 +12707,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8559",
-    name: "ADRIANA S\u00c3OUZA DA SILVA FIRMINO",
+    name: "ADRIANA SOUZA DA SILVA FIRMINO",
     birthYear: "1973",
     workplace: "SAINT ETIENNE",
     company: "EMBRAPS",
@@ -12771,7 +12771,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "2848",
-    name: "CARLOS JOSE S\u00c3OUZA SANTIAGO",
+    name: "CARLOS JOSE SOUZA SANTIAGO",
     birthYear: "1979",
     workplace: "SAN DOMINGOS",
     company: "EMBRAPS",
@@ -12811,7 +12811,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11642",
-    name: "ISACC BORGES S\u00c3OUSA DA SILVA",
+    name: "ISACC BORGES SOUSA DA SILVA",
     birthYear: "2001",
     workplace: "SAN SEBASTIAN",
     company: "EMBRAPS",
@@ -12939,7 +12939,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "4777",
-    name: "MANOEL MARTINS DE S\u00c3OUSA",
+    name: "MANOEL MARTINS DE SOUSA",
     birthYear: "1956",
     workplace: "S\u00c3OLAR DOS FREIS",
     company: "EMBRAPS",
@@ -12979,7 +12979,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11104",
-    name: "ROBS\u00c3ON FRANCISCO DOS SANTOS",
+    name: "ROBSON FRANCISCO DOS SANTOS",
     birthYear: "1986",
     workplace: "SPACES PARAGUASSU",
     company: "EMBRAPS",
@@ -12987,7 +12987,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12322",
-    name: "GABRIEL HUMBERTO CARDOS\u00c3O FERREIRA",
+    name: "GABRIEL HUMBERTO CARDOSO FERREIRA",
     birthYear: "2004",
     workplace: "SPACES PARAGUASSU",
     company: "EMBRAPS",
@@ -13099,7 +13099,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9129",
-    name: "BRUNO PEREIRA DE S\u00c3OUZA",
+    name: "BRUNO PEREIRA DE SOUZA",
     birthYear: "1993",
     workplace: "TARUMA",
     company: "EMBRAPS",
@@ -13107,7 +13107,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9368",
-    name: "EMERS\u00c3ON CAMARA RAMOS",
+    name: "EMERSON CAMARA RAMOS",
     birthYear: "1971",
     workplace: "TARUMA",
     company: "EMBRAPS",
@@ -13259,7 +13259,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11170",
-    name: "MARCO ERIKS\u00c3ON DE MATOS",
+    name: "MARCO ERIKSON DE MATOS",
     birthYear: "1969",
     workplace: "TRIUNFO",
     company: "EMBRAPS",
@@ -13299,7 +13299,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9810",
-    name: "GUSTAVO FERREIRA DE S\u00c3OUZA",
+    name: "GUSTAVO FERREIRA DE SOUZA",
     birthYear: "2002",
     workplace: "UNIQUE OFFICE",
     company: "EMBRAPS",
@@ -13331,7 +13331,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12285",
-    name: "VICTOR DE S\u00c3OUZA SPINASSI",
+    name: "VICTOR DE SOUZA SPINASSI",
     birthYear: "2002",
     workplace: "UNIQUE OFFICE",
     company: "EMBRAPS",
@@ -13371,7 +13371,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12523",
-    name: "RONALDO DE S\u00c3OUSA SANTOS",
+    name: "RONALDO DE SOUSA SANTOS",
     birthYear: "1975",
     workplace: "VALONGO BRASIL",
     company: "EMBRAPS",
@@ -13387,7 +13387,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12042",
-    name: "ROBS\u00c3ON FRANCISCO VELOS\u00c3O",
+    name: "ROBSON FRANCISCO VELOSO",
     birthYear: "1975",
     workplace: "VALONGO BRASIL",
     company: "EMBRAPS",
@@ -13435,7 +13435,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10859",
-    name: "ANALICE S\u00c3OUZA SANTOS",
+    name: "ANALICE SOUZA SANTOS",
     birthYear: "1978",
     workplace: "VIANNA HOME",
     company: "EMBRAPS",
@@ -13563,7 +13563,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9960",
-    name: "ALLYELS\u00c3ON FERREIRA JESUS S\u00c3OUZA",
+    name: "ALLYELSON FERREIRA JESUS SOUZA",
     birthYear: "1993",
     workplace: "VILLE DE FRANCE",
     company: "EMBRAPS",
@@ -13571,7 +13571,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "5322",
-    name: "PEDRO BATISTA DE S\u00c3OUZA NETO",
+    name: "PEDRO BATISTA DE SOUZA NETO",
     birthYear: "1960",
     workplace: "VILLE DE TAUNNY",
     company: "EMBRAPS",
@@ -13595,7 +13595,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10848",
-    name: "JORGE PACHECO DE S\u00c3OUZA",
+    name: "JORGE PACHECO DE SOUZA",
     birthYear: "1982",
     workplace: "VILLE DI CARLO",
     company: "EMBRAPS",
@@ -13675,7 +13675,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8317",
-    name: "UEDS\u00c3ON SANTANA",
+    name: "UEDSON SANTANA",
     birthYear: "1966",
     workplace: "WINDS\u00c3OR",
     company: "EMBRAPS",
@@ -13787,7 +13787,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "436",
-    name: "PAULO HENRIQUE S\u00c3OUZA DE MORAIS",
+    name: "PAULO HENRIQUE SOUZA DE MORAIS",
     birthYear: "1998",
     workplace: "ACQUA PLAY",
     company: "RM QUARESMA",
@@ -13795,7 +13795,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "536",
-    name: "ROBINS\u00c3ON LUIZ DE OLIVEIRA",
+    name: "ROBINSON LUIZ DE OLIVEIRA",
     birthYear: "1971",
     workplace: "ACQUA PLAY",
     company: "RM QUARESMA",
@@ -13923,7 +13923,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1038",
-    name: "ROBINS\u00c3ON DO CARMO JUNIOR",
+    name: "ROBINSON DO CARMO JUNIOR",
     birthYear: "1980",
     workplace: "BAR\u00c3O OFFICE",
     company: "RM QUARESMA",
@@ -14003,7 +14003,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "236",
-    name: "ARTHUR DE S\u00c3OUZA TEIXEIRA",
+    name: "ARTHUR DE SOUZA TEIXEIRA",
     birthYear: "1997",
     workplace: "CASTELL DUE MONTI",
     company: "RM QUARESMA",
@@ -14019,7 +14019,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "275",
-    name: "WILLIAMS CLARINDO DE S\u00c3OUZA",
+    name: "WILLIAMS CLARINDO DE SOUZA",
     birthYear: "1982",
     workplace: "CLARY",
     company: "RM QUARESMA",
@@ -14043,7 +14043,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "370",
-    name: "RENATO DE S\u00c3OUZA PINHEIRO",
+    name: "RENATO DE SOUZA PINHEIRO",
     birthYear: "1981",
     workplace: "COSTA DO FORTE",
     company: "RM QUARESMA",
@@ -14051,7 +14051,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "762",
-    name: "ERISVALDO REIS S\u00c3OUZA",
+    name: "ERISVALDO REIS SOUZA",
     birthYear: "1988",
     workplace: "COSTA DO S\u00c3OL SANTOS",
     company: "RM QUARESMA",
@@ -14171,7 +14171,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "599",
-    name: "NELS\u00c3ON ALVES DE BARROS JUNIOR",
+    name: "NELSON ALVES DE BARROS JUNIOR",
     birthYear: "1984",
     workplace: "FLOREN\u00c7A",
     company: "RM QUARESMA",
@@ -14179,7 +14179,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "695",
-    name: "ALISS\u00c3ON ARAUJO",
+    name: "ALISSON ARAUJO",
     birthYear: "1979",
     workplace: "FUNDA\u00c7\u00c3O AMBULATORIO",
     company: "RM QUARESMA",
@@ -14195,7 +14195,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "258",
-    name: "ADILS\u00c3ON JOSE DA SILVA",
+    name: "ADILSON JOSE DA SILVA",
     birthYear: "1972",
     workplace: "FUNDA\u00c7\u00c3O CAMPUS 2",
     company: "RM QUARESMA",
@@ -14443,7 +14443,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "341",
-    name: "WILS\u00c3ON S\u00c3OARES OLIVEIRA",
+    name: "WILSON SOARES OLIVEIRA",
     birthYear: "1982",
     workplace: "MANIHI",
     company: "RM QUARESMA",
@@ -14499,7 +14499,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1050",
-    name: "ANDERS\u00c3ON GUSTAVO DA SILVA SANTANA",
+    name: "ANDERSON GUSTAVO DA SILVA SANTANA",
     birthYear: "1989",
     workplace: "MONT SERRAT HOSPITAL",
     company: "RM QUARESMA",
@@ -14539,7 +14539,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "727",
-    name: "VANDERS\u00c3ON AZEVEDO DAS NEVES",
+    name: "VANDERSON AZEVEDO DAS NEVES",
     birthYear: "1974",
     workplace: "MONTENEGRO",
     company: "RM QUARESMA",
@@ -14579,7 +14579,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "677",
-    name: "DAVID MORAES DE S\u00c3OUZA",
+    name: "DAVID MORAES DE SOUZA",
     birthYear: "1992",
     workplace: "PENINSULA",
     company: "RM QUARESMA",
@@ -14651,7 +14651,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1116",
-    name: "LUIS CLAUDIO DE S\u00c3OUZA ALVES",
+    name: "LUIS CLAUDIO DE SOUZA ALVES",
     birthYear: "1983",
     workplace: "PORTAL DO GONZAGA",
     company: "RM QUARESMA",
@@ -14683,7 +14683,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "331",
-    name: "JOELS\u00c3ON DE OLIVEIRA",
+    name: "JOELSON DE OLIVEIRA",
     birthYear: "1982",
     workplace: "PORTO CIDADE",
     company: "RM QUARESMA",
@@ -14699,7 +14699,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1162",
-    name: "ROBERT LUCAS S\u00c3OARES DA SILVA",
+    name: "ROBERT LUCAS SOARES DA SILVA",
     birthYear: "1996",
     workplace: "PORTO PANORAMA",
     company: "RM QUARESMA",
@@ -14707,7 +14707,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "913",
-    name: "VICTOR ANDRE REIS DE S\u00c3OUZA",
+    name: "VICTOR ANDRE REIS DE SOUZA",
     birthYear: "2002",
     workplace: "PORTO PANORAMA",
     company: "RM QUARESMA",
@@ -14739,7 +14739,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "1142",
-    name: "ISABELLA DE S\u00c3OUZA MONTEIRO",
+    name: "ISABELLA DE SOUZA MONTEIRO",
     birthYear: "1993",
     workplace: "PORTO PANORAMA",
     company: "RM QUARESMA",
@@ -14907,7 +14907,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "915",
-    name: "CELIA JANAINA DE S\u00c3OUZA ALVES",
+    name: "CELIA JANAINA DE SOUZA ALVES",
     birthYear: "1978",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -14971,7 +14971,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "712",
-    name: "MANOEL MESSIAS CARDOS\u00c3O",
+    name: "MANOEL MESSIAS CARDOSO",
     birthYear: "1958",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -15011,7 +15011,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "872",
-    name: "GEAN MARCEL ARAUJO DE S\u00c3OUZA",
+    name: "GEAN MARCEL ARAUJO DE SOUZA",
     birthYear: "2001",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -15019,7 +15019,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "930",
-    name: "MATHEUS PEREIRA DE S\u00c3OUZA",
+    name: "MATHEUS PEREIRA DE SOUZA",
     birthYear: "1994",
     workplace: "RESERVA T\u00c9CNICA",
     company: "RM QUARESMA",
@@ -15107,7 +15107,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "594",
-    name: "ROBS\u00c3ON RAMOS DE LIMA",
+    name: "ROBSON RAMOS DE LIMA",
     birthYear: "1972",
     workplace: "RESIDENCIAL LUSIADA",
     company: "RM QUARESMA",
@@ -15187,7 +15187,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "797",
-    name: "ROBS\u00c3ON S\u00c3OARES FERREIRA PINTO",
+    name: "ROBSON SOARES FERREIRA PINTO",
     birthYear: "1971",
     workplace: "UNIMAR",
     company: "RM QUARESMA",
@@ -15211,7 +15211,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "348",
-    name: "VICTOR DE S\u00c3OUZA FREITAS",
+    name: "VICTOR DE SOUZA FREITAS",
     birthYear: "1964",
     workplace: "UNIQUE OFFICE",
     company: "RM QUARESMA",
@@ -15219,7 +15219,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "574",
-    name: "EDINEI CARDOS\u00c3O",
+    name: "EDINEI CARDOSO",
     birthYear: "1980",
     workplace: "VILLA DI FIORI",
     company: "RM QUARESMA",
@@ -15395,7 +15395,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10553",
-    name: "HENRY S\u00c3OUZA STRAGLIOTTO",
+    name: "HENRY SOUZA STRAGLIOTTO",
     birthYear: "1984",
     workplace: "MARINE HOME SEA",
     company: "EMBRAPS",
@@ -15427,7 +15427,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "12434",
-    name: "ANDERS\u00c3ON S\u00c3OUZA DE OLIVEIRA",
+    name: "ANDERSON SOUZA DE OLIVEIRA",
     birthYear: "1979",
     workplace: "PATIO EMPRESARIAL EMPRESARIAL",
     company: "EMBRAPS",
@@ -15435,7 +15435,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "11426",
-    name: "JEFFERS\u00c3ON TADEU FARIA",
+    name: "JEFFERSON TADEU FARIA",
     birthYear: "1979",
     workplace: "PATIO EMPRESARIAL EMPRESARIAL",
     company: "EMBRAPS",
@@ -15459,7 +15459,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "8721",
-    name: "ROSANA PASS\u00c3OS DE OLIVEIRA",
+    name: "ROSANA PASSOS DE OLIVEIRA",
     birthYear: "1983",
     workplace: "PLATINUM",
     company: "EMBRAPS",
@@ -15483,7 +15483,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7372",
-    name: "SERGIO DE S\u00c3OUZA PAIVA",
+    name: "SERGIO DE SOUZA PAIVA",
     birthYear: "1962",
     workplace: "RESERVA INSS",
     company: "EMBRAPS",
@@ -15499,7 +15499,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10638",
-    name: "VICTOR MORILLA S\u00c3OARES",
+    name: "VICTOR MORILLA SOARES",
     birthYear: "1972",
     workplace: "RESERVA T\u00c9CNICA",
     company: "EMBRAPS",
@@ -15515,7 +15515,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9920",
-    name: "GABRIEL DOS SANTOS S\u00c3OUZA",
+    name: "GABRIEL DOS SANTOS SOUZA",
     birthYear: "1994",
     workplace: "RESIDENCIAL MARAJO",
     company: "EMBRAPS",
@@ -15539,7 +15539,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "6275",
-    name: "DIES\u00c3ON BELTACO MARCONDES",
+    name: "DIESON BELTACO MARCONDES",
     birthYear: "1977",
     workplace: "SEREIA",
     company: "EMBRAPS",
@@ -15547,7 +15547,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "9095",
-    name: "ANDERS\u00c3ON MIRANDA DE OLIVEIRA",
+    name: "ANDERSON MIRANDA DE OLIVEIRA",
     birthYear: "1985",
     workplace: "SPACES PARAGUASSU",
     company: "EMBRAPS",
@@ -15555,7 +15555,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "7589",
-    name: "PATRICIA GOMES CARDOS\u00c3O DO NASCIMENTO",
+    name: "PATRICIA GOMES CARDOSO DO NASCIMENTO",
     birthYear: "1988",
     workplace: "SUPREMO BOQUEIR\u00c3O",
     company: "EMBRAPS",
@@ -15595,7 +15595,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "10097",
-    name: "CHARLENE GOMES DE S\u00c3OUZA",
+    name: "CHARLENE GOMES DE SOUZA",
     birthYear: "1981",
     workplace: "VILLE DI CARLO",
     company: "EMBRAPS",
@@ -15651,7 +15651,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "94",
-    name: "JOSE AFONS\u00c3O PINHEIRO",
+    name: "JOSE AFONSO PINHEIRO",
     birthYear: "1969",
     workplace: "PHOENIX ANA COSTA",
     company: "RM QUARESMA",
@@ -15667,7 +15667,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     re: "414",
-    name: "MARCOS PEDROS\u00c3O DA SILVA",
+    name: "MARCOS PEDROSO DA SILVA",
     birthYear: "1969",
     workplace: "RESERVA INSS",
     company: "RM QUARESMA",
