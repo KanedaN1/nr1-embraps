@@ -13,6 +13,7 @@ import {
   Unlock,
   Upload,
   Database,
+  Download,
   X
 } from 'lucide-react';
 import { 
@@ -203,6 +204,23 @@ export const Dashboard: React.FC<DashboardProps> = ({
     }
   };
 
+  const handleExportBackupJSON = () => {
+    const backupObj = {
+      exportedAt: new Date().toISOString(),
+      totalResponses: responses.length,
+      responses,
+      employeesCount: employees.length,
+      surveyLocked
+    };
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupObj, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", `backup_nr1_banco_respostas_${new Date().toISOString().substring(0, 10)}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+  };
+
   const handleProcessImport = () => {
     if (!importText.trim()) return;
     const parsed = parseEmployeeImportText(importText);
@@ -286,6 +304,18 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 style={{ padding: '0.65rem 1rem', fontSize: '0.85rem' }}
               >
                 <span>Respostas Individuais</span>
+              </button>
+            )}
+
+            {(currentUser.role === 'ADMIN' || currentUser.role === 'SESMT') && (
+              <button 
+                onClick={handleExportBackupJSON}
+                className="btn btn-secondary"
+                style={{ padding: '0.65rem 1rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem', backgroundColor: '#F1F5F9', color: '#0F172A', border: '1px solid #CBD5E1' }}
+                title="Baixar cópia de segurança em arquivo JSON com todas as respostas e dados salvos"
+              >
+                <Download size={16} color="#0066CC" />
+                <span>Baixar Backup (JSON)</span>
               </button>
             )}
 
