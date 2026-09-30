@@ -8,13 +8,19 @@ interface AdminResponsesModalProps {
   onClose: () => void;
   responses: QuestionnaireResponse[];
   onDeleteResponse?: (id: string) => void;
+  onClearAllResponses?: () => void;
+  onResetReStatus?: () => void;
+  reStatusCount?: number;
 }
 
 export const AdminResponsesModal: React.FC<AdminResponsesModalProps> = ({ 
   isOpen, 
   onClose, 
   responses,
-  onDeleteResponse
+  onDeleteResponse,
+  onClearAllResponses,
+  onResetReStatus,
+  reStatusCount = 0
 }) => {
   const [viewingResponse, setViewingResponse] = useState<QuestionnaireResponse | null>(null);
 
@@ -111,9 +117,46 @@ export const AdminResponsesModal: React.FC<AdminResponsesModalProps> = ({
             </div>
           ) : (
             <>
-              <p style={{ color: '#475569', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                Abaixo estão todos os {responses.length} questionários respondidos na base de dados.
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem', backgroundColor: '#FFFFFF', padding: '1rem 1.25rem', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+                <div>
+                  <p style={{ color: '#002244', fontWeight: 700, fontSize: '0.95rem', margin: 0 }}>
+                    Painel de Gestão da Coleta Coletiva (Início Oficial 01/10)
+                  </p>
+                  <p style={{ color: '#64748B', fontSize: '0.8rem', margin: '0.2rem 0 0 0' }}>
+                    {responses.length} respostas salvas | REs bloqueados por resposta enviada: <strong>{reStatusCount}</strong>
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  {onResetReStatus && (
+                    <button
+                      onClick={() => {
+                        if (window.confirm('Deseja liberar TODOS os REs para que possam responder novamente ao questionário oficial a partir do dia 01/10?')) {
+                          onResetReStatus();
+                        }
+                      }}
+                      className="btn"
+                      style={{ backgroundColor: '#EBF5FF', color: '#0066CC', border: '1px solid #3399FF', padding: '0.5rem 0.85rem', fontSize: '0.8rem', fontWeight: 700 }}
+                    >
+                      🔄 Liberar REs ({reStatusCount})
+                    </button>
+                  )}
+
+                  {onClearAllResponses && responses.length > 0 && (
+                    <button
+                      onClick={() => {
+                        if (window.confirm(`ATENÇÃO: Deseja excluir permanentemente TODAS as ${responses.length} respostas salvas no banco de dados para iniciar o processo oficial do dia 01/10 zerado?`)) {
+                          onClearAllResponses();
+                        }
+                      }}
+                      className="btn"
+                      style={{ backgroundColor: '#FEE2E2', color: '#991B1B', border: '1px solid #FCA5A5', padding: '0.5rem 0.85rem', fontSize: '0.8rem', fontWeight: 700 }}
+                    >
+                      🗑️ Zerar Respostas ({responses.length})
+                    </button>
+                  )}
+                </div>
+              </div>
               
               {responses.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '3rem', color: '#64748B' }}>

@@ -296,6 +296,34 @@ export const App: React.FC = () => {
     }
   };
 
+  // Excluir TODAS as respostas do banco (Início Oficial)
+  const handleClearAllResponses = async () => {
+    try {
+      let count = 0;
+      for (const resp of responses) {
+        await deleteDoc(doc(db, 'responses', resp.id));
+        count++;
+      }
+      setResponses([]);
+      alert(`Sucesso! ${count} respostas foram excluídas permanentemente.`);
+    } catch (e: any) {
+      console.error("Erro ao limpar banco:", e);
+      alert("Erro ao excluir respostas: " + (e?.message || e));
+    }
+  };
+
+  // Liberar todos os REs (Zerar re_status/global_status)
+  const handleResetReStatus = async () => {
+    try {
+      await setDoc(doc(db, 're_status', 'global_status'), {});
+      setReStatus({});
+      alert("Sucesso! Todos os REs foram liberados e podem responder ao questionário novamente.");
+    } catch (e: any) {
+      console.error("Erro ao liberar REs:", e);
+      alert("Erro ao liberar REs: " + (e?.message || e));
+    }
+  };
+
   // 7. Abrir Relatório Oficial PGR / NR-1
   const handleOpenReport = (targetId: string) => {
     setReportWorkplaceId(targetId);
@@ -355,6 +383,9 @@ export const App: React.FC = () => {
             onToggleLock={handleToggleLock}
             employees={employees}
             onImportEmployees={handleImportEmployees}
+            onClearAllResponses={currentUser.role === 'ADMIN' ? handleClearAllResponses : undefined}
+            onResetReStatus={currentUser.role === 'ADMIN' ? handleResetReStatus : undefined}
+            reStatusCount={Object.keys(reStatus).length}
           />
         )}
 

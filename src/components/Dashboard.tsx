@@ -47,6 +47,9 @@ interface DashboardProps {
   onToggleLock?: () => void;
   employees: Employee[];
   onImportEmployees?: (employees: Employee[]) => void;
+  onClearAllResponses?: () => void;
+  onResetReStatus?: () => void;
+  reStatusCount?: number;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ 
@@ -58,7 +61,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
   surveyLocked = false,
   onToggleLock,
   employees = [],
-  onImportEmployees
+  onImportEmployees,
+  onClearAllResponses,
+  onResetReStatus,
+  reStatusCount = 0
 }) => {
   const [activeTab, setActiveTab] = useState<'posto' | 'cargo'>('posto');
   const [selectedWorkplaceId, setSelectedWorkplaceId] = useState<string>(INITIAL_WORKPLACES[0].id);
@@ -932,6 +938,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
         onClose={() => setIsAdminModalOpen(false)}
         responses={responses}
         onDeleteResponse={onDeleteResponse}
+        onClearAllResponses={onClearAllResponses}
+        onResetReStatus={onResetReStatus}
+        reStatusCount={reStatusCount}
       />
     </div>
   );

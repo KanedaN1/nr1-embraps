@@ -1,38 +1,32 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, deleteDoc, doc, setDoc } from 'firebase/firestore';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyACLhcrLifV9grqvLLaLIUBAUJaoBUzQ6g",
-  authDomain: "nr-1-embraps.firebaseapp.com",
-  projectId: "nr-1-embraps",
-  storageBucket: "nr-1-embraps.firebasestorage.app",
-  messagingSenderId: "474769720565",
-  appId: "1:474769720565:web:1925c6f2c4b94841e4b1bc",
-  measurementId: "G-7H9HKJP05P"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const apiKey = "AIzaSyACLhcrLifV9grqvLLaLIUBAUJaoBUzQ6g";
+const projectId = "nr-1-embraps";
 
 async function resetDb() {
-  console.log("Iniciando limpeza do Firebase...");
-  
+  console.log("Iniciando limpeza do Firebase Firestore para o processo oficial do dia 01/10...");
+
   try {
-    const responsesSnap = await getDocs(collection(db, 'responses'));
-    let deletedCount = 0;
-    for (const d of responsesSnap.docs) {
-      await deleteDoc(d.ref);
-      deletedCount++;
+    // 1. Resetar documento re_status/global_status (Libera todos os REs que já responderam)
+    console.log("Resetando coleção 're_status' -> 'global_status'...");
+    const urlStatus = `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents/re_status/global_status?key=${apiKey}`;
+    const resStatus = await fetch(urlStatus, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: `projects/${projectId}/databases/(default)/documents/re_status/global_status`,
+        fields: {}
+      })
+    });
+
+    if (resStatus.ok) {
+      console.log("✅ Documento 'global_status' resetado com sucesso! Todos os REs foram liberados para responder novamente.");
+    } else {
+      console.warn("⚠️ Aviso ao resetar 'global_status':", resStatus.status, await resStatus.text());
     }
-    console.log(`Deletados ${deletedCount} documentos da coleção 'responses'.`);
 
-    await setDoc(doc(db, 're_status', 'global_status'), {});
-    console.log(`Limpado o documento 'global_status' da coleção 're_status'.`);
-
-    console.log("Limpeza concluída com sucesso!");
+    console.log("\n=== LIMPEZA DE BANCO CONCLUÍDA COM SUCESSO FOR OFFICIAL RELEASE 01/10 ===");
     process.exit(0);
   } catch (error) {
-    console.error("Erro ao limpar dados:", error);
+    console.error("❌ Erro ao executar limpeza do banco:", error);
     process.exit(1);
   }
 }
