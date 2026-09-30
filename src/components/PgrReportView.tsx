@@ -551,7 +551,7 @@ export const PgrReportView: React.FC<PgrReportViewProps> = ({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '0.9rem', color: '#334155', marginBottom: '2.5rem' }}>
             <div>
               <strong style={{ color: '#002244', display: 'block', marginBottom: '2px' }}>10.1. Referências Normativas:</strong>
-              Este relatório atende integralmente aos requisitos da <strong>NR-01 (Portaria MTP nº 6.730/2020 e atualizações sobre Gerenciamento de Riscos Ocupacionais)</strong>, bem como às diretrizes da Organização Mundial da Saúde (OMS) e da Organização Internacional do Trabalho (OIT) sobre proteção da saúde mental no trabalho.
+              Este relatório atende integralmente aos requisitos da <strong>NR-01 (Portaria MTE nº 1.419/2024 e atualizações sobre Gerenciamento de Riscos Ocupacionais)</strong>, bem como às diretrizes da Organização Mundial da Saúde (OMS) e da Organização Internacional do Trabalho (OIT) sobre proteção da saúde mental no trabalho.
             </div>
 
             <div>
