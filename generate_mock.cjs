@@ -1,6 +1,68 @@
 const xlsx = require('xlsx');
 const fs = require('fs');
 
+const normalizeMap = {
+  "SÃOPESP": "SOPESP",
+  "SÃOCIETA ITALIANA": "SOCIETA ITALIANA",
+  "SÃOLAR DA POMPÉIA": "SOLAR DA POMPÉIA",
+  "SÃOLAR DOS FREIS": "SOLAR DOS FREIS",
+  "CASA DO SÃOL": "CASA DO SOL",
+  "COSTA DO SÃOL SANTOS": "COSTA DO SOL SANTOS",
+  "BELVEDERE PRESIDENTE WILSÃON": "BELVEDERE PRESIDENTE WILSON",
+  "WINDSÃOR": "WINDSOR",
+  "ASSÃOCIAÇÃO COMERCIAL": "ASSOCIAÇÃO COMERCIAL",
+  "ASSÃOCIAÇÃO NIPO BRASILEIRA": "ASSOCIAÇÃO NIPO BRASILEIRA",
+  "MAISÃON V LOBOS": "MAISON V LOBOS",
+  "MAISÃON VIVRE": "MAISON VIVRE",
+  "PANEIRA E MANACA": "PAINEIRA E MANACA",
+  "OSAN SV": "OSAN SÃO VICENTE",
+  "OSAN PG": "OSAN PRAIA GRANDE",
+  "SÃO JUDAS TADEU IGREJA": "IGREJA SÃO JUDAS TADEU",
+  "SAO LOURENÇO": "SÃO LOURENÇO",
+  "SAO DIMAS": "SÃO DIMAS",
+  "PATIO IPORANGA": "PÁTIO IPORANGA",
+  "PATIO EMPRESARIAL EMPRESARIAL": "PÁTIO EMPRESARIAL",
+  "TERRAZA": "TERRAÇO BEIJA FLOR",
+  "TERRACO BEIJA FLOR": "TERRAÇO BEIJA FLOR",
+  "EDIFICIO CIDAMAR II": "EDIFÍCIO CIDAMAR II",
+  "EDIFICIO RONCHAMP": "EDIFÍCIO RONCHAMP",
+  "EDIFICIO W. ALBA": "EDIFÍCIO W. ALBA",
+  "EDIFICIO COMERCIAL CENTRAL AVENUE": "EDIFÍCIO CENTRAL AVENUE",
+  "CENTRAL AVENUE": "EDIFÍCIO CENTRAL AVENUE",
+  "FUNDACAO ACADEMIA": "FUNDAÇÃO ACADEMIA",
+  "FUNDACAO AMBULATORIO": "FUNDAÇÃO AMBULATORIO",
+  "FUNDACAO CAMPUS 1": "FUNDAÇÃO CAMPUS 1",
+  "FUNDACAO CAMPUS 2": "FUNDAÇÃO CAMPUS 2",
+  "FUNDACAO CAMPUS 3": "FUNDAÇÃO CAMPUS 3",
+  "FUNDACAO LUSIADA": "FUNDAÇÃO LUSIADA",
+  "ACRÓPOLE": "ACRÓPOLE",
+  "ACR\u00d3POLE": "ACRÓPOLE",
+  "S\u00c3OPESP": "SOPESP",
+  "WINDS\u00c3OR": "WINDSOR"
+};
+
+function normalizeName(name) {
+  let newName = name.replace(/SÃOPESP/g, "SOPESP")
+                    .replace(/SÃOCIETA/g, "SOCIETA")
+                    .replace(/SÃOLAR/g, "SOLAR")
+                    .replace(/SÃOL/g, "SOL")
+                    .replace(/WILSÃON/g, "WILSON")
+                    .replace(/WINDSÃOR/g, "WINDSOR")
+                    .replace(/ASSÃOCIA/g, "ASSOCIA")
+                    .replace(/MAISÃON/g, "MAISON")
+                    .replace(/EDIFICIO/g, "EDIFÍCIO")
+                    .replace(/SAO /g, "SÃO ");
+
+  if (normalizeMap[newName]) {
+    newName = normalizeMap[newName];
+  }
+  if (normalizeMap[name]) {
+    newName = normalizeMap[name];
+  }
+  return newName.trim();
+}
+
+
 try {
   const workbook = xlsx.readFile('NR 1 DADOS .xlsx', { cellDates: true });
   const sheetName = workbook.SheetNames[0];
@@ -19,7 +81,7 @@ try {
       re: getVal('RE'),
       name: name,
       birthYear: getVal('ANO DE NASCIMENTO'),
-      workplace: getVal('POSTO'),
+      workplace: normalizeName(getVal('POSTO')),
       company: getVal('EMPRESA'),
       jobPosition: getVal('CARGO')
     };
